@@ -12,9 +12,7 @@ function cancel(){
 // Animasi Menulis
 
 const texts = [
-    "Information Systems and Technology Student ",
-    "At",
-    "Bandung Institute of Technology"
+    "Information Systems and Technology Student "
 ]
 
 let speed = 100;
