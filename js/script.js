@@ -12,7 +12,7 @@ function cancel(){
 // Animasi Menulis
 
 const texts = [
-    "Information Systems and Technology Student "
+    "Muhamad Radhitya Alamsyah"
 ]
 
 let speed = 100;
