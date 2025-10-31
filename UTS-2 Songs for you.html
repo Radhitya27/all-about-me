@@ -25,7 +25,9 @@
     body {
       width: 100%;
       min-height: 100vh;
-      background: radial-gradient(circle at center, #0a0a0a 0%, #000 100%);
+      background-image: url("./img/Background2.jpeg");
+      background-size: cover;
+      background-position: center;
       overflow-x: hidden;
       position: relative;
       color: white;
@@ -35,12 +37,7 @@
     nav {
       width: 100%;
       height: 10vh;
-      background: rgba(20, 20, 20, 0.8);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(58, 211, 3, 0.4);
-      position: fixed;
-      top: 0;
-      left: 0;
+      position: relative;
       z-index: 1000;
     }
 
@@ -56,7 +53,6 @@
       color: white;
       font-size: 2rem;
       font-weight: bold;
-      transition: 0.3s;
     }
 
     .logo span {
@@ -65,17 +61,18 @@
     }
 
     .links a {
+      font-size: 1.2rem;
       color: white;
       text-decoration: none;
       margin: 0 20px;
       font-weight: 500;
-      transition: 0.3s;
-      position: relative;
+      transition: 0.3s linear;
     }
 
     .links a:hover,
     .links .active {
       color: rgb(58, 211, 3);
+      border-bottom: 2px solid rgb(58, 211, 3);
     }
 
     .links .active::after {
