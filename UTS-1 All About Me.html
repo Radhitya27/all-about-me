@@ -1,317 +1,154 @@
-<!-- Subscribe Tamzidan Madiyin di YouTube -->
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me - Radhitya</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #0a0a0a;
+      color: white;
+      overflow-x: hidden;
+    }
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <title>UTS-1 All About Me</title>
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 100px 20px 60px;
+      overflow: hidden;
+    }
 
-    <style>
-        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+    /* Circuit background effect */
+    .circuit {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(90deg, #1a1a1a 0 1px, transparent 1px 40px),
+                  repeating-linear-gradient(0deg, #1a1a1a 0 1px, transparent 1px 40px);
+      mask-image: radial-gradient(circle, #000 70%, transparent 100%);
+      animation: flicker 6s infinite linear;
+      opacity: 0.2;
+    }
 
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-            font-family: "Poppins", sans-serif;
-        }
+    @keyframes flicker {
+      0%, 100% { opacity: 0.15; }
+      50% { opacity: 0.3; }
+    }
 
-        body {
-            width: 100%;
-            min-height: 100vh;
-            background-image: url("./img/Background2.jpeg");
-            background-size: cover;
-            background-position: center;
-            overflow-x: hidden;
-            color: white;
-        }
+    .profile {
+      position: relative;
+      z-index: 2;
+      display: inline-block;
+      margin-bottom: 40px;
+    }
 
-        nav {
-            width: 100%;
-            height: 10vh;
-            position: relative;
-            z-index: 1000;
-        }
+    .profile img {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(58, 211, 3, 0.8);
+      border: 2px solid rgba(58, 211, 3, 0.7);
+    }
 
-        .nav-container {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-        }
+    .boxes {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
+    }
 
-        .logo {
-            color: white;
-            font-size: 2rem;
-            font-weight: bold;
-        }
+    .box {
+      width: 250px;
+      background: rgba(10, 10, 10, 0.8);
+      border: 1px solid rgba(58, 211, 3, 0.5);
+      box-shadow: 0 0 15px rgba(58, 211, 3, 0.3);
+      border-radius: 15px;
+      padding: 20px;
+      backdrop-filter: blur(6px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-        .logo span {
-            color: rgb(58, 211, 3);
-            text-shadow: 0 0 10px rgb(58, 211, 3);
-        }
+    .box:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 25px rgba(58, 211, 3, 0.8);
+    }
 
-        .links a {
-            color: white;
-            text-decoration: none;
-            margin: 0 20px;
-            font-weight: 500;
-            transition: 0.3s;
-        }
+    .box h3 {
+      color: #3ad303;
+      margin-bottom: 10px;
+    }
 
-        .links a:hover,
-        .links .active {
-            color: rgb(58, 211, 3);
-            border-bottom: 2px solid rgb(58, 211, 3);
-        }
+    /* Section styles */
+    section {
+      max-width: 800px;
+      margin: 100px auto;
+      padding: 0 20px;
+      line-height: 1.8;
+    }
 
-        .about-container {
-            width: 100%;
-            min-height: 90vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-        }
+    section h2 {
+      color: #3ad303;
+      font-size: 1.8em;
+      margin-bottom: 15px;
+    }
 
-        .about-content {
-            width: 80%;
-            max-width: 1100px;
-            background: rgba(0, 0, 0, 0.75);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 3rem;
-        }
+    section p {
+      color: #ccc;
+      font-size: 1.05em;
+    }
 
-        .about-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .about-header h1 {
-            color: rgb(58, 211, 3);
-            font-size: 2.5rem;
-            text-shadow: 0 0 10px rgb(58, 211, 3);
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.3fr;
-            gap: 2rem;
-        }
-
-        .about-image {
-            width: 100%;
-            aspect-ratio: 1;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 0 20px rgb(58, 211, 3);
-        }
-
-        .about-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .about-text h2 {
-            color: rgb(58, 211, 3);
-            margin-bottom: 1rem;
-        }
-
-        .about-text p {
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-
-        .quote {
-            background: rgba(58, 211, 3, 0.1);
-            border-left: 4px solid rgb(58, 211, 3);
-            padding: 1rem;
-            font-style: italic;
-            border-radius: 10px;
-            margin: 1.5rem 0;
-        }
-
-        .focus-area {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .focus-card {
-            flex: 1 1 30%;
-            background: rgba(58, 211, 3, 0.08);
-            border: 1px solid rgb(58, 211, 3);
-            border-radius: 15px;
-            padding: 1rem;
-            text-align: center;
-            transition: 0.3s;
-        }
-
-        .focus-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 15px rgb(58, 211, 3);
-        }
-
-        .focus-card h3 {
-            color: rgb(58, 211, 3);
-            margin-bottom: 0.5rem;
-        }
-
-        .focus-tags {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.4rem;
-        }
-
-        .tag {
-            background: rgba(58, 211, 3, 0.2);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            color: rgb(58, 211, 3);
-        }
-
-        /* New sections */
-        .life-section {
-            margin-top: 3rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 2rem;
-        }
-
-        .life-section h2 {
-            color: rgb(58, 211, 3);
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .life-section p {
-            text-align: justify;
-            line-height: 1.8;
-            opacity: 0.9;
-        }
-
-        @media (max-width: 884px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .focus-area {
-                flex-direction: column;
-            }
-        }
-    </style>
+    /* Neon line separator */
+    .divider {
+      width: 60%;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #3ad303, transparent);
+      margin: 60px auto;
+      border-radius: 2px;
+    }
+  </style>
 </head>
-
 <body>
-    <nav>
-        <div class="nav-container">
-            <div class="logo" data-aos="zoom-in">Portfolio Asesmen<span> II-2100 KIPP</span></div>
-            <div class="links">
-                <a href="index.html">Home</a>
-                <a href="UTS-1 All About Me.html" class="active">UTS-1</a>
-                <a href="UTS-2 Songs for you.html">UTS-2</a>
-                <a href="UTS-3 My Stories for You.html">UTS-3</a>
-                <a href="UTS-4 My Shape.html">UTS-4</a>
-                <a href="UTS-5 My Personal Review.html">UTS-5</a>
-            </div>
-        </div>
-    </nav>
 
-    <div class="about-container">
-        <div class="about-content" data-aos="fade-up">
-            <div class="about-header">
-                <h1>Perkenalkan, Aku Radhitya</h1>
-                <p style="opacity: 0.8; margin-top: 0.5rem;">Mahasiswa STTI Bandung • Problem Solver • Tech Learner • Creative Thinker</p>
-            </div>
-
-            <div class="about-grid">
-                <div class="about-image" data-aos="fade-right">
-                    <img src="img/Radhit.jpeg" alt="Foto Radhitya">
-                </div>
-
-                <div class="about-text" data-aos="fade-left">
-                    <h2>Siapa saya?</h2>
-                    <p>
-                        Aku <b>Muhamad Radhitya Alamsyah</b>, mahasiswa yang senang menjelajahi hubungan antara <i>teknologi</i>, <i>data</i>, dan <i>manusia</i>.
-                        Aku menikmati proses belajar hal baru — dari pengembangan sistem, desain antarmuka, hingga memahami bagaimana teknologi bisa membantu orang lain.
-                    </p>
-                    <p>
-                        Bagiku, coding bukan hanya soal menulis baris perintah, tapi tentang <b>menciptakan makna</b> dan pengalaman yang bisa membantu orang lain lebih mudah memahami dunia digital.
-                    </p>
-
-                    <div class="quote">
-                        “Teknologi terbaik adalah yang mampu mendekatkan manusia, bukan menjauhkannya.”
-                    </div>
-
-                    <div class="focus-area">
-                        <div class="focus-card" data-aos="fade-up" data-aos-delay="100">
-                            <h3>Product Thinking & Execution</h3>
-                            <div class="focus-tags">
-                                <span class="tag">Frontend</span>
-                                <span class="tag">Backend</span>
-                                <span class="tag">Problem Solving</span>
-                            </div>
-                        </div>
-
-                        <div class="focus-card" data-aos="fade-up" data-aos-delay="200">
-                            <h3>Builder & Problem Solver</h3>
-                            <div class="focus-tags">
-                                <span class="tag">Kolaboratif</span>
-                                <span class="tag">Goal-oriented</span>
-                            </div>
-                        </div>
-
-                        <div class="focus-card" data-aos="fade-up" data-aos-delay="300">
-                            <h3>Integritas & Tanggung Jawab</h3>
-                            <div class="focus-tags">
-                                <span class="tag">Empati</span>
-                                <span class="tag">Growth Mindset</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Prinsip Hidup -->
-            <div class="life-section" data-aos="fade-up">
-                <h2>Prinsip Hidup</h2>
-                <p>
-                    Aku percaya bahwa setiap proses memiliki waktunya sendiri. Tidak ada yang benar-benar terlambat selama kita masih mau berusaha dan belajar.
-                    Prinsipku sederhana: <b>hidup bukan untuk menjadi yang paling cepat, tapi untuk menjadi yang paling tulus dalam setiap langkah</b>.
-                    Aku berusaha menjalani hari dengan kesadaran bahwa hasil yang baik lahir dari niat yang bersih, kerja keras, dan rasa ingin tahu yang tidak pernah padam.
-                </p>
-            </div>
-
-            <!-- Peran dalam Kehidupan -->
-            <div class="life-section" data-aos="fade-up" data-aos-delay="200">
-                <h2>Peran dalam Kehidupan</h2>
-                <p>
-                    Dalam kehidupan, aku ingin menjadi jembatan antara manusia dan teknologi — bukan sekadar pembuat sistem, tapi juga penyambung makna.
-                    Di dunia yang semakin cepat berubah, aku melihat diriku sebagai seseorang yang membantu orang lain memahami, beradaptasi, dan menemukan keindahan dalam proses digitalisasi.
-                    <br><br>
-                    Aku percaya bahwa setiap baris kode yang ditulis dengan niat baik bisa menjadi langkah kecil menuju dunia yang lebih manusiawi.
-                    Dan mungkin, di antara ratusan proyek dan kesibukan, tugasku adalah tetap menjaga sisi manusia dari teknologi.
-                </p>
-            </div>
-        </div>
+  <div class="hero">
+    <div class="circuit"></div>
+    <div class="profile">
+      <img src="fotomu.jpg" alt="Radhitya">
     </div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
-</body>
+    <div class="boxes">
+      <div class="box">
+        <h3>Identitas</h3>
+        <p>Nama saya <b>Muhamad Radhitya Alamsyah</b>, seorang mahasiswa Sistem dan Teknologi Informasi yang mencintai ketepatan logika serta estetika desain digital.</p>
+      </div>
+      <div class="box">
+        <h3>Minat</h3>
+        <p>Saya tertarik pada teknologi interaktif, web development, dan visual interface yang mampu mengubah data menjadi pengalaman bermakna.</p>
+      </div>
+      <div class="box">
+        <h3>Nilai Hidup</h3>
+        <p>Saya percaya bahwa setiap baris kode membawa tanggung jawab, dan setiap desain punya makna sosial di balik tampilannya.</p>
+      </div>
+    </div>
+  </div>
 
+  <div class="divider"></div>
+
+  <section>
+    <h2>🧭 Prinsip Kehidupan</h2>
+    <p>Hidup bagi saya bukan hanya tentang mencapai hasil, tetapi tentang proses yang membentuk karakter. Prinsip saya sederhana: <i>teknologi tanpa nilai adalah kosong</i>. Setiap hal yang saya buat harus punya arah, kejujuran, dan manfaat bagi sekitar.</p>
+  </section>
+
+  <section>
+    <h2>🌍 Peran Kehidupan</h2>
+    <p>Peran saya di kehidupan adalah menjadi penghubung antara manusia dan teknologi. Saya ingin menghadirkan sistem yang tidak hanya berfungsi, tapi juga memahami. Dalam tim, saya berperan sebagai penggerak yang menjaga keseimbangan antara logika dan rasa.</p>
+  </section>
+
+</body>
 </html>
-<!-- Subscribe Tamzidan Madiyin di YouTube -->
