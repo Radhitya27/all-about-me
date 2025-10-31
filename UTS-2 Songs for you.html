@@ -1,103 +1,180 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pandangan Pertama – RAN 💚</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>💚 My Song for You 💚</title>
   <style>
-    /* 🌌 Efek bintang di background */
-    body, html {
+    /* ====== STYLE DASAR ====== */
+    body {
       margin: 0;
-      padding: 0;
-      overflow: hidden;
-      height: 100%;
-      background-color: black;
-      font-family: "Poppins", sans-serif;
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at center, #0a0a0a 0%, #000 100%);
       color: white;
+      overflow-x: hidden;
     }
 
-    #stars {
+    /* ====== NAVBAR ====== */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 80px;
+      background: rgba(20, 20, 20, 0.8);
+      backdrop-filter: blur(6px);
       position: fixed;
       top: 0;
-      left: 0;
       width: 100%;
-      height: 100%;
-      z-index: -1;
+      z-index: 10;
+      border-bottom: 1px solid rgba(0, 255, 100, 0.3);
     }
 
-    /* 🎵 Konten utama */
+    nav h1 {
+      font-size: 24px;
+      color: #fff;
+    }
+
+    nav h1 span {
+      color: #00ff66;
+      text-shadow: 0 0 15px #00ff66;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      position: relative;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #00ff66;
+    }
+
+    .nav-links a.active::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #00ff66;
+    }
+
+    /* ====== KONTEN UTAMA ====== */
     .song-section {
+      margin-top: 140px;
       text-align: center;
-      padding: 60px 20px;
+      position: relative;
+      z-index: 5;
     }
 
     .song-title {
       font-size: 2.5em;
-      color: #00ff99;
-      text-shadow: 0 0 20px #00ff99;
+      color: #00ff66;
+      text-shadow: 0 0 15px #00ff66;
     }
 
     .song-subtitle {
       font-size: 1.5em;
       margin-top: -10px;
-      color: #aaffdd;
+      color: #ddd;
     }
 
     .song-note {
-      margin: 10px 0 40px;
       font-style: italic;
-      color: #fff;
+      color: #ccc;
+      margin-bottom: 40px;
     }
 
     .music-card {
-      background: rgba(255, 255, 255, 0.08);
+      display: inline-block;
+      background: rgba(0, 50, 0, 0.5);
+      border: 2px solid #00ff66;
       border-radius: 20px;
-      padding: 20px;
-      width: 300px;
-      margin: 0 auto 40px;
-      box-shadow: 0 0 15px rgba(0, 255, 150, 0.4);
+      padding: 25px;
+      box-shadow: 0 0 25px #00ff6680;
     }
 
     .album-cover {
-      width: 100%;
+      width: 220px;
+      height: 220px;
       border-radius: 15px;
+      display: block;
+      margin: 0 auto 20px;
+      object-fit: cover;
+      box-shadow: 0 0 20px #00ff6680;
     }
 
     audio {
-      width: 100%;
-      margin-top: 15px;
-      border-radius: 10px;
+      width: 250px;
+      filter: drop-shadow(0 0 5px #00ff6680);
     }
 
     .lyrics-card {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 20px;
+      margin: 60px auto;
+      max-width: 800px;
+      background: rgba(0, 40, 0, 0.5);
       padding: 30px;
-      margin: 0 auto;
-      width: 90%;
-      max-width: 700px;
-      box-shadow: 0 0 20px rgba(0, 255, 150, 0.4);
+      border-radius: 20px;
+      box-shadow: 0 0 25px #00ff6680;
       text-align: left;
-      white-space: pre-wrap;
     }
 
     .lyrics-card h3 {
-      color: #00ff99;
-      text-align: center;
+      color: #00ff88;
+      font-size: 1.5em;
       margin-bottom: 20px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1em;
+      color: #f0f0f0;
+      line-height: 1.8;
+    }
+
+    /* ====== CANVAS BINTANG ====== */
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
     }
   </style>
 </head>
 <body>
 
-  <!-- 🌌 Efek bintang di background -->
+  <!-- 🌠 Background Bintang -->
   <canvas id="stars"></canvas>
 
-  <!-- 🎵 Konten utama -->
+  <!-- ====== NAVBAR ====== -->
+  <body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo" data-aos="zoom-in">Portfolio Asesmen<span> II-2100 KIPP</span></div>
+            <div class="links">
+                <a href="index.html">Home</a>
+                <a href="UTS-1 All About Me.html" class="active">UTS-1</a>
+                <a href="UTS-2 Songs for you.html">UTS-2</a>
+                <a href="UTS-3 My Stories for You.html">UTS-3</a>
+                <a href="UTS-4 My Shape.html">UTS-4</a>
+                <a href="UTS-5 My Personal Review.html">UTS-5</a>
+            </div>
+        </div>
+    </nav>
+  <!-- ====== BAGIAN LAGU ====== -->
   <section class="song-section">
     <h1 class="song-title">💚 My Song for You 💚</h1>
     <h2 class="song-subtitle">Pandangan Pertama – RAN</h2>
-    <p class="song-note">Dipilih khusus buat kamu, cintaku ✨</p>
+    <p class="song-note">dipilih khusus buat kamu cintaku ✨</p>
 
     <div class="music-card">
       <img src="Radhit2.jpeg" alt="Album Cover" class="album-cover">
@@ -109,7 +186,7 @@
 
     <div class="lyrics-card">
       <h3>🎶 Lirik Lagu</h3>
-      <pre class="lyrics">
+      <pre>
 [Verse 1]
 Ku tak pernah mengerti
 Apa yang kini kurasakan
@@ -142,22 +219,16 @@ Cinta pada pandangan pertama
 Ku tak bisa berhenti memikirkanmu
 Setiap waktu, setiap detik, setiap nafas
 
-[Chorus – Reprise]
+[Outro]
 Pandangan pertama
 Ku jatuh cinta pada pandangan pertama
 Senyummu membuatku terpesona
 Dan ku tak bisa berhenti memikirkanmu
-
-[Outro]
-Ku tak bisa berhenti memikirkanmu
-Senyummu membuatku terpesona
-Dan ku jatuh cinta
-Pada pandangan pertama...
       </pre>
     </div>
   </section>
 
-  <!-- 🌠 Script efek bintang -->
+  <!-- 🌌 Script Efek Bintang -->
   <script>
     const canvas = document.getElementById("stars");
     const ctx = canvas.getContext("2d");
@@ -184,34 +255,28 @@ Pada pandangan pertama...
 
     function drawStars() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "rgba(0,255,150,0.8)";
-      for (let i = 0; i < stars.length; i++) {
-        const s = stars[i];
+      ctx.fillStyle = "rgba(0,255,100,0.8)";
+      for (let star of stars) {
         ctx.beginPath();
-        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
         ctx.fill();
       }
       moveStars();
+      requestAnimationFrame(drawStars);
     }
 
     function moveStars() {
-      for (let i = 0; i < stars.length; i++) {
-        stars[i].y += stars[i].d;
-        if (stars[i].y > canvas.height) {
-          stars[i].y = 0;
-          stars[i].x = Math.random() * canvas.width;
+      for (let star of stars) {
+        star.y += star.d;
+        if (star.y > canvas.height) {
+          star.y = 0;
+          star.x = Math.random() * canvas.width;
         }
       }
     }
 
-    function animate() {
-      drawStars();
-      requestAnimationFrame(animate);
-    }
-
     createStars();
-    animate();
+    drawStars();
   </script>
-
 </body>
 </html>
