@@ -1,251 +1,106 @@
-<!-- Subscribe Tamzidan Madiyin di YouTube -->
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <title>Pandangan Pertama – RAN 💚</title>
   <style>
-    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
-
-    * {
-      padding: 0;
+    /* 🌌 Efek bintang di background */
+    body, html {
       margin: 0;
-      font-family: "Poppins", sans-serif;
-      box-sizing: border-box;
-    }
-
-    body {
-      width: 100%;
-      min-height: 100vh;
-      background-image: url("./img/Background2.jpeg");
-      background-size: cover;
-      overflow-x: hidden;
-      position: relative;
-      color: white;
-    }
-
-    /* === NAVBAR (ASLI, TIDAK DIUBAH) === */
-    nav {
-      width: 100%;
-      height: 10vh;
-      position: relative;
-      z-index: 1000;
-    }
-
-    .nav-container {
-      width: 100%;
+      padding: 0;
+      overflow: hidden;
       height: 100%;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-    }
-
-    .logo {
+      background-color: black;
+      font-family: "Poppins", sans-serif;
       color: white;
-      font-size: 2rem;
-      font-weight: bold;
     }
 
-    .logo span {
-      color: rgb(58, 211, 3);
-      text-shadow: 0 0 10px rgb(58, 211, 3);
-    }
-
-    .hamburg, .cancel {
-      cursor: pointer;
-      position: absolute;
-      right: 15px;
-      top: 10px;
-      color: white;
-      display: none;
-      font-size: clamp(2.5rem, 0.5rem + 5vw, 3rem);
-    }
-
-    .nav-container .links {
-      display: flex;
-    }
-
-    .nav-container .links a {
-      font-size: 1.2rem;
-      color: white;
-      margin: 0 20px;
-      text-decoration: none;
-      font-weight: 550;
-      transition: 0.3s linear;
-    }
-
-    .nav-container .links a:hover {
-      color: rgb(58, 211, 3);
-      border-bottom: 2px solid rgb(58, 211, 3);
-    }
-
-    .nav-container .links .active {
-      color: rgb(58, 211, 3);
-      border-bottom: 2px solid rgb(58, 211, 3);
-    }
-
-    .dropdown {
-      z-index: 1000;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      transform: translateY(-500px);
-      width: 100%;
-      height: auto;
-      backdrop-filter: blur(4px) brightness(40%);
-      box-shadow: 0 0 20px black;
-      transition: 0.2s linear;
-    }
-
-    .dropdown .links a {
-      display: flex;
-      color: white;
-      text-decoration: none;
-      padding: 15px 0;
-      justify-content: center;
-      align-items: center;
-      transition: 0.2s linear;
-    }
-
-    .dropdown .links a:hover {
-      background-color: rgb(58, 211, 3);
-    }
-
-    /* === BAGIAN SONGS FOR YOU (TAMBAHAN) === */
     #stars {
       position: fixed;
       top: 0;
       left: 0;
-      z-index: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
     }
 
+    /* 🎵 Konten utama */
     .song-section {
-      position: relative;
-      z-index: 1;
       text-align: center;
-      padding: 80px 20px;
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(8px);
-      border-radius: 20px;
-      margin: 40px auto;
-      width: 80%;
+      padding: 60px 20px;
     }
 
     .song-title {
-      font-size: 2.2em;
-      color: rgb(58, 211, 3);
-      text-shadow: 0 0 10px rgb(58, 211, 3);
+      font-size: 2.5em;
+      color: #00ff99;
+      text-shadow: 0 0 20px #00ff99;
     }
 
     .song-subtitle {
-      color: #b6ffb6;
-      margin-bottom: 10px;
+      font-size: 1.5em;
+      margin-top: -10px;
+      color: #aaffdd;
     }
 
     .song-note {
+      margin: 10px 0 40px;
       font-style: italic;
-      color: #dfffe0;
-      margin-bottom: 20px;
+      color: #fff;
     }
 
     .music-card {
-      background: rgba(0, 20, 10, 0.6);
-      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
       padding: 20px;
-      display: inline-block;
-      box-shadow: 0 0 15px rgba(58, 211, 3, 0.3);
-      margin-bottom: 30px;
+      width: 300px;
+      margin: 0 auto 40px;
+      box-shadow: 0 0 15px rgba(0, 255, 150, 0.4);
     }
 
     .album-cover {
-      width: 220px;
+      width: 100%;
+      border-radius: 15px;
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 15px;
       border-radius: 10px;
-      margin-bottom: 15px;
     }
 
     .lyrics-card {
-      background: rgba(0, 25, 10, 0.6);
-      border-radius: 15px;
-      padding: 20px;
-      width: 80%;
-      margin: 0 auto;
-      text-align: left;
-      box-shadow: 0 0 15px rgba(58, 211, 3, 0.2);
-    }
-
-    .lyrics {
-      white-space: pre-wrap;
-      color: #e7ffe7;
-      line-height: 1.6;
-    }
-
-    /* === BAGIAN SKILLS (ASLI, TIDAK DIUBAH) === */
-    .skills-container {
-      width: 100%;
-      min-height: 90vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .skills-content {
-      width: 80%;
-      max-width: 1200px;
-      background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.05);
       border-radius: 20px;
-      padding: 3rem;
-      color: white;
+      padding: 30px;
+      margin: 0 auto;
+      width: 90%;
+      max-width: 700px;
+      box-shadow: 0 0 20px rgba(0, 255, 150, 0.4);
+      text-align: left;
+      white-space: pre-wrap;
     }
 
-    .skills-header {
+    .lyrics-card h3 {
+      color: #00ff99;
       text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .skills-header h1 {
-      font-size: 2.5rem;
-      color: rgb(58, 211, 3);
-      text-shadow: 0 0 10px rgb(58, 211, 3);
-      margin-bottom: 1rem;
+      margin-bottom: 20px;
     }
   </style>
-
-  <title>UTS-2 Songs for You</title>
 </head>
 <body>
-  <nav>
-    <div class="nav-container">
-      <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
-        Portfolio Asesmen<span> II-2100 KIPP</span>
-      </div>
-      <div class="links">
-        <div class="link"><a href="index.html">Home</a></div>
-        <div class="link"><a href="UTS-1 All About Me.html">UTS-1</a></div>
-        <div class="link active"><a href="UTS-2 Songs for you.html">UTS-2</a></div>
-        <div class="link"><a href="UTS-3 My Stories for You.html">UTS-3</a></div>
-        <div class="link"><a href="UTS-4 My Shape.html">UTS-4</a></div>
-        <div class="link"><a href="UTS-5 My Personal Review.html">UTS-5</a></div>
-      </div>
-    </div>
-  </nav>
 
-  <!-- 🌌 Efek Bintang + Lagu -->
+  <!-- 🌌 Efek bintang di background -->
   <canvas id="stars"></canvas>
+
+  <!-- 🎵 Konten utama -->
   <section class="song-section">
     <h1 class="song-title">💚 My Song for You 💚</h1>
     <h2 class="song-subtitle">Pandangan Pertama – RAN</h2>
-    <p class="song-note">dipilih khusus buat kamu cintaku ✨</p>
+    <p class="song-note">Dipilih khusus buat kamu, cintaku ✨</p>
 
     <div class="music-card">
-      <img src="https://i.ibb.co/Z1h0RbH/ran-pandangan-pertama.jpg" alt="Album Cover" class="album-cover">
+      <img src="Radhit2.jpeg" alt="Album Cover" class="album-cover">
       <audio controls>
         <source src="Ran - Pandangan Pertama.mp3" type="audio/mpeg">
         Browser kamu tidak mendukung pemutar musik.
@@ -254,24 +109,56 @@
 
     <div class="lyrics-card">
       <h3>🎶 Lirik Lagu</h3>
-      <pre class="lyrics">Ku tak pernah mengerti
+      <pre class="lyrics">
+[Verse 1]
+Ku tak pernah mengerti
 Apa yang kini kurasakan
-Dalam hatiku terukir namamu...
+Dalam hatiku terukir namamu
+T'lah 'ku coba untuk tenang
+Namun hatiku selalu saja berpaling padamu
+
+[Chorus]
+Pandangan pertama
+Ku jatuh cinta pada pandangan pertama
+Senyummu membuatku terpesona
+Dan ku tak bisa berhenti memikirkanmu
+
+[Verse 2]
+Ku coba mendekatimu
+Namun lidahku kelu tak mampu
+Berbicara walau hanya sepatah kata
+T'lah 'ku coba berkali-kali
+Namun hatiku selalu saja bergetar bila di dekatmu
+
+[Chorus]
+Pandangan pertama
+Ku jatuh cinta pada pandangan pertama
+Senyummu membuatku terpesona
+Dan ku tak bisa berhenti memikirkanmu
+
+[Bridge]
+Mungkinkah ini yang dinamakan cinta
+Cinta pada pandangan pertama
+Ku tak bisa berhenti memikirkanmu
+Setiap waktu, setiap detik, setiap nafas
+
+[Chorus – Reprise]
+Pandangan pertama
+Ku jatuh cinta pada pandangan pertama
+Senyummu membuatku terpesona
+Dan ku tak bisa berhenti memikirkanmu
+
+[Outro]
+Ku tak bisa berhenti memikirkanmu
+Senyummu membuatku terpesona
+Dan ku jatuh cinta
+Pada pandangan pertama...
       </pre>
     </div>
   </section>
 
-  <!-- Bagian Skills tetap ada -->
-  <div class="skills-container">
-    <div class="skills-content">
-      <div class="skills-header"><h1>My Skills</h1></div>
-      <p style="text-align:center;">(konten asli skills kamu tetap utuh di sini)</p>
-    </div>
-  </div>
-
-  <!-- Script animasi -->
+  <!-- 🌠 Script efek bintang -->
   <script>
-    // Efek Bintang
     const canvas = document.getElementById("stars");
     const ctx = canvas.getContext("2d");
     let stars = [];
@@ -297,17 +184,17 @@ Dalam hatiku terukir namamu...
 
     function drawStars() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "rgba(58, 211, 3, 0.8)";
+      ctx.fillStyle = "rgba(0,255,150,0.8)";
       for (let i = 0; i < stars.length; i++) {
         const s = stars[i];
         ctx.beginPath();
         ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
         ctx.fill();
       }
-      updateStars();
+      moveStars();
     }
 
-    function updateStars() {
+    function moveStars() {
       for (let i = 0; i < stars.length; i++) {
         stars[i].y += stars[i].d;
         if (stars[i].y > canvas.height) {
@@ -326,9 +213,5 @@ Dalam hatiku terukir namamu...
     animate();
   </script>
 
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    AOS.init({ offset: 0 });
-  </script>
 </body>
 </html>
