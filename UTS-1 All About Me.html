@@ -27,7 +27,6 @@
             background-size: cover;
             background-position: center;
             overflow-x: hidden;
-            position: relative;
             color: white;
         }
 
@@ -100,11 +99,6 @@
             text-shadow: 0 0 10px rgb(58, 211, 3);
         }
 
-        .about-header p {
-            opacity: 0.8;
-            margin-top: 0.5rem;
-        }
-
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1.3fr;
@@ -144,17 +138,64 @@
             margin: 1.5rem 0;
         }
 
-        .section {
-            margin-top: 3rem;
+        .focus-area {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
         }
 
-        .section h2 {
+        .focus-card {
+            flex: 1 1 30%;
+            background: rgba(58, 211, 3, 0.08);
+            border: 1px solid rgb(58, 211, 3);
+            border-radius: 15px;
+            padding: 1rem;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .focus-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px rgb(58, 211, 3);
+        }
+
+        .focus-card h3 {
+            color: rgb(58, 211, 3);
+            margin-bottom: 0.5rem;
+        }
+
+        .focus-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.4rem;
+        }
+
+        .tag {
+            background: rgba(58, 211, 3, 0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: rgb(58, 211, 3);
+        }
+
+        /* New sections */
+        .life-section {
+            margin-top: 3rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+        }
+
+        .life-section h2 {
             color: rgb(58, 211, 3);
             margin-bottom: 1rem;
-            text-shadow: 0 0 8px rgba(58, 211, 3, 0.8);
+            text-align: center;
         }
 
-        .section p {
+        .life-section p {
+            text-align: justify;
             line-height: 1.8;
             opacity: 0.9;
         }
@@ -163,6 +204,10 @@
             .about-grid {
                 grid-template-columns: 1fr;
                 text-align: center;
+            }
+
+            .focus-area {
+                flex-direction: column;
             }
         }
     </style>
@@ -187,7 +232,7 @@
         <div class="about-content" data-aos="fade-up">
             <div class="about-header">
                 <h1>Perkenalkan, Aku Radhitya</h1>
-                <p>Mahasiswa STTI Bandung • Problem Solver • Tech Learner • Creative Thinker</p>
+                <p style="opacity: 0.8; margin-top: 0.5rem;">Mahasiswa STTI Bandung • Problem Solver • Tech Learner • Creative Thinker</p>
             </div>
 
             <div class="about-grid">
@@ -198,47 +243,67 @@
                 <div class="about-text" data-aos="fade-left">
                     <h2>Siapa saya?</h2>
                     <p>
-                        Aku <b>Muhamad Radhitya Alamsyah</b>, seseorang yang melihat teknologi bukan sekadar alat, tetapi jembatan antara manusia dengan ide dan harapan mereka. 
-                        Dalam setiap baris kode, aku belajar tentang ketekunan, empati, dan bagaimana logika dapat berjalan seiring dengan rasa.
+                        Aku <b>Muhamad Radhitya Alamsyah</b>, mahasiswa yang senang menjelajahi hubungan antara <i>teknologi</i>, <i>data</i>, dan <i>manusia</i>.
+                        Aku menikmati proses belajar hal baru — dari pengembangan sistem, desain antarmuka, hingga memahami bagaimana teknologi bisa membantu orang lain.
                     </p>
                     <p>
-                        Aku percaya bahwa setiap sistem, sekecil apa pun, memiliki makna dan tujuan. Begitu pun manusia — kita adalah algoritma kehidupan yang terus menyesuaikan diri, beradaptasi, dan tumbuh.
+                        Bagiku, coding bukan hanya soal menulis baris perintah, tapi tentang <b>menciptakan makna</b> dan pengalaman yang bisa membantu orang lain lebih mudah memahami dunia digital.
                     </p>
 
                     <div class="quote">
-                        “Teknologi terbaik adalah yang memahami manusia — bukan sekadar menggantikannya.”
+                        “Teknologi terbaik adalah yang mampu mendekatkan manusia, bukan menjauhkannya.”
+                    </div>
+
+                    <div class="focus-area">
+                        <div class="focus-card" data-aos="fade-up" data-aos-delay="100">
+                            <h3>Product Thinking & Execution</h3>
+                            <div class="focus-tags">
+                                <span class="tag">Frontend</span>
+                                <span class="tag">Backend</span>
+                                <span class="tag">Problem Solving</span>
+                            </div>
+                        </div>
+
+                        <div class="focus-card" data-aos="fade-up" data-aos-delay="200">
+                            <h3>Builder & Problem Solver</h3>
+                            <div class="focus-tags">
+                                <span class="tag">Kolaboratif</span>
+                                <span class="tag">Goal-oriented</span>
+                            </div>
+                        </div>
+
+                        <div class="focus-card" data-aos="fade-up" data-aos-delay="300">
+                            <h3>Integritas & Tanggung Jawab</h3>
+                            <div class="focus-tags">
+                                <span class="tag">Empati</span>
+                                <span class="tag">Growth Mindset</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Prinsip Kehidupan -->
-            <div class="section" data-aos="fade-up">
-                <h2>🧭 Prinsip Kehidupan</h2>
+            <!-- Prinsip Hidup -->
+            <div class="life-section" data-aos="fade-up">
+                <h2>Prinsip Hidup</h2>
                 <p>
-                    Hidup bagiku adalah perjalanan untuk memahami makna di balik setiap pertemuan dan pengalaman. 
-                    Aku percaya pada keseimbangan — antara logika dan perasaan, antara kecepatan dunia digital dan kedalaman hidup manusia.  
-                    Prinsip utamaku sederhana: <i>tetap tumbuh tanpa kehilangan arah</i>.  
-                </p>
-                <p>
-                    Aku belajar bahwa menjadi baik tidak cukup hanya dengan memahami teknologi, tetapi juga memahami nilai-nilai kemanusiaan di dalamnya.  
-                    Setiap langkah harus meninggalkan jejak kebaikan, sekecil apa pun bentuknya.
+                    Aku percaya bahwa setiap proses memiliki waktunya sendiri. Tidak ada yang benar-benar terlambat selama kita masih mau berusaha dan belajar.
+                    Prinsipku sederhana: <b>hidup bukan untuk menjadi yang paling cepat, tapi untuk menjadi yang paling tulus dalam setiap langkah</b>.
+                    Aku berusaha menjalani hari dengan kesadaran bahwa hasil yang baik lahir dari niat yang bersih, kerja keras, dan rasa ingin tahu yang tidak pernah padam.
                 </p>
             </div>
 
-            <!-- Peran Kehidupan -->
-            <div class="section" data-aos="fade-up">
-                <h2>🌍 Peran Kehidupan</h2>
+            <!-- Peran dalam Kehidupan -->
+            <div class="life-section" data-aos="fade-up" data-aos-delay="200">
+                <h2>Peran dalam Kehidupan</h2>
                 <p>
-                    Dalam kehidupan, aku melihat diriku sebagai penghubung antara manusia dan teknologi.  
-                    Aku ingin menciptakan ruang di mana keduanya bisa saling memahami — bukan bersaing.  
-                    Melalui bidang Sistem dan Teknologi Informasi, aku berusaha menghadirkan solusi yang tidak hanya efisien, tapi juga bermakna.
-                </p>
-                <p>
-                    Aku bukan sekadar mahasiswa atau pembelajar, tapi bagian dari generasi yang ingin membuat perubahan.  
-                    Bukan perubahan besar yang gegap gempita, melainkan perubahan kecil yang nyata, yang berawal dari empati dan niat untuk membantu.
+                    Dalam kehidupan, aku ingin menjadi jembatan antara manusia dan teknologi — bukan sekadar pembuat sistem, tapi juga penyambung makna.
+                    Di dunia yang semakin cepat berubah, aku melihat diriku sebagai seseorang yang membantu orang lain memahami, beradaptasi, dan menemukan keindahan dalam proses digitalisasi.
+                    <br><br>
+                    Aku percaya bahwa setiap baris kode yang ditulis dengan niat baik bisa menjadi langkah kecil menuju dunia yang lebih manusiawi.
+                    Dan mungkin, di antara ratusan proyek dan kesibukan, tugasku adalah tetap menjaga sisi manusia dari teknologi.
                 </p>
             </div>
-
         </div>
     </div>
 
