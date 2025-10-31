@@ -9,7 +9,7 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background-image: url("./img/Background2.jpeg");
+      background: radial-gradient(circle at center, #0a0a0a 0%, #000 100%);
       color: white;
       overflow-x: hidden;
     }
@@ -67,37 +67,9 @@
       background-color: #00ff66;
     }
 
-    /* ====== TEMPAT PLAY MUSIC ====== */
-    .music-player-top {
-      position: fixed;
-      top: 70px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0, 30, 0, 0.7);
-      border: 1px solid #00ff66;
-      border-radius: 50px;
-      padding: 10px 25px;
-      box-shadow: 0 0 20px #00ff6680;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      z-index: 9;
-    }
-
-    .music-player-top span {
-      font-weight: 600;
-      color: #00ff88;
-      text-shadow: 0 0 10px #00ff88;
-    }
-
-    .music-player-top audio {
-      width: 200px;
-      filter: drop-shadow(0 0 6px #00ff6680);
-    }
-
     /* ====== KONTEN UTAMA ====== */
     .song-section {
-      margin-top: 160px;
+      margin-top: 140px;
       text-align: center;
       position: relative;
       z-index: 5;
@@ -185,27 +157,16 @@
 
   <!-- ====== NAVBAR ====== -->
   <nav>
-    <div class="nav-container">
-      <div class="logo" data-aos="zoom-in">Portfolio Asesmen<span> II-2100 KIPP</span></div>
-      <div class="links">
-        <a href="index.html">Home</a>
-        <a href="UTS-1 All About Me.html">UTS-1</a>
-        <a href="UTS-2 Songs for you.html" class="active" >UTS-2</a>
-        <a href="UTS-3 My Stories for You.html">UTS-3</a>
-        <a href="UTS-4 My Shape.html">UTS-4</a>
-        <a href="UTS-5 My Personal Review.html">UTS-5</a>
-      </div>
+    <h1>Portfolio Asesmen <span>II-2100 KIPP</span></h1>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">UTS-1</a>
+      <a href="#">UTS-2</a>
+      <a href="#" class="active">UTS-3</a>
+      <a href="#">UTS-4</a>
+      <a href="#">UTS-5</a>
     </div>
   </nav>
-
-  <!-- 🎵 PLAYER MUSIK DI ATAS -->
-  <div class="music-player-top">
-    <span>Now Playing 🎧:</span>
-    <audio controls>
-      <source src="placeholder.mp3" type="audio/mpeg">
-      Browser kamu tidak mendukung pemutar musik.
-    </audio>
-  </div>
 
   <!-- ====== BAGIAN LAGU ====== -->
   <section class="song-section">
@@ -223,7 +184,45 @@
 
     <div class="lyrics-card">
       <h3>🎶 Lirik Lagu</h3>
-      <pre>... (lirik lagu kamu tetap sama di sini) ...</pre>
+      <pre>
+[Verse 1]
+Ku tak pernah mengerti
+Apa yang kini kurasakan
+Dalam hatiku terukir namamu
+T'lah 'ku coba untuk tenang
+Namun hatiku selalu saja berpaling padamu
+
+[Chorus]
+Pandangan pertama
+Ku jatuh cinta pada pandangan pertama
+Senyummu membuatku terpesona
+Dan ku tak bisa berhenti memikirkanmu
+
+[Verse 2]
+Ku coba mendekatimu
+Namun lidahku kelu tak mampu
+Berbicara walau hanya sepatah kata
+T'lah 'ku coba berkali-kali
+Namun hatiku selalu saja bergetar bila di dekatmu
+
+[Chorus]
+Pandangan pertama
+Ku jatuh cinta pada pandangan pertama
+Senyummu membuatku terpesona
+Dan ku tak bisa berhenti memikirkanmu
+
+[Bridge]
+Mungkinkah ini yang dinamakan cinta
+Cinta pada pandangan pertama
+Ku tak bisa berhenti memikirkanmu
+Setiap waktu, setiap detik, setiap nafas
+
+[Outro]
+Pandangan pertama
+Ku jatuh cinta pada pandangan pertama
+Senyummu membuatku terpesona
+Dan ku tak bisa berhenti memikirkanmu
+      </pre>
     </div>
   </section>
 
