@@ -3,285 +3,249 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>UTS-1 All About Me | Radhitya</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <title>UTS-1 All About Me</title>
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
-    body {
-      min-height: 100vh;
-      background-image: url("./img/Background2.jpeg");
-      background-size: cover;
-      background-position: center;
-      color: white;
-      overflow-x: hidden;
-    }
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
 
-    nav {
-      width: 100%;
-      height: 10vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      backdrop-filter: blur(8px);
-      background: rgba(0, 0, 0, 0.6);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+        body {
+            width: 100%;
+            min-height: 100vh;
+            background-image: url("./img/Background2.jpeg");
+            background-size: cover;
+            background-position: center;
+            overflow-x: hidden;
+            position: relative;
+            color: white;
+        }
 
-    .nav-container {
-      width: 90%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        nav {
+            width: 100%;
+            height: 10vh;
+            position: relative;
+            z-index: 1000;
+        }
 
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 600;
-    }
+        .nav-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
 
-    .logo span {
-      color: rgb(58, 211, 3);
-      text-shadow: 0 0 8px rgb(58, 211, 3);
-    }
+        .logo {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
 
-    .links a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-      transition: 0.3s;
-      font-weight: 500;
-    }
+        .logo span {
+            color: rgb(58, 211, 3);
+            text-shadow: 0 0 10px rgb(58, 211, 3);
+        }
 
-    .links a:hover,
-    .links .active {
-      color: rgb(58, 211, 3);
-      border-bottom: 2px solid rgb(58, 211, 3);
-      padding-bottom: 4px;
-    }
+        .links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
 
-    .about-section {
-      width: 100%;
-      min-height: 90vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 3rem 1.5rem;
-    }
+        .links a:hover,
+        .links .active {
+            color: rgb(58, 211, 3);
+            border-bottom: 2px solid rgb(58, 211, 3);
+        }
 
-    .about-box {
-      width: 85%;
-      max-width: 1100px;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(12px);
-      border-radius: 25px;
-      padding: 3rem;
-      box-shadow: 0 0 20px rgba(58, 211, 3, 0.2);
-    }
+        .about-container {
+            width: 100%;
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
 
-    .about-title {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
+        .about-content {
+            width: 80%;
+            max-width: 1100px;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+        }
 
-    .about-title h1 {
-      font-size: 2.6rem;
-      color: rgb(58, 211, 3);
-      text-shadow: 0 0 10px rgb(58, 211, 3);
-    }
+        .about-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
 
-    .about-title p {
-      opacity: 0.8;
-      margin-top: 0.5rem;
-    }
+        .about-header h1 {
+            color: rgb(58, 211, 3);
+            font-size: 2.5rem;
+            text-shadow: 0 0 10px rgb(58, 211, 3);
+        }
 
-    .about-content {
-      display: grid;
-      grid-template-columns: 1fr 1.3fr;
-      gap: 2rem;
-    }
+        .about-header p {
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
 
-    .about-img {
-      width: 100%;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 0 15px rgb(58, 211, 3);
-    }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 2rem;
+        }
 
-    .about-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+        .about-image {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgb(58, 211, 3);
+        }
 
-    .about-text h2 {
-      color: rgb(58, 211, 3);
-      margin-bottom: 1rem;
-      font-size: 1.6rem;
-    }
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-    .about-text p {
-      line-height: 1.7;
-      margin-bottom: 1rem;
-      text-align: justify;
-    }
+        .about-text h2 {
+            color: rgb(58, 211, 3);
+            margin-bottom: 1rem;
+        }
 
-    .highlight {
-      background: rgba(58, 211, 3, 0.1);
-      border-left: 4px solid rgb(58, 211, 3);
-      padding: 1rem;
-      border-radius: 10px;
-      font-style: italic;
-      margin: 1.5rem 0;
-    }
+        .about-text p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
 
-    .focus-cards {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
+        .quote {
+            background: rgba(58, 211, 3, 0.1);
+            border-left: 4px solid rgb(58, 211, 3);
+            padding: 1rem;
+            font-style: italic;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
 
-    .card {
-      flex: 1 1 30%;
-      background: rgba(58, 211, 3, 0.08);
-      border: 1px solid rgb(58, 211, 3);
-      border-radius: 15px;
-      padding: 1rem;
-      text-align: center;
-    }
+        .section {
+            margin-top: 3rem;
+        }
 
-    .card h3 {
-      color: rgb(58, 211, 3);
-      margin-bottom: 0.5rem;
-    }
+        .section h2 {
+            color: rgb(58, 211, 3);
+            margin-bottom: 1rem;
+            text-shadow: 0 0 8px rgba(58, 211, 3, 0.8);
+        }
 
-    .tags {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
+        .section p {
+            line-height: 1.8;
+            opacity: 0.9;
+        }
 
-    .tag {
-      background: rgba(58, 211, 3, 0.25);
-      color: rgb(58, 211, 3);
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
-    }
-
-    @media (max-width: 884px) {
-      .about-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .about-text p {
-        text-align: center;
-      }
-    }
-  </style>
+        @media (max-width: 884px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <nav>
-    <div class="nav-container">
-      <div class="logo" data-aos="zoom-in">Portfolio Asesmen<span> II-2100 KIPP</span></div>
-      <div class="links">
-        <a href="index.html">Home</a>
-        <a href="UTS-1 All About Me.html" class="active">UTS-1</a>
-        <a href="UTS-2 Songs for you.html">UTS-2</a>
-        <a href="UTS-3 My Stories for You.html">UTS-3</a>
-        <a href="UTS-4 My Shape.html">UTS-4</a>
-        <a href="UTS-5 My Personal Review.html">UTS-5</a>
-      </div>
-    </div>
-  </nav>
-
-  <section class="about-section">
-    <div class="about-box" data-aos="fade-up">
-      <div class="about-title">
-        <h1>Perkenalkan, Aku Radhitya</h1>
-        <p>Mahasiswa STTI Bandung • Tech Learner • Creative Thinker • Problem Solver</p>
-      </div>
-
-      <div class="about-content">
-        <div class="about-img" data-aos="fade-right">
-          <img src="img/Radhit.jpeg" alt="Foto Radhitya" />
+    <nav>
+        <div class="nav-container">
+            <div class="logo" data-aos="zoom-in">Portfolio Asesmen<span> II-2100 KIPP</span></div>
+            <div class="links">
+                <a href="index.html">Home</a>
+                <a href="UTS-1 All About Me.html" class="active">UTS-1</a>
+                <a href="UTS-2 Songs for you.html">UTS-2</a>
+                <a href="UTS-3 My Stories for You.html">UTS-3</a>
+                <a href="UTS-4 My Shape.html">UTS-4</a>
+                <a href="UTS-5 My Personal Review.html">UTS-5</a>
+            </div>
         </div>
+    </nav>
 
-        <div class="about-text" data-aos="fade-left">
-          <h2>Tentang Aku</h2>
-          <p>
-            Aku <b>Muhamad Radhitya Alamsyah</b>, seseorang yang percaya bahwa teknologi bukan hanya sekadar alat,
-            tapi cara berpikir untuk memahami dunia. Aku suka mempelajari bagaimana sistem bekerja, bagaimana ide bisa
-            menjadi solusi, dan bagaimana logika bisa berdampingan dengan empati.
-          </p>
-
-          <p>
-            Di balik baris-baris kode, aku menemukan ruang refleksi: tempat di mana kesabaran diuji, dan keingintahuan
-            tumbuh menjadi inovasi. Coding, bagiku, bukan sekadar keterampilan — tapi perjalanan untuk terus menjadi
-            lebih baik setiap hari.
-          </p>
-
-          <div class="highlight">
-            “Aku tidak ingin hanya membangun sistem. Aku ingin membangun sesuatu yang bermakna.”
-          </div>
-
-          <p>
-            Aku berfokus pada pengembangan teknologi yang sederhana namun berdampak. Dari antarmuka pengguna yang intuitif
-            hingga struktur data yang efisien — semuanya berangkat dari satu niat: membantu orang lain memahami dan
-            memanfaatkan teknologi dengan lebih manusiawi.
-          </p>
-
-          <div class="focus-cards">
-            <div class="card">
-              <h3>Analytical & Logical</h3>
-              <div class="tags">
-                <span class="tag">Problem Solving</span>
-                <span class="tag">System Thinking</span>
-              </div>
+    <div class="about-container">
+        <div class="about-content" data-aos="fade-up">
+            <div class="about-header">
+                <h1>Perkenalkan, Aku Radhitya</h1>
+                <p>Mahasiswa STTI Bandung • Problem Solver • Tech Learner • Creative Thinker</p>
             </div>
 
-            <div class="card">
-              <h3>Creative & Empathic</h3>
-              <div class="tags">
-                <span class="tag">UI/UX</span>
-                <span class="tag">Human-Centered Design</span>
-              </div>
+            <div class="about-grid">
+                <div class="about-image" data-aos="fade-right">
+                    <img src="img/Radhit.jpeg" alt="Foto Radhitya">
+                </div>
+
+                <div class="about-text" data-aos="fade-left">
+                    <h2>Siapa saya?</h2>
+                    <p>
+                        Aku <b>Muhamad Radhitya Alamsyah</b>, seseorang yang melihat teknologi bukan sekadar alat, tetapi jembatan antara manusia dengan ide dan harapan mereka. 
+                        Dalam setiap baris kode, aku belajar tentang ketekunan, empati, dan bagaimana logika dapat berjalan seiring dengan rasa.
+                    </p>
+                    <p>
+                        Aku percaya bahwa setiap sistem, sekecil apa pun, memiliki makna dan tujuan. Begitu pun manusia — kita adalah algoritma kehidupan yang terus menyesuaikan diri, beradaptasi, dan tumbuh.
+                    </p>
+
+                    <div class="quote">
+                        “Teknologi terbaik adalah yang memahami manusia — bukan sekadar menggantikannya.”
+                    </div>
+                </div>
             </div>
 
-            <div class="card">
-              <h3>Commitment & Growth</h3>
-              <div class="tags">
-                <span class="tag">Integrity</span>
-                <span class="tag">Continuous Learning</span>
-              </div>
+            <!-- Prinsip Kehidupan -->
+            <div class="section" data-aos="fade-up">
+                <h2>🧭 Prinsip Kehidupan</h2>
+                <p>
+                    Hidup bagiku adalah perjalanan untuk memahami makna di balik setiap pertemuan dan pengalaman. 
+                    Aku percaya pada keseimbangan — antara logika dan perasaan, antara kecepatan dunia digital dan kedalaman hidup manusia.  
+                    Prinsip utamaku sederhana: <i>tetap tumbuh tanpa kehilangan arah</i>.  
+                </p>
+                <p>
+                    Aku belajar bahwa menjadi baik tidak cukup hanya dengan memahami teknologi, tetapi juga memahami nilai-nilai kemanusiaan di dalamnya.  
+                    Setiap langkah harus meninggalkan jejak kebaikan, sekecil apa pun bentuknya.
+                </p>
             </div>
-          </div>
+
+            <!-- Peran Kehidupan -->
+            <div class="section" data-aos="fade-up">
+                <h2>🌍 Peran Kehidupan</h2>
+                <p>
+                    Dalam kehidupan, aku melihat diriku sebagai penghubung antara manusia dan teknologi.  
+                    Aku ingin menciptakan ruang di mana keduanya bisa saling memahami — bukan bersaing.  
+                    Melalui bidang Sistem dan Teknologi Informasi, aku berusaha menghadirkan solusi yang tidak hanya efisien, tapi juga bermakna.
+                </p>
+                <p>
+                    Aku bukan sekadar mahasiswa atau pembelajar, tapi bagian dari generasi yang ingin membuat perubahan.  
+                    Bukan perubahan besar yang gegap gempita, melainkan perubahan kecil yang nyata, yang berawal dari empati dan niat untuk membantu.
+                </p>
+            </div>
+
         </div>
-      </div>
     </div>
-  </section>
 
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 1000, once: true });
-  </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>
