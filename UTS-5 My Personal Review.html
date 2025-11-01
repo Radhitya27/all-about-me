@@ -427,6 +427,44 @@
                 padding: 0.5rem;
                 display: block;
             }
+            .table-container {
+        overflow-x: auto;
+        margin-top: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 0 20px rgba(0,255,0,0.1);
+        }
+
+        .uts-table {
+        width: 100%;
+        border-collapse: collapse;
+        color: #e6e6e6;
+        background-color: rgba(0,0,0,0.4);
+        }
+
+        .uts-table th, .uts-table td {
+        padding: 1rem;
+        border: 1px solid rgba(0,255,0,0.2);
+        text-align: left;
+        vertical-align: top;
+        }
+
+        .uts-table th {
+        background-color: rgba(0,255,0,0.1);
+        color: #00ff7f;
+        font-weight: bold;
+        text-transform: uppercase;
+        }
+
+        .uts-table tr:hover {
+        background-color: rgba(0,255,0,0.1);
+        transition: 0.3s;
+        }
+
+        .highlight {
+        color: #ff6666;
+        font-style: italic;
+        }
+
         }
     </style>
     <title>About - Portfolio Website</title>
@@ -487,42 +525,47 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td><strong>UTS-1 — All About Me</strong></td>
-                    <td>Orisinalitas 5, Keterlibatan 5, Humor 5, Wawasan 5 → <strong>Total 20/20 (100%)</strong></td>
-                    <td>Reflektif, otentik, dan menarik secara emosional. Bahasa naratif alami dengan insight kuat dan humor lembut.</td>
-                    <td><span class="highlight">Tambahkan kutipan kecil atau motto pribadi untuk memperkuat penutup.</span></td>
-                    <td><em>Sangat Baik — Kemampuan reflektif dan ekspresif tinggi, menggambarkan kepribadian autentik.</em></td>
-                </tr>
-                <tr>
-                    <td><strong>UTS-2 — My Songs for You</strong></td>
-                    <td>Orisinalitas (Vokal & Musik) 5, Keterlibatan 5, Humor 5, Inspirasi 5 → <strong>Total 20/20 (100%)</strong></td>
-                    <td>Lagu “Terpana” menggabungkan pesan personal dan refleksi akademik dengan sangat harmonis.</td>
-                    <td><span class="highlight">Sertakan 1–2 kalimat tentang siapa penerima pesan lagu.</span></td>
-                    <td><em>Sangat Baik — Ekspresif, emosional, dan komunikatif dalam konteks musik reflektif.</em></td>
-                </tr>
-                <tr>
-                    <td><strong>UTS-3 — My Stories for You</strong></td>
-                    <td>Orisinalitas 5, Keterlibatan 5, Keautentikan 5, Inspirasi 5 → <strong>Total 20/20 (100%)</strong></td>
-                    <td>Cerita kuat, imersif, dan reflektif dengan nilai interpersonal yang menyentuh.</td>
-                    <td><span class="highlight">Tambahkan epilog reflektif singkat yang mengikat tiga cerita.</span></td>
-                    <td><em>Sangat Baik — Penuh empati, narasi terstruktur, dan komunikasi jujur.</em></td>
-                </tr>
-                <tr>
-                    <td><strong>UTS-4 — My SHAPE</strong></td>
-                    <td>Orisinalitas 5, Keterlibatan 5, Keautentikan 5, Inspirasi 5 → <strong>Total 20/20 (100%)</strong></td>
-                    <td>Isi menggambarkan pemahaman diri yang kuat berdasarkan refleksi SHAPE.</td>
-                    <td><span class="highlight">Tambahkan visualisasi sederhana (diagram/mindmap) untuk memperkuat aspek presentasi.</span></td>
-                    <td><em>Sangat Baik — Analitis dan profesional dengan sentuhan personal yang hangat.</em></td>
-                </tr>
-                <tr>
-                    <td><strong>UTS-5 — My Reflection</strong></td>
-                    <td>Orisinalitas 5, Keterlibatan 5, Keautentikan 5, Insight 5 → <strong>Total 20/20 (100%)</strong></td>
-                    <td>Menunjukkan refleksi mendalam terhadap proses pembelajaran dengan perspektif kritis.</td>
-                    <td><span class="highlight">Tambahkan contoh konkret perubahan diri setelah proses UTS sebelumnya.</span></td>
-                    <td><em>Sangat Baik — Reflektif, terukur, dan menunjukkan pertumbuhan pribadi yang jelas.</em></td>
-                </tr>
-            </tbody>
+    <tr>
+        <td><strong>UTS-1 — All About Me</strong></td>
+        <td>Orisinalitas 5, Keterlibatan 5, Humor 5, Wawasan 4.5 → <strong>Rata-rata 4.875</strong></td>
+        <td>Menunjukkan kemampuan reflektif dan ekspresif yang sangat baik dalam menggambarkan diri sendiri.</td>
+        <td><span class="highlight">Tambahkan sedikit variasi gaya narasi agar lebih dinamis.</span></td>
+        <td><em>Sangat Baik — Reflektif dan autentik, dengan pemahaman diri yang mendalam.</em></td>
+    </tr>
+
+    <tr>
+        <td><strong>UTS-2 — My Songs for You</strong></td>
+        <td>Orisinalitas 4, Keterlibatan 4, Humor 4, Inspirasi 4 → <strong>Rata-rata 4.0</strong></td>
+        <td>Lagu memiliki ide yang jelas dan pesan yang personal, meskipun ruang eksplorasi masih terbuka.</td>
+        <td><span class="highlight">Eksperimen dengan variasi tempo atau gaya musik untuk memperkaya ekspresi.</span></td>
+        <td><em>Baik — Kreatif dan komunikatif, meskipun masih dapat lebih ekspresif secara emosional.</em></td>
+    </tr>
+
+    <tr>
+        <td><strong>UTS-3 — My Stories for You</strong></td>
+        <td>Orisinalitas 5, Keterlibatan 5, Keautentikan 5, Inspirasi 5 → <strong>Rata-rata 5.0</strong></td>
+        <td>Cerita disusun dengan struktur jelas dan mengandung pesan moral yang kuat.</td>
+        <td><span class="highlight">Pertahankan gaya naratif ini di karya berikutnya untuk konsistensi kualitas.</span></td>
+        <td><em>Sangat Baik — Penuh empati dan bermakna, menggambarkan kemampuan storytelling yang kuat.</em></td>
+    </tr>
+
+    <tr>
+        <td><strong>UTS-4 — My SHAPE</strong></td>
+        <td>Orisinalitas 5, Keterlibatan 5, Keautentikan 5, Inspirasi 5 → <strong>Rata-rata 5.0</strong></td>
+        <td>Menampilkan refleksi diri yang matang dan pemahaman yang menyeluruh terhadap potensi pribadi.</td>
+        <td><span class="highlight">Bisa menambahkan visualisasi sederhana agar presentasi lebih menarik.</span></td>
+        <td><em>Sangat Baik — Analitis dan reflektif dengan penguasaan konsep yang solid.</em></td>
+    </tr>
+
+    <tr>
+        <td><strong>UTS-5 — My Reflection</strong></td>
+        <td>Orisinalitas 4, Keterlibatan 4, Keautentikan 4, Insight 5 → <strong>Rata-rata 4.25</strong></td>
+        <td>Refleksi menunjukkan kedewasaan berpikir dan evaluasi diri yang jujur.</td>
+        <td><span class="highlight">Tambahkan contoh konkret tentang perubahan nyata setelah proses pembelajaran.</span></td>
+        <td><em>Baik — Reflektif dan terukur, menunjukkan perkembangan yang positif.</em></td>
+    </tr>
+</tbody>
+
         </table>
     </div>
 </div>
@@ -536,264 +579,8 @@
         <script>
 
             // Inisialisasi library AOS
-            AOS.init({ offset: 0 });
-
-            // Fungsi untuk menampilkan menu hamburger
-            function hamburg() {
-                const navbar = document.querySelector(".dropdown")
-                navbar.style.transform = "translateY(0px)"
-            }
-
-            // Fungsi untuk menyembunyikan menu hamburger
-            function cancel() {
-                const navbar = document.querySelector(".dropdown")
-                navbar.style.transform = "translateY(-500px)"
-            }
-
-            // Fungsi untuk menampilkan daftar Project
-            function showProjects() {
-                const aboutContent = document.getElementById('aboutContent');
-                aboutContent.innerHTML = `
-                <a href="about.html" class="back-button" onclick="restoreInitialContent()">
-                    <i class="fas fa-arrow-left"></i> Back
-                </a>
-                <div class="about-header" data-aos="fade-down" data-aos-duration="1500">
-                    <h1>My Projects</h1>
-                </div>
-                <div class="content-grid">
-                    ${generateProjectCards()}
-                </div>
-            `;
+            AOS.init({ offset: 0 })
                 AOS.refresh();
-            }
-
-            // Fungsi untuk menampilkan daftar Experience
-            function showExperience() {
-                const aboutContent = document.getElementById('aboutContent');
-                aboutContent.innerHTML = `
-                <a href="about.html" class="back-button" onclick="restoreInitialContent()">
-                    <i class="fas fa-arrow-left"></i> Back
-                </a>
-                <div class="about-header" data-aos="fade-down" data-aos-duration="1500">
-                    <h1>My Experience</h1>
-                </div>
-                <div class="content-grid">
-                    ${generateExperienceCards()}
-                </div>
-            `;
-                AOS.refresh();
-            }
-
-            // Fungsi untuk menampilkan daftar Clients
-            function showClients() {
-                const aboutContent = document.getElementById('aboutContent');
-                aboutContent.innerHTML = `
-                <a href="about.html" class="back-button" onclick="restoreInitialContent()">
-                    <i class="fas fa-arrow-left"></i> Back
-                </a>
-                <div class="about-header" data-aos="fade-down" data-aos-duration="1500">
-                    <h1>Client Success Stories</h1>
-                </div>
-                <div class="content-grid">
-                    ${generateClientCards()}
-                </div>
-            `;
-                AOS.refresh();
-            }
-
-            // Fungsi untuk menampilkan daftar Awards
-            function showAwards() {
-                const aboutContent = document.getElementById('aboutContent');
-                aboutContent.innerHTML = `
-                <a href="about.html" class="back-button" onclick="restoreInitialContent()">
-                    <i class="fas fa-arrow-left"></i> Back
-                </a>
-                <div class="about-header" data-aos="fade-down" data-aos-duration="1500">
-                    <h1>Awards & Recognition</h1>
-                </div>
-                <div class="content-grid">
-                    ${generateAwardCards()}
-                </div>
-            `;
-                AOS.refresh();
-            }
-
-            // Fungsi pembantu untuk menghasilkan kartu project
-            function generateProjectCards() {
-                const projects = [
-                    {
-                        title: "E-Commerce Platform",
-                        image: "img/zoro.jpg",
-                        description: "A full-stack e-commerce solution with payment integration",
-                        technologies: ["React", "Node.js", "MongoDB"]
-                    },
-                    {
-                        title: "Portfolio Website",
-                        image: "img/zoro.jpg",
-                        description: "Responsive portfolio website with modern animations",
-                        technologies: ["HTML", "CSS", "JavaScript"]
-                    },
-                    {
-                        title: "Task Management App",
-                        image: "img/zoro.jpg",
-                        description: "Mobile-first task management application",
-                        technologies: ["Vue.js", "Firebase"]
-                    }
-                    // Add more projects as needed
-                ];
-
-                return projects.map(project => `
-                <div class="content-card" data-aos="fade-up">
-                    <div class="card-image">
-                        <img src="${project.image}" alt="${project.title}">
-                    </div>
-                    <div class="card-info">
-                        <h3>${project.title}</h3>
-                        <p>${project.description}</p>
-                        <div class="technologies">
-                            ${project.technologies.map(tech => `
-                                <span class="technology-tag">${tech}</span>
-                            `).join('')}
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-            }
-
-            // Fungsi pembantu untuk menghasilkan kartu experience
-            function generateExperienceCards() {
-                const experiences = [
-                    {
-                        title: "Senior Web Developer",
-                        company: "Tech Solutions Inc.",
-                        period: "2021 - Present",
-                        description: "Leading frontend development team and implementing modern web solutions"
-                    },
-                    {
-                        title: "Frontend Developer",
-                        company: "Digital Agency",
-                        period: "2019 - 2021",
-                        description: "Developed responsive websites and web applications"
-                    }
-                    // Add more experiences as needed
-                ];
-
-                return experiences.map(exp => `
-                <div class="content-card" data-aos="fade-up">
-                    <div class="card-info">
-                        <h3>${exp.title}</h3>
-                        <h4>${exp.company}</h4>
-                        <p class="period">${exp.period}</p>
-                        <p>${exp.description}</p>
-                    </div>
-                </div>
-            `).join('');
-            }
-
-            // Fungsi pembantu untuk menghasilkan kartu client
-            function generateClientCards() {
-                const clients = [
-                    {
-                        name: "Ell Udin",
-                        company: "Innovation Corp",
-                        image: "img/zoro.jpg",
-                        testimonial: "Outstanding work on our company website redesign!"
-                    },
-                    {
-                        name: "Ell Ucup",
-                        company: "Tech Startup",
-                        image: "img/zoro.jpg",
-                        testimonial: "Delivered our app ahead of schedule with excellent quality"
-                    }
-                    // Add more clients as needed
-                ];
-
-                return clients.map(client => `
-                <div class="content-card" data-aos="fade-up">
-                    <div class="card-image">
-                        <img src="${client.image}" alt="${client.name}">
-                    </div>
-                    <div class="card-info">
-                        <h3>${client.name}</h3>
-                        <h4>${client.company}</h4>
-                        <p class="client-testimonial">"${client.testimonial}"</p>
-                    </div>
-                </div>
-            `).join('');
-            }
-
-            // Fungsi pembantu untuk menghasilkan kartu award
-            function generateAwardCards() {
-                const awards = [
-                    {
-                        title: "Best Web Design",
-                        organization: "Design Awards 2023",
-                        description: "Recognition for exceptional web design and user experience"
-                    },
-                    {
-                        title: "Innovation Award",
-                        organization: "Tech Summit 2022",
-                        description: "Awarded for innovative use of emerging technologies"
-                    }
-                    // Add more awards as needed
-                ];
-
-                return awards.map(award => `
-                <div class="content-card" data-aos="fade-up">
-                    <div class="card-info">
-                        <div class="award-icon">
-                            <i class="fas fa-trophy"></i>
-                        </div>
-                        <h3>${award.title}</h3>
-                        <h4>${award.organization}</h4>
-                        <p>${award.description}</p>
-                    </div>
-                </div>
-            `).join('');
-            }
-
-            // Fungsi untuk mengembalikan konten awal
-            function restoreInitialContent() {
-                const aboutContent = document.getElementById('aboutContent');
-                aboutContent.innerHTML = `
-                <div class="about-header" data-aos="fade-down" data-aos-duration="1500">
-                    <h1>About Me</h1>
-                </div>
-                <div class="about-grid">
-                    <div class="about-image" data-aos="fade-right" data-aos-duration="1500">
-                        <img src="img/zoro.jpg" alt="About Image">
-                    </div>
-                    <div class="about-text" data-aos="fade-left" data-aos-duration="1500">
-                        <h2>Who Am I?</h2>
-                        <p>I'm a passionate developer and designer with a keen eye for detail and a drive for creating
-                            innovative digital solutions. With expertise in web development, UI/UX design, and content
-                            creation, I bring ideas to life through code and creativity.</p>
-                        <p>My journey in technology began with a simple curiosity and has evolved into a professional
-                            pursuit of excellence in digital craftsmanship.</p>
-
-                        <div class="stats">
-                            <div class="stat-item" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="200" onclick="showProjects()">
-                                <h3>50+</h3>
-                                <p>Projects Completed</p>
-                            </div>
-                            <div class="stat-item" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="400" onclick="showExperience()">
-                                <h3>3+</h3>
-                                <p>Years Experience</p>
-                            </div>
-                            <div class="stat-item" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="600" onclick="showClients()">
-                                <h3>20+</h3>
-                                <p>Happy Clients</p>
-                            </div>
-                            <div class="stat-item" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="800" onclick="showAwards()">
-                                <h3>15+</h3>
-                                <p>Awards Won</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-                AOS.refresh();
-            }
 
         </script>
 </body>
