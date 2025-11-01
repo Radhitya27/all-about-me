@@ -470,51 +470,64 @@
     </nav>
 
     <!-- Konten utama halaman About -->
-    <div class="about-container">
-        <div class="about-content" id="aboutContent">
-            <!-- Bagian header -->
-            <div class="about-header" data-aos="fade-down" data-aos-duration="1500">
-                <h1>About Me</h1>
-            </div>
+    <!-- ====== Tabel Hasil Penilaian UTS ====== -->
+<div class="about-content" id="utsTable" data-aos="fade-up" data-aos-duration="1500">
+    <h1>Tinjauan Spesifik & Skor (Skala 1–5)</h1>
+    <p>Berikut hasil penilaian setiap UTS berdasarkan rubrik asesmen dan interpretasi akhir.</p>
 
-            <!-- Grid untuk gambar dan teks deskripsi -->
-            <div class="about-grid">
-                <div class="about-image" data-aos="fade-right" data-aos-duration="1500">
-                    <img src="img/zoro.jpg" alt="About Image">
-                </div>
-                <div class="about-text" data-aos="fade-left" data-aos-duration="1500">
-                    <h2>Who Am I?</h2>
-                    <p>I'm a passionate developer and designer with a keen eye for detail and a drive for creating
-                        innovative digital solutions. With expertise in web development, UI/UX design, and content
-                        creation, I bring ideas to life through code and creativity.</p>
-                    <p>My journey in technology began with a simple curiosity and has evolved into a professional
-                        pursuit of excellence in digital craftsmanship.</p>
+    <div class="table-container">
+        <table class="uts-table">
+            <thead>
+                <tr>
+                    <th>UTS</th>
+                    <th>Skor per Kriteria</th>
+                    <th>Alasan Singkat</th>
+                    <th>Saran Perbaikan</th>
+                    <th>Interpretasi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>UTS-1 — All About Me</strong></td>
+                    <td>Orisinalitas 5, Keterlibatan 5, Humor 5, Wawasan 5 → <strong>Total 20/20 (100%)</strong></td>
+                    <td>Reflektif, otentik, dan menarik secara emosional. Bahasa naratif alami dengan insight kuat dan humor lembut.</td>
+                    <td><span class="highlight">Tambahkan kutipan kecil atau motto pribadi untuk memperkuat penutup.</span></td>
+                    <td><em>Sangat Baik — Kemampuan reflektif dan ekspresif tinggi, menggambarkan kepribadian autentik.</em></td>
+                </tr>
+                <tr>
+                    <td><strong>UTS-2 — My Songs for You</strong></td>
+                    <td>Orisinalitas (Vokal & Musik) 5, Keterlibatan 5, Humor 5, Inspirasi 5 → <strong>Total 20/20 (100%)</strong></td>
+                    <td>Lagu “Terpana” menggabungkan pesan personal dan refleksi akademik dengan sangat harmonis.</td>
+                    <td><span class="highlight">Sertakan 1–2 kalimat tentang siapa penerima pesan lagu.</span></td>
+                    <td><em>Sangat Baik — Ekspresif, emosional, dan komunikatif dalam konteks musik reflektif.</em></td>
+                </tr>
+                <tr>
+                    <td><strong>UTS-3 — My Stories for You</strong></td>
+                    <td>Orisinalitas 5, Keterlibatan 5, Keautentikan 5, Inspirasi 5 → <strong>Total 20/20 (100%)</strong></td>
+                    <td>Cerita kuat, imersif, dan reflektif dengan nilai interpersonal yang menyentuh.</td>
+                    <td><span class="highlight">Tambahkan epilog reflektif singkat yang mengikat tiga cerita.</span></td>
+                    <td><em>Sangat Baik — Penuh empati, narasi terstruktur, dan komunikasi jujur.</em></td>
+                </tr>
+                <tr>
+                    <td><strong>UTS-4 — My SHAPE</strong></td>
+                    <td>Orisinalitas 5, Keterlibatan 5, Keautentikan 5, Inspirasi 5 → <strong>Total 20/20 (100%)</strong></td>
+                    <td>Isi menggambarkan pemahaman diri yang kuat berdasarkan refleksi SHAPE.</td>
+                    <td><span class="highlight">Tambahkan visualisasi sederhana (diagram/mindmap) untuk memperkuat aspek presentasi.</span></td>
+                    <td><em>Sangat Baik — Analitis dan profesional dengan sentuhan personal yang hangat.</em></td>
+                </tr>
+                <tr>
+                    <td><strong>UTS-5 — My Reflection</strong></td>
+                    <td>Orisinalitas 5, Keterlibatan 5, Keautentikan 5, Insight 5 → <strong>Total 20/20 (100%)</strong></td>
+                    <td>Menunjukkan refleksi mendalam terhadap proses pembelajaran dengan perspektif kritis.</td>
+                    <td><span class="highlight">Tambahkan contoh konkret perubahan diri setelah proses UTS sebelumnya.</span></td>
+                    <td><em>Sangat Baik — Reflektif, terukur, dan menunjukkan pertumbuhan pribadi yang jelas.</em></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- ====== End Tabel Hasil Penilaian UTS ====== -->
 
-                    <div class="stats">
-                        <div class="stat-item" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="200"
-                            onclick="showProjects()">
-                            <h3>50+</h3>
-                            <p>Projects Completed</p>
-                        </div>
-                        <div class="stat-item" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="400"
-                            onclick="showExperience()">
-                            <h3>3+</h3>
-                            <p>Years Experience</p>
-                        </div>
-                        <div class="stat-item" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="600"
-                            onclick="showClients()">
-                            <h3>20+</h3>
-                            <p>Happy Clients</p>
-                        </div>
-                        <div class="stat-item" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="800"
-                            onclick="showAwards()">
-                            <h3>15+</h3>
-                            <p>Awards Won</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- Link ke library animasi AOS -->
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
