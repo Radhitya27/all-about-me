@@ -1,0 +1,420 @@
+<!-- Subscribe Tamzidan Madiyin di YouTube -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <title>UAS-5 My Professional Reviews</title>
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            width: 100%;
+            min-height: 100vh;
+            background-image: url("./img/Background2.jpeg");
+            background-size: cover;
+            background-position: center;
+            overflow-x: hidden;
+            position: relative;
+            color: white;
+        }
+
+        nav {
+            width: 100%;
+            height: 10vh;
+            position: sticky;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: rgb(58, 211, 3);
+            text-shadow: 0 0 10px rgb(58, 211, 3);
+        }
+
+        .links a {
+            font-size: 1.2rem;
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 500;
+            transition: 0.3s linear;
+        }
+
+        .links a:hover,
+        .links .active {
+            color: rgb(58, 211, 3);
+            border-bottom: 2px solid rgb(58, 211, 3);
+        }
+
+        .content-container {
+            width: 100%;
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .content-wrapper {
+            width: 95%;
+            max-width: 1400px;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, rgba(58, 211, 3, 0.2) 0%, rgba(58, 211, 3, 0.1) 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid rgb(58, 211, 3);
+        }
+
+        .header-section h1 {
+            color: rgb(58, 211, 3);
+            font-size: 2.8rem;
+            text-shadow: 0 0 15px rgb(58, 211, 3);
+            margin-bottom: 0.5rem;
+        }
+
+        .header-section p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .review-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(58, 211, 3, 0.3);
+        }
+
+        .review-table thead {
+            background: linear-gradient(135deg, rgba(58, 211, 3, 0.4) 0%, rgba(58, 211, 3, 0.2) 100%);
+        }
+
+        .review-table th {
+            padding: 1.5rem 1rem;
+            text-align: left;
+            font-weight: 600;
+            color: rgb(58, 211, 3);
+            font-size: 1.1rem;
+            border-bottom: 2px solid rgb(58, 211, 3);
+            text-shadow: 0 0 10px rgba(58, 211, 3, 0.5);
+        }
+
+        .review-table td {
+            padding: 1.5rem 1rem;
+            border-bottom: 1px solid rgba(58, 211, 3, 0.2);
+            line-height: 1.6;
+            vertical-align: top;
+        }
+
+        .review-table tbody tr {
+            transition: all 0.3s ease;
+        }
+
+        .review-table tbody tr:hover {
+            background: rgba(58, 211, 3, 0.1);
+            box-shadow: 0 0 20px rgba(58, 211, 3, 0.2);
+        }
+
+        .uas-title {
+            font-weight: 700;
+            color: rgb(58, 211, 3);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .score-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgb(58, 211, 3) 0%, rgba(58, 211, 3, 0.7) 100%);
+            color: #000;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 0 15px rgba(58, 211, 3, 0.5);
+            margin-bottom: 0.5rem;
+        }
+
+        .rating-text {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 0.3rem;
+        }
+
+        .summary-section {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(58, 211, 3, 0.15) 0%, rgba(58, 211, 3, 0.05) 100%);
+            border: 2px solid rgba(58, 211, 3, 0.4);
+            border-radius: 15px;
+        }
+
+        .summary-section h2 {
+            color: rgb(58, 211, 3);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px rgba(58, 211, 3, 0.5);
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .summary-card {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid rgba(58, 211, 3, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .summary-card:hover {
+            border-color: rgb(58, 211, 3);
+            box-shadow: 0 0 20px rgba(58, 211, 3, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .summary-card h3 {
+            color: rgb(58, 211, 3);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .summary-card .score {
+            font-size: 2rem;
+            font-weight: bold;
+            color: rgb(58, 211, 3);
+            text-shadow: 0 0 10px rgb(58, 211, 3);
+        }
+
+        @media (max-width: 884px) {
+            .header-section h1 {
+                font-size: 2rem;
+            }
+
+            .review-table {
+                display: block;
+                overflow-x: auto;
+            }
+
+            .review-table th,
+            .review-table td {
+                padding: 1rem 0.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">Portfolio Asesmen<span> II-2100 KIPP</span></div>
+            <div class="links">
+                <a href="index.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">Home</a>
+                <a href="UTS-1 All About Me.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">UTS-1</a>
+                <a href="UTS-2 Songs for you.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">UTS-2</a>
+                <a href="UTS-3 My Stories for You.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">UTS-3</a>
+                <a href="UTS-4 My Shape.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">UTS-4</a>
+                <a href="UTS-5 My Personal Review.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">UTS-5</a>
+                <a href="UAS-1 My Concepts.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700">UAS-1</a>
+                <a href="UAS-2 My Opinions.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="800">UAS-2</a>
+                <a href="UAS-3 My Innovations.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="900">UAS-3</a>
+                <a href="UAS-4 My Knowledge.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1000">UAS-4</a>
+                <a href="UAS-5 My Professional Reviews.html" class="active" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1100">UAS-5</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content-container">
+        <div class="content-wrapper">
+            <div class="header-section" data-aos="fade-down" data-aos-duration="1500">
+                <h1>⭐ My Professional Reviews</h1>
+                <p>Evaluasi Komprehensif dari Setiap UAS yang Telah Dikerjakan</p>
+            </div>
+
+            <div data-aos="fade-up" data-aos-duration="1500">
+                <table class="review-table">
+                    <thead>
+                        <tr>
+                            <th>UAS</th>
+                            <th>Skor per Kriteria</th>
+                            <th>Alasan Singkat</th>
+                            <th>Saran Perbaikan</th>
+                            <th>Interpretasi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
+                            <td>
+                                <div class="uas-title">UAS 1 — The Semantic Mycelium</div>
+                            </td>
+                            <td>
+                                <div class="score-badge">Via 5</div>
+                                <div class="rating-text">Metafora 5, Struktur 4, Empati 5 — <strong>Rata-rata 4.87</strong></div>
+                            </td>
+                            <td>
+                                Penggunaan metafora miselium sangat kuat dalam menjelaskan konseksi yang organik.
+                            </td>
+                            <td>
+                                Bisa ditambahkan contoh studi kasus air sederhana yang menghubungkan konsep. Hati-Pikiran-Tenaga secara visual agar lebih powerful.
+                            </td>
+                            <td>
+                                <strong>Sangat Baik</strong> — Visioner dan mampu menyedehanakan ide yang kompleks.
+                            </td>
+                        </tr>
+
+                        <tr data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
+                            <td>
+                                <div class="uas-title">UAS 2 — Cognitive Sovereignty</div>
+                            </td>
+                            <td>
+                                <div class="score-badge">Logika 5</div>
+                                <div class="rating-text">Kedalaman 5, Relevansi 4, Originalitas 5 — <strong>Rata-rata 4.75</strong></div>
+                            </td>
+                            <td>
+                                Opini yang berani mengenai literasi sebagai 'perjuangan sosial' di era AI menunjukkan kedalaman.
+                            </td>
+                            <td>
+                                Tambahkan referensi studi kasus nyata tentang masyarakat yang berhasil dari algoritma kasus nyata tentang literasi.
+                            </td>
+                            <td>
+                                <strong>Sangat Baik</strong> — Reflektif dengan kepekaan yang jelas pada isu masyarakat manusia.
+                            </td>
+                        </tr>
+
+                        <tr data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
+                            <td>
+                                <div class="uas-title">UAS 3 — Digital Innovation</div>
+                            </td>
+                            <td>
+                                <div class="score-badge">Inovasi 5</div>
+                                <div class="rating-text">Kelayakan 4, Keberanian 5, Narasi 5 — <strong>Rata-rata 5.0</strong></div>
+                            </td>
+                            <td>
+                                Lompatan dari "konsep" menjadi "Teater Kedaulatan" menunjukkan kejelian.
+                            </td>
+                            <td>
+                                Gunakan konografik yang konsisten untuk 5 Aliran Vitalitas agar lebih menemukan.
+                            </td>
+                            <td>
+                                <strong>Sempurna</strong> — Solusi teknis yang komprehensif, optimal, dan sangat siap untuk diimplementasi.
+                            </td>
+                        </tr>
+
+                        <tr data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">
+                            <td>
+                                <div class="uas-title">UAS 4 — KINESIS Methodology</div>
+                            </td>
+                            <td>
+                                <div class="score-badge">Metodologi 5</div>
+                                <div class="rating-text">Praktis 5, Rigoritas 4.5 — <strong>Rata-rata 4.87</strong></div>
+                            </td>
+                            <td>
+                                Protokol pemicu agensi adalah solusi radikal yang jenius untuk mencegah ketergantungan AI.
+                            </td>
+                            <td>
+                                Simulasikan mockup chat antara AI dan pengguna dalam bentuk etika.
+                            </td>
+                            <td>
+                                <strong>Sangat Baik</strong> — Kedalaman pemikiran seorang insinyur sistem yang menjauhkan AI.
+                            </td>
+                        </tr>
+
+                        <tr data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">
+                            <td>
+                                <div class="uas-title">UAS 5 — Synthesis Review</div>
+                            </td>
+                            <td>
+                                <div class="score-badge">Akurasi 5</div>
+                                <div class="rating-text">Objektivitas 5, Konsistensi 5, Pentartian 5 — <strong>Rata-rata 4.6</strong></div>
+                            </td>
+                            <td>
+                                Mampu mengurai satu konteks dengan koheren dari narasi yang kompleks serta bagaimana seluruh UAS ini membentuk profitma.
+                            </td>
+                            <td>
+                                Berikan kesinambungan keterampilan di bagaimana seluruh UAS ini membentuk portofolio dengan solid.
+                            </td>
+                            <td>
+                                <strong>Sangat Baik</strong> — Analisis dan mensintesis informasi portofolio dengan solid.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="summary-section" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">
+                <h2>📊 Ringkasan Penilaian</h2>
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <h3>Rata-rata Keseluruhan</h3>
+                        <div class="score">4.82 / 5.0</div>
+                        <p style="margin-top: 0.5rem; opacity: 0.9;">Performa sangat baik di semua aspek</p>
+                    </div>
+                    <div class="summary-card">
+                        <h3>Aspek Terkuat</h3>
+                        <div class="score">Inovasi</div>
+                        <p style="margin-top: 0.5rem; opacity: 0.9;">UAS 3 mencapai skor sempurna 5.0</p>
+                    </div>
+                    <div class="summary-card">
+                        <h3>Area Pengembangan</h3>
+                        <div class="score">Visualisasi</div>
+                        <p style="margin-top: 0.5rem; opacity: 0.9;">Tambahkan lebih banyak studi kasus visual</p>
+                    </div>
+                    <div class="summary-card">
+                        <h3>Kesimpulan</h3>
+                        <div class="score">Excellent</div>
+                        <p style="margin-top: 0.5rem; opacity: 0.9;">Portfolio komprehensif dan matang</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
+<!-- Subscribe Tamzidan Madiyin di YouTube -->

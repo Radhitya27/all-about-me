@@ -1,0 +1,453 @@
+<!-- Subscribe Tamzidan Madiyin di YouTube -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <title>UAS-2 My Opinions</title>
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            width: 100%;
+            min-height: 100vh;
+            background-image: url("./img/Background2.jpeg");
+            background-size: cover;
+            background-position: center;
+            overflow-x: hidden;
+            position: relative;
+            color: white;
+        }
+
+        nav {
+            width: 100%;
+            height: 10vh;
+            position: sticky;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: rgb(58, 211, 3);
+            text-shadow: 0 0 10px rgb(58, 211, 3);
+        }
+
+        .links a {
+            font-size: 1.2rem;
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 500;
+            transition: 0.3s linear;
+        }
+
+        .links a:hover,
+        .links .active {
+            color: rgb(58, 211, 3);
+            border-bottom: 2px solid rgb(58, 211, 3);
+        }
+
+        .content-container {
+            width: 100%;
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .content-wrapper {
+            width: 90%;
+            max-width: 1100px;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header-section h1 {
+            color: rgb(58, 211, 3);
+            font-size: 2.8rem;
+            text-shadow: 0 0 15px rgb(58, 211, 3);
+            margin-bottom: 1rem;
+        }
+
+        .header-section .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .intro-text {
+            background: rgba(58, 211, 3, 0.1);
+            border-left: 4px solid rgb(58, 211, 3);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .opinion-card {
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(58, 211, 3, 0.3);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .opinion-card:hover {
+            border-color: rgb(58, 211, 3);
+            box-shadow: 0 0 25px rgba(58, 211, 3, 0.4);
+        }
+
+        .opinion-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .opinion-title {
+            color: rgb(58, 211, 3);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 10px rgba(58, 211, 3, 0.5);
+        }
+
+        .opinion-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-label {
+            color: rgb(58, 211, 3);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-text {
+            line-height: 1.8;
+            opacity: 0.9;
+            margin-left: 2rem;
+        }
+
+        .quote-box {
+            background: rgba(58, 211, 3, 0.15);
+            border: 2px solid rgb(58, 211, 3);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        .quote-box::before {
+            content: '"';
+            font-size: 4rem;
+            color: rgba(58, 211, 3, 0.3);
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-family: Georgia, serif;
+        }
+
+        .quote-text {
+            font-size: 1.3rem;
+            font-style: italic;
+            line-height: 1.7;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .highlight {
+            background: rgba(58, 211, 3, 0.2);
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+
+        .opinion-image-wrapper {
+            position: relative;
+            margin-bottom: 2rem;
+            padding: 10px;
+            background: linear-gradient(135deg, rgba(58, 211, 3, 0.15) 0%, rgba(58, 211, 3, 0.05) 100%);
+            border-radius: 20px;
+            border: 2px solid rgba(58, 211, 3, 0.4);
+            box-shadow: 
+                0 0 20px rgba(58, 211, 3, 0.4),
+                inset 0 0 15px rgba(58, 211, 3, 0.1);
+            animation: imageGlow 3s ease-in-out infinite;
+        }
+
+        .opinion-image-wrapper img {
+            width: 100%;
+            border-radius: 15px;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .opinion-image-wrapper:hover img {
+            transform: scale(1.03);
+        }
+
+        .opinion-image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg, 
+                transparent 0%, 
+                rgba(58, 211, 3, 0.3) 25%, 
+                transparent 50%, 
+                rgba(58, 211, 3, 0.3) 75%, 
+                transparent 100%);
+            border-radius: 22px;
+            z-index: -1;
+            animation: borderShine 3s linear infinite;
+        }
+
+        @keyframes imageGlow {
+            0%, 100% {
+                box-shadow: 
+                    0 0 20px rgba(58, 211, 3, 0.4),
+                    inset 0 0 15px rgba(58, 211, 3, 0.1);
+            }
+            50% {
+                box-shadow: 
+                    0 0 30px rgba(58, 211, 3, 0.6),
+                    inset 0 0 25px rgba(58, 211, 3, 0.2);
+            }
+        }
+
+        @keyframes borderShine {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media (max-width: 884px) {
+            .header-section h1 {
+                font-size: 2rem;
+            }
+
+            .opinion-card {
+                padding: 1.5rem;
+            }
+
+            .section-text {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">Portfolio Asesmen<span> II-2100 KIPP</span></div>
+            <div class="links">
+                <a href="index.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">Home</a>
+                <a href="UTS-1 All About Me.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">UTS-1</a>
+                <a href="UTS-2 Songs for you.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">UTS-2</a>
+                <a href="UTS-3 My Stories for You.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">UTS-3</a>
+                <a href="UTS-4 My Shape.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">UTS-4</a>
+                <a href="UTS-5 My Personal Review.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">UTS-5</a>
+                <a href="UAS-1 My Concepts.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700">UAS-1</a>
+                <a href="UAS-2 My Opinions.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="800">UAS-2</a>
+                <a href="UAS-3 My Innovations.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="900">UAS-3</a>
+                <a href="UAS-4 My Knowledge.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1000">UAS-4</a>
+                <a href="UAS-5 My Professional Reviews.html" class="active" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1100">UAS-5</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content-container">
+        <div class="content-wrapper">
+            <div class="header-section" data-aos="fade-down" data-aos-duration="1500">
+                <h1>🚀 My Opinions</h1>
+                <p class="subtitle">Mengembalikan "Pena" ke Tangan Manusia di Era Otomasi</p>
+            </div>
+
+            <div class="intro-text" data-aos="fade-up" data-aos-duration="1500">
+                Di dunia yang semakin dikendalikan oleh algoritma, saya percaya bahwa literasi bukan lagi sekadar kemampuan mengeja, 
+                melainkan sebuah <span class="highlight">Kedaulatan Kognitif</span>. Inilah gagasan saya tentang bagaimana kita harus memandang pendidikan, teknologi, dan kemanusiaan.
+            </div>
+
+            <div class="opinion-card" data-aos="fade-right" data-aos-duration="1500">
+                <span class="opinion-icon">✍️</span>
+                <h2 class="opinion-title">Literasi: Tiket Utama Menjadi "Penulis" Kehidupan</h2>
+                
+                <div class="opinion-image-wrapper">
+                    <img src="img/Materi 1 - UAS 2.png" alt="Literasi sebagai Kedaulatan">
+                </div>
+                
+                <div class="opinion-section">
+                    <p class="section-text">
+                        Di era AI, saat mesin bisa membaca jutaan data dalam sekejap, mereka yang buta huruf berisiko kehilangan 
+                        hak suaranya dalam "kontrak sosial" digital.
+                    </p>
+                </div>
+
+                <div class="opinion-section">
+                    <div class="section-label">💡 Pandangan Saya:</div>
+                    <p class="section-text">
+                        Literasi adalah fondasi agar kita tetap menjadi <span class="highlight">Protagonis</span> dalam cerita kita sendiri.
+                    </p>
+                </div>
+
+                <div class="opinion-section">
+                    <div class="section-label">⚠️ Risikonya:</div>
+                    <p class="section-text">
+                        Tanpa literasi, dunia akan terbagi dua: mereka yang mengarahkan algoritma, dan mereka yang hanya menjadi objek yang diarahkan 
+                        oleh algoritma. Saya ingin memastikan semua orang punya "pena" untuk menulis masa depannya.
+                    </p>
+                </div>
+            </div>
+
+            <div class="opinion-card" data-aos="fade-left" data-aos-duration="1500">
+                <span class="opinion-icon">🏫</span>
+                <h2 class="opinion-title">Sekolah Bukan Penjara Teori, Tapi Lab Solusi Nyata</h2>
+                
+                <div class="opinion-image-wrapper">
+                    <img src="img/Materi 2 - UAS 2.png" alt="Sekolah sebagai Lab Solusi">
+                </div>
+                
+                <div class="opinion-section">
+                    <p class="section-text">
+                        Sistem pendidikan kita sering kali terjebak dalam hafalan fakta yang sebenarnya sudah bisa dicari di Google dalam satu detik.
+                    </p>
+                </div>
+
+                <div class="opinion-section">
+                    <div class="section-label">🎯 Visi Saya:</div>
+                    <p class="section-text">
+                        Ruang kelas harus berevolusi menjadi <span class="highlight">Simulasi Dunia Nyata</span>.
+                    </p>
+                </div>
+
+                <div class="opinion-section">
+                    <div class="section-label">⚡ Energon Kita:</div>
+                    <p class="section-text">
+                        Saya ingin setiap pelajar menginvestasikan Energon mereka—waktu, fokus, dan kreativitas—untuk menciptakan solusi nyata bagi 
+                        komunitas mereka. Belajar membaca bukan hanya untuk ujian, tapi untuk bisa "menawarkan solusi" bagi masalah di sekitar kita.
+                    </p>
+                </div>
+            </div>
+
+            <div class="opinion-card" data-aos="fade-right" data-aos-duration="1500">
+                <span class="opinion-icon">❤️</span>
+                <h2 class="opinion-title">Nilai Sejati Ada pada Perjuangan, Bukan Angka</h2>
+                
+                <div class="opinion-image-wrapper">
+                    <img src="img/Materi 3 - UAS 2.png" alt="Nilai Perjuangan">
+                </div>
+                
+                <div class="opinion-section">
+                    <p class="section-text">
+                        Di masa depan, nilai (IPK/Grade) akan kehilangan maknanya jika hanya mengukur hasil akhir yang bisa dikerjakan AI.
+                    </p>
+                </div>
+
+                <div class="opinion-section">
+                    <div class="section-label">📚 Portofolio Mental:</div>
+                    <p class="section-text">
+                        Kekayaan intelektual seseorang harusnya diukur dari prosesnya—bagaimana mereka bangkit dari kegagalan dan mendokumentasikan 
+                        proses mentalnya (<span class="highlight">Penalaran Otobiografis</span>).
+                    </p>
+                </div>
+
+                <div class="opinion-section">
+                    <div class="section-label">🌟 Contoh Nyata:</div>
+                    <p class="section-text">
+                        Bagi saya, perjuangan seorang ibu di desa yang belajar membaca demi memahami resep obat anaknya adalah sebuah 
+                        <span class="highlight">Mahakarya</span> yang jauh lebih bernilai daripada deretan angka di atas kertas ujian.
+                    </p>
+                </div>
+            </div>
+
+            <div class="opinion-card" data-aos="fade-left" data-aos-duration="1500">
+                <span class="opinion-icon">🛠️</span>
+                <h2 class="opinion-title">Insinyur: Membangun Teknologi yang "Memintarkan"</h2>
+                
+                <div class="opinion-image-wrapper">
+                    <img src="img/Materi 4 - UAS 2.png" alt="Teknologi yang Memintarkan">
+                </div>
+                
+                <div class="opinion-section">
+                    <p class="section-text">
+                        Sebagai calon insinyur, tugas saya bukan cuma membuat sistem yang "pintar", tapi sistem yang "memintarkan" penggunanya.
+                    </p>
+                </div>
+
+                <div class="opinion-section">
+                    <div class="section-label">🎓 Misi Luhur:</div>
+                    <p class="section-text">
+                        Rekayasa Sistem Informasi harus memiliki misi untuk memberikan kekuatan (agensi) kembali kepada manusia.
+                    </p>
+                </div>
+
+                <div class="opinion-section">
+                    <div class="section-label">💡 Inovasi Sejati:</div>
+                    <p class="section-text">
+                        Inovasi terbaik adalah ketika teknologi "menghilang" ke latar belakang, dan yang tersisa adalah manusia yang berdaya, 
+                        mandiri, dan mampu menyelesaikan masalahnya dengan penuh martabat.
+                    </p>
+                </div>
+            </div>
+
+            <div class="quote-box" data-aos="zoom-in" data-aos-duration="1500">
+                <p class="quote-text">
+                    Mahakarya sesungguhnya adalah ketika teknologi membuat manusia tidak lagi menjadi figuran dalam sejarah, 
+                    melainkan aktor utama yang memegang kendali penuh.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
+<!-- Subscribe Tamzidan Madiyin di YouTube -->

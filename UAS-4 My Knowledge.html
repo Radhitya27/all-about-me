@@ -1,0 +1,615 @@
+<!-- Subscribe Tamzidan Madiyin di YouTube -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <title>UAS-4 My Knowledge - KINESIS</title>
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            width: 100%;
+            min-height: 100vh;
+            background-image: url("./img/Background2.jpeg");
+            background-size: cover;
+            background-position: center;
+            overflow-x: hidden;
+            position: relative;
+            color: white;
+        }
+
+        nav {
+            width: 100%;
+            height: 10vh;
+            position: sticky;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: rgb(58, 211, 3);
+            text-shadow: 0 0 10px rgb(58, 211, 3);
+        }
+
+        .links a {
+            font-size: 1.2rem;
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 500;
+            transition: 0.3s linear;
+        }
+
+        .links a:hover,
+        .links .active {
+            color: rgb(58, 211, 3);
+            border-bottom: 2px solid rgb(58, 211, 3);
+        }
+
+        .content-container {
+            width: 100%;
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .content-wrapper {
+            width: 90%;
+            max-width: 1200px;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+        }
+
+        .main-header {
+            background: linear-gradient(135deg, rgba(58, 211, 3, 0.3) 0%, rgba(58, 211, 3, 0.1) 100%);
+            border: 3px solid rgb(58, 211, 3);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .main-header h1 {
+            color: rgb(58, 211, 3);
+            font-size: 3rem;
+            text-shadow: 0 0 20px rgb(58, 211, 3);
+            margin-bottom: 1rem;
+        }
+
+        .main-header .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+
+        .paradox-box {
+            background: rgba(58, 211, 3, 0.15);
+            border: 2px solid rgb(58, 211, 3);
+            border-left: 6px solid rgb(58, 211, 3);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 3rem;
+        }
+
+        .paradox-box h2 {
+            color: rgb(58, 211, 3);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px rgba(58, 211, 3, 0.5);
+        }
+
+        .paradox-box p {
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .philosophy-box {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid rgba(58, 211, 3, 0.5);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .philosophy-box h3 {
+            color: rgb(58, 211, 3);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .philosophy-box p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, rgba(58, 211, 3, 0.3) 0%, rgba(58, 211, 3, 0.1) 100%);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            border: 2px solid rgb(58, 211, 3);
+        }
+
+        .section-header h2 {
+            color: rgb(58, 211, 3);
+            font-size: 2rem;
+            text-shadow: 0 0 10px rgba(58, 211, 3, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .map-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .map-card {
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(58, 211, 3, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .map-card:hover {
+            border-color: rgb(58, 211, 3);
+            box-shadow: 0 0 25px rgba(58, 211, 3, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .map-card h3 {
+            color: rgb(58, 211, 3);
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(58, 211, 3, 0.3);
+        }
+
+        .map-card h4 {
+            color: rgb(58, 211, 3);
+            font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
+            opacity: 0.9;
+        }
+
+        .map-card p {
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        .cycle-section {
+            background: rgba(58, 211, 3, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+
+        .cycle-section h3 {
+            color: rgb(58, 211, 3);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .cycle-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cycle-step {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid rgba(58, 211, 3, 0.3);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .cycle-step:hover {
+            border-color: rgb(58, 211, 3);
+            transform: scale(1.05);
+        }
+
+        .step-arrow {
+            font-size: 2rem;
+            color: rgb(58, 211, 3);
+            margin-bottom: 0.5rem;
+        }
+
+        .step-label {
+            color: rgb(58, 211, 3);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-desc {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .protocol-box {
+            background: linear-gradient(135deg, rgba(58, 211, 3, 0.2) 0%, rgba(58, 211, 3, 0.05) 100%);
+            border: 3px solid rgb(58, 211, 3);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        .protocol-box h2 {
+            color: rgb(58, 211, 3);
+            font-size: 2.5rem;
+            text-shadow: 0 0 15px rgb(58, 211, 3);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .protocol-content {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .protocol-content h3 {
+            color: rgb(58, 211, 3);
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .protocol-content p {
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .example-box {
+            background: rgba(58, 211, 3, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+        }
+
+        .example-box h4 {
+            color: rgb(58, 211, 3);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .dialogue {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 1rem;
+            border-left: 4px solid rgb(58, 211, 3);
+            border-radius: 8px;
+            margin: 0.5rem 0;
+            font-style: italic;
+        }
+
+        .dialogue strong {
+            color: rgb(58, 211, 3);
+        }
+
+        .purpose-text {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(58, 211, 3, 0.15);
+            border-radius: 10px;
+        }
+
+        .method-image-container {
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .method-image-wrapper {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, rgba(58, 211, 3, 0.2) 0%, rgba(58, 211, 3, 0.05) 100%);
+            border-radius: 20px;
+            border: 3px solid rgb(58, 211, 3);
+            box-shadow: 
+                0 0 25px rgba(58, 211, 3, 0.6),
+                0 0 50px rgba(58, 211, 3, 0.4),
+                inset 0 0 15px rgba(58, 211, 3, 0.1);
+            animation: methodGlow 3s ease-in-out infinite;
+        }
+
+        .method-image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            background: linear-gradient(45deg, 
+                transparent 0%, 
+                rgba(58, 211, 3, 0.3) 25%, 
+                transparent 50%, 
+                rgba(58, 211, 3, 0.3) 75%, 
+                transparent 100%);
+            border-radius: 25px;
+            z-index: -1;
+            animation: borderSpin 4s linear infinite;
+        }
+
+        .method-image-wrapper img {
+            width: 100%;
+            border-radius: 15px;
+            display: block;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .method-image-wrapper:hover img {
+            transform: scale(1.02);
+        }
+
+        .method-image-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(58, 211, 3, 0.2) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            animation: methodPulse 2.5s ease-in-out infinite;
+        }
+
+        @keyframes methodGlow {
+            0%, 100% {
+                box-shadow: 
+                    0 0 25px rgba(58, 211, 3, 0.6),
+                    0 0 50px rgba(58, 211, 3, 0.4),
+                    inset 0 0 15px rgba(58, 211, 3, 0.1);
+            }
+            50% {
+                box-shadow: 
+                    0 0 35px rgba(58, 211, 3, 0.8),
+                    0 0 70px rgba(58, 211, 3, 0.6),
+                    inset 0 0 25px rgba(58, 211, 3, 0.2);
+            }
+        }
+
+        @keyframes borderSpin {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 200% 200%;
+            }
+        }
+
+        @keyframes methodPulse {
+            0%, 100% {
+                opacity: 0.3;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                opacity: 0.6;
+                transform: translate(-50%, -50%) scale(1.08);
+            }
+        }
+
+        @media (max-width: 884px) {
+            .main-header h1 {
+                font-size: 2rem;
+            }
+
+            .map-grid,
+            .cycle-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">Portfolio Asesmen<span> II-2100 KIPP</span></div>
+            <div class="links">
+                <a href="index.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">Home</a>
+                <a href="UTS-1 All About Me.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">UTS-1</a>
+                <a href="UTS-2 Songs for you.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">UTS-2</a>
+                <a href="UTS-3 My Stories for You.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">UTS-3</a>
+                <a href="UTS-4 My Shape.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">UTS-4</a>
+                <a href="UTS-5 My Personal Review.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">UTS-5</a>
+                <a href="UAS-1 My Concepts.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700">UAS-1</a>
+                <a href="UAS-2 My Opinions.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="800">UAS-2</a>
+                <a href="UAS-3 My Innovations.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="900">UAS-3</a>
+                <a href="UAS-4 My Knowledge.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1000">UAS-4</a>
+                <a href="UAS-5 My Professional Reviews.html" class="active" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1100">UAS-5</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content-container">
+        <div class="content-wrapper">
+            <div class="main-header" data-aos="fade-down" data-aos-duration="1500">
+                <h1>🛠️ Metodologi KINESIS</h1>
+                <p class="subtitle">Knowledge Integration & Narrative Empowerment for Social Intelligent Systems</p>
+            </div>
+
+            <div class="paradox-box" data-aos="fade-up" data-aos-duration="1500">
+                <h2>Paradoks Literasi Digital</h2>
+                <p>
+                    <strong>Bagaimana cara kita memberikan teknologi AI yang super canggih kepada masyarakat tanpa membuat mereka "manja" 
+                    atau bergantung sepenuhnya pada mesin?</strong>
+                </p>
+                <p>
+                    Inilah yang saya sebut sebagai <strong>Paradoks Literasi Digital</strong>. Untuk menjawabnya, saya melahirkan 
+                    <strong>KINESIS</strong>.
+                </p>
+            </div>
+
+            <div class="philosophy-box" data-aos="zoom-in" data-aos-duration="1500">
+                <h3>Filosofi KINESIS</h3>
+                <p>
+                    AI bukan hadir untuk menggantikan pikiran manusia, melainkan sebagai "provokator" yang memicu setiap individu 
+                    untuk mengambil alih kedaulatan kognitif mereka sendiri.
+                </p>
+            </div>
+
+            <div class="section" data-aos="fade-right" data-aos-duration="1500">
+                <div class="section-header">
+                    <h2>🗺️ ISTA: Peta Navigasi Pengetahuan</h2>
+                </div>
+
+                <p style="line-height: 1.8; margin-bottom: 2rem;">
+                    Agar proses belajar tidak membingungkan, AETHER 2.0 membagi pengetahuan ke dalam struktur 
+                    <strong>ISTA (Implementasi, Sistem, Teknologi, Asas)</strong>. Kita membaginya menjadi dua zona utama:
+                </p>
+
+                <div class="map-grid">
+                    <div class="map-card">
+                        <h3>Peta Fondasi</h3>
+                        <h4>Asas & Teknologi</h4>
+                        <p>
+                            <strong>Fokus pada pemahaman "Mengapa".</strong><br>
+                            Pengguna belajar tentang konsep Energon (usaha mereka) dan bagaimana mesin merespons suara mereka.
+                        </p>
+                    </div>
+
+                    <div class="map-card">
+                        <h3>Peta Navigasi</h3>
+                        <h4>Sistem & Implementasi</h4>
+                        <p>
+                            <strong>Fokus pada "Aksi Nyata".</strong><br>
+                            Di sini, pengguna mulai merancang solusi untuk masalah di desa mereka sendiri, mengubah teori menjadi karya nyata.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" data-aos="fade-left" data-aos-duration="1500">
+                <div class="section-header">
+                    <h2>🔄 Siklus V-Adaptif: Belajar Secara Dinamis</h2>
+                </div>
+
+                <p style="line-height: 1.8; margin-bottom: 2rem;">
+                    Di AETHER 2.0, belajar tidak pernah berjalan lurus (linear). Kami menggunakan <strong>Siklus V-Adaptif</strong>:
+                </p>
+
+                <div class="cycle-section">
+                    <h3>Perjalanan Pembelajaran V-Adaptif</h3>
+                    <div class="cycle-steps">
+                        <div class="cycle-step">
+                            <div class="step-arrow">⬇️</div>
+                            <div class="step-label">Turun ke Dasar</div>
+                            <div class="step-desc">Dimulai dari masalah nyata di lapangan, lalu turun memahami prinsip dasarnya (Riset)</div>
+                        </div>
+
+                        <div class="cycle-step">
+                            <div class="step-arrow">⬆️</div>
+                            <div class="step-label">Naik ke Solusi</div>
+                            <div class="step-desc">Setelah paham dasarnya, kita naik lagi untuk membangun solusi sistemik yang tervalidasi</div>
+                        </div>
+                    </div>
+
+                    <div class="method-image-container" data-aos="zoom-in" data-aos-duration="1500">
+                        <div class="method-image-wrapper">
+                            <img src="img/UAS 4.png" alt="Siklus V-Adaptif KINESIS">
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background: rgba(58, 211, 3, 0.15); padding: 1.5rem; border-radius: 12px; margin-top: 1.5rem; border: 2px solid rgba(58, 211, 3, 0.3);">
+                    <h3 style="color: rgb(58, 211, 3); margin-bottom: 1rem;">Rantai Validasi</h3>
+                    <p style="line-height: 1.8;">
+                        Keberhasilan diukur lewat <strong>Rantai Validasi</strong>, di mana setiap lapisan (Asas hingga Implementasi) 
+                        harus punya bukti nyata. Bukan sekadar nilai di atas kertas, tapi hasil nyata seperti catatan niaga desa atau surat-surat penting.
+                    </p>
+                </div>
+            </div>
+
+            <div class="protocol-box" data-aos="zoom-in" data-aos-duration="1500">
+                <h2>🚨 Protokol Pemicu Agensi</h2>
+                <div class="protocol-content">
+                    <h3>AI yang Menantangmu!</h3>
+                    <p>
+                        Inilah bagian yang paling radikal dari desain saya: <strong>Agency Trigger Protocol</strong>.
+                    </p>
+                    <p>
+                        Biasanya, AI didesain untuk memberikan jawaban instan secepat mungkin. Namun, di AETHER 2.0, 
+                        sistem <strong>dilarang etis</strong> untuk memberikan jawaban langsung yang instan.
+                    </p>
+
+                    <div class="example-box">
+                        <h4>Contoh Dialog:</h4>
+                        <div class="dialogue">
+                            <strong>Warga:</strong> "Bagaimana cara menulis kata 'Sejahtera'?"
+                        </div>
+                        <div class="dialogue">
+                            <strong>AI tidak akan langsung menuliskannya.</strong> Sebaliknya, AI akan memberikan dorongan reflektif:<br><br>
+                            "Suaramu punya makna yang kuat. Kata apa yang paling menggambarkan perasaanmu saat ini? 
+                            Bagaimana caramu ingin dunia mengenal ceritamu?"
+                        </div>
+                    </div>
+
+                    <div class="purpose-text">
+                        <strong>Tujuannya?</strong> Memaksa pengguna untuk berpikir, merenung, dan akhirnya menjadi 
+                        <strong>Protagonis-Penulis</strong> atas transformasi mereka sendiri.
+                    </div>
+
+                    <p style="margin-top: 2rem; text-align: center; font-size: 1.2rem; font-weight: 600; color: rgb(58, 211, 3);">
+                        Di era AI, suara manusia harus tetap menjadi otoritas tertinggi. 🎯
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
+<!-- Subscribe Tamzidan Madiyin di YouTube -->

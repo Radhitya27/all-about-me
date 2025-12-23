@@ -1,0 +1,483 @@
+<!-- Subscribe Tamzidan Madiyin di YouTube -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <title>UAS-1 My Concepts - AETHER</title>
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            width: 100%;
+            min-height: 100vh;
+            background-image: url("./img/Background2.jpeg");
+            background-size: cover;
+            background-position: center;
+            overflow-x: hidden;
+            position: relative;
+            color: white;
+        }
+
+        nav {
+            width: 100%;
+            height: 10vh;
+            position: sticky;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: rgb(58, 211, 3);
+            text-shadow: 0 0 10px rgb(58, 211, 3);
+        }
+
+        .links a {
+            font-size: 1.2rem;
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 500;
+            transition: 0.3s linear;
+        }
+
+        .links a:hover,
+        .links .active {
+            color: rgb(58, 211, 3);
+            border-bottom: 2px solid rgb(58, 211, 3);
+        }
+
+        .content-container {
+            width: 100%;
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .content-wrapper {
+            width: 90%;
+            max-width: 1200px;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header-section h1 {
+            color: rgb(58, 211, 3);
+            font-size: 3rem;
+            text-shadow: 0 0 15px rgb(58, 211, 3);
+            margin-bottom: 1rem;
+        }
+
+        .header-section .subtitle {
+            font-size: 1.5rem;
+            color: rgb(58, 211, 3);
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-section .tagline {
+            opacity: 0.8;
+            font-style: italic;
+        }
+
+        .intro-box {
+            background: rgba(58, 211, 3, 0.1);
+            border-left: 4px solid rgb(58, 211, 3);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 3rem;
+        }
+
+        .intro-box p {
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: rgba(58, 211, 3, 0.15);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid rgba(58, 211, 3, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: rgb(58, 211, 3);
+            text-shadow: 0 0 10px rgb(58, 211, 3);
+        }
+
+        .stat-label {
+            margin-top: 0.5rem;
+            opacity: 0.8;
+        }
+
+        .pillars-section {
+            margin-top: 3rem;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .pillar-card {
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 2px solid rgba(58, 211, 3, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .pillar-card:hover {
+            border-color: rgb(58, 211, 3);
+            box-shadow: 0 0 20px rgba(58, 211, 3, 0.5);
+            transform: translateY(-5px);
+        }
+
+        .pillar-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .pillar-title {
+            color: rgb(58, 211, 3);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pillar-subtitle {
+            opacity: 0.8;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .pillar-content h4 {
+            color: rgb(58, 211, 3);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pillar-content p {
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(58, 211, 3, 0.2) 0%, rgba(58, 211, 3, 0.1) 100%);
+            border: 2px solid rgb(58, 211, 3);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .highlight-box h3 {
+            color: rgb(58, 211, 3);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 10px rgb(58, 211, 3);
+        }
+
+        .highlight-box p {
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .hero-image-container {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            display: inline-block;
+            padding: 15px;
+            background: linear-gradient(135deg, rgba(58, 211, 3, 0.2) 0%, rgba(58, 211, 3, 0.05) 100%);
+            border-radius: 25px;
+            border: 3px solid rgb(58, 211, 3);
+            box-shadow: 
+                0 0 30px rgba(58, 211, 3, 0.6),
+                0 0 60px rgba(58, 211, 3, 0.4),
+                inset 0 0 20px rgba(58, 211, 3, 0.1);
+            animation: glowPulse 3s ease-in-out infinite;
+        }
+
+        .hero-image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, 
+                transparent 0%, 
+                rgba(58, 211, 3, 0.3) 25%, 
+                transparent 50%, 
+                rgba(58, 211, 3, 0.3) 75%, 
+                transparent 100%);
+            border-radius: 30px;
+            z-index: -1;
+            animation: borderRotate 4s linear infinite;
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            max-width: 900px;
+            border-radius: 20px;
+            display: block;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image-wrapper:hover img {
+            transform: scale(1.02);
+        }
+
+        .hero-image-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(58, 211, 3, 0.2) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% {
+                box-shadow: 
+                    0 0 30px rgba(58, 211, 3, 0.6),
+                    0 0 60px rgba(58, 211, 3, 0.4),
+                    inset 0 0 20px rgba(58, 211, 3, 0.1);
+            }
+            50% {
+                box-shadow: 
+                    0 0 40px rgba(58, 211, 3, 0.8),
+                    0 0 80px rgba(58, 211, 3, 0.6),
+                    inset 0 0 30px rgba(58, 211, 3, 0.2);
+            }
+        }
+
+        @keyframes borderRotate {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 200% 200%;
+            }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                opacity: 0.3;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                opacity: 0.6;
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+        }
+
+        @media (max-width: 884px) {
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-section h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">Portfolio Asesmen<span> II-2100 KIPP</span></div>
+            <div class="links">
+                <a href="index.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">Home</a>
+                <a href="UTS-1 All About Me.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">UTS-1</a>
+                <a href="UTS-2 Songs for you.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">UTS-2</a>
+                <a href="UTS-3 My Stories for You.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">UTS-3</a>
+                <a href="UTS-4 My Shape.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">UTS-4</a>
+                <a href="UTS-5 My Personal Review.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">UTS-5</a>
+                <a href="UAS-1 My Concepts.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700">UAS-1</a>
+                <a href="UAS-2 My Opinions.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="800">UAS-2</a>
+                <a href="UAS-3 My Innovations.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="900">UAS-3</a>
+                <a href="UAS-4 My Knowledge.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1000">UAS-4</a>
+                <a href="UAS-5 My Professional Reviews.html" class="active" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1100">UAS-5</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content-container">
+        <div class="content-wrapper">
+            <div class="header-section" data-aos="fade-down" data-aos-duration="1500">
+                <h1>🌿 The Semantic Mycelium</h1>
+                <p class="subtitle">Menenun Masa Depan Literasi lewat AETHER</p>
+                <p class="tagline">Bukan Sekadar Teknologi, Tapi Ekosistem untuk Semua</p>
+            </div>
+
+            <div class="hero-image-container" data-aos="zoom-in" data-aos-duration="1500">
+                <div class="hero-image-wrapper">
+                    <img src="img/Cover - UAS 1.png" alt="AETHER Global Network">
+                </div>
+            </div>
+
+            <div class="intro-box" data-aos="fade-up" data-aos-duration="1500">
+                <p>
+                    <strong>Tahukah kamu?</strong> Ada sekitar 750 juta orang di dunia yang masih terisolasi karena buta huruf. 
+                    Untuk menjawab tantangan besar ini, lahirlah <strong>AETHER (Advanced Engineering for Technological & Human Educational Reform)</strong>.
+                </p>
+                <p>
+                    Terinspirasi dari jaringan miselium di alam—yang secara ajaib mendistribusikan nutrisi ke tempat yang paling membutuhkan—AETHER 
+                    hadir sebagai "jaringan pintar" yang menghubungkan setiap individu ke gudang pengetahuan global. Kami menyatukan tiga kekuatan utama 
+                    manusia: <strong>Hati, Pikiran, dan Tenaga</strong>, untuk menjadikan setiap orang sebagai tokoh utama dalam menulis masa depan mereka sendiri di era AI.
+                </p>
+            </div>
+
+            <div class="stats-grid" data-aos="fade-up" data-aos-duration="1500">
+                <div class="stat-card">
+                    <div class="stat-number">750M</div>
+                    <div class="stat-label">Orang Buta Huruf</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">8B</div>
+                    <div class="stat-label">Target Penduduk Bumi</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Pilar Utama</div>
+                </div>
+            </div>
+
+            <div class="pillars-section">
+                <div class="pillars-grid">
+                    <div class="pillar-card" data-aos="fade-right" data-aos-duration="1500">
+                        <span class="pillar-icon">❤️</span>
+                        <h3 class="pillar-title">Hati</h3>
+                        <p class="pillar-subtitle">Kompas Moral Kita (Homocordium)</p>
+                        <div class="pillar-content">
+                            <p>Di AETHER, teknologi dimulai dari hati. Kami menyebutnya <strong>Axiological Intelligence (AQ)</strong>—sebuah kecerdasan nilai. 
+                            Kami percaya bahwa literasi adalah hak dasar dan pondasi martabat manusia.</p>
+                            
+                            <h4>Misi:</h4>
+                            <p>Memastikan AI tidak hanya dikembangkan agar "pintar" secara teknis, tapi juga adil dan punya empati.</p>
+                            
+                            <h4>Filosofi:</h4>
+                            <p>Setiap baris kode dalam AETHER dibuat untuk menjawab satu pertanyaan penting: 
+                            <em>"Bagaimana teknologi ini bisa memanusiakan manusia?"</em></p>
+                        </div>
+                    </div>
+
+                    <div class="pillar-card" data-aos="fade-up" data-aos-duration="1500">
+                        <span class="pillar-icon">🧠</span>
+                        <h3 class="pillar-title">Pikiran</h3>
+                        <p class="pillar-subtitle">Kolaborasi Pintar Manusia & AI (Homodeus)</p>
+                        <div class="pillar-content">
+                            <p>Bayangkan AI yang bukan sekadar mesin, tapi seorang "Juru Tulis Cerdas" yang sangat pengertian. 
+                            Menggunakan teknologi <strong>Natural Language Processing (NLP)</strong>, AETHER belajar dari dialek dan cara berpikir lokal penggunanya.</p>
+                            
+                            <h4>Simbiosis Cantik:</h4>
+                            <p>AI bertugas mengolah data raksasa dan mengubah suara menjadi simbol visual (tulisan), 
+                            sementara kita sebagai manusia tetap memegang kendali lewat logika dan konteks budaya yang tak tergantikan.</p>
+                            
+                            <h4>Personal:</h4>
+                            <p>Gak ada lagi kurikulum kaku. Belajar jadi terasa seperti ngobrol bareng teman yang mengerti bahasa daerah kita!</p>
+                        </div>
+                    </div>
+
+                    <div class="pillar-card" data-aos="fade-left" data-aos-duration="1500">
+                        <span class="pillar-icon">⚡</span>
+                        <h3 class="pillar-title">Tenaga</h3>
+                        <p class="pillar-subtitle">Mesin Kebaikan yang Berkelanjutan (CORE Engine)</p>
+                        <div class="pillar-content">
+                            <p>Teknologi keren tidak boleh merusak bumi. Lewat <strong>CORE Engine</strong>, 
+                            AETHER mengelola energi planet dan kreativitas manusia dengan bijak.</p>
+                            
+                            <h4>Smart & Green:</h4>
+                            <p>Menggunakan kerangka kerja PSKVE, kami memastikan solusi yang kami tawarkan tidak hanya menumbuhkan ekonomi, 
+                            tapi juga ramah lingkungan dengan jejak karbon minimal.</p>
+                            
+                            <h4>Output:</h4>
+                            <p>Kita memberdayakan manusia hari ini tanpa harus "meminjam" masa depan generasi mendatang.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box" data-aos="zoom-in" data-aos-duration="1500">
+                <h3>✨ Mahakarya Kemanusiaan di Genggamanmu</h3>
+                <p>
+                    AETHER adalah bukti bahwa rekayasa sistem tercanggih adalah yang menempatkan manusia sebagai pusatnya. 
+                    Kami mengajak 8 miliar penduduk bumi untuk menyatukan Hati, memperkuat Pikiran, dan mengelola Tenaga secara berkelanjutan.
+                </p>
+                <p style="margin-top: 1rem; font-weight: 600;">
+                    Sebab di era kecerdasan buatan, mahakarya yang sesungguhnya bukanlah mesin yang bisa berpikir, 
+                    melainkan sistem yang memastikan setiap orang punya kemampuan untuk membaca dunia dan menuliskan sejarahnya sendiri. 🚀
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
+<!-- Subscribe Tamzidan Madiyin di YouTube -->
