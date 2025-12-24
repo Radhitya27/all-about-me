@@ -1,5 +1,3 @@
-<!-- Subscribe Tamzidan Madiyin di YouTube -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <title>UTS-3 My Stories for You</title>
     <style>
-        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
 
         * {
             padding: 0;
@@ -19,105 +18,223 @@
 
         body {
             width: 100%;
-            height: 100vh;
+            min-height: 100vh;
             background-image: url("./img/Background2.jpeg");
             background-size: cover;
-            overflow: auto;
+            overflow-x: hidden;
             position: relative;
+            color: white;
         }
 
+        /* ===== NAVBAR SAMA SEPERTI INDEX.HTML ===== */
         nav {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 10vh;
-            position: relative;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(58, 211, 3, 0.2);
             z-index: 1000;
+            padding: 1rem 0;
         }
 
-        .nav-container {
-            width: 100%;
-            height: 100%;
+        .nav-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
+            gap: 3rem;
         }
 
         .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
             color: white;
-            font-size: 2rem;
-            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgb(58, 211, 3), rgb(40, 180, 2));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(58, 211, 3, 0.5);
         }
 
         .logo span {
             color: rgb(58, 211, 3);
-            text-shadow: 0 0 10px rgb(58, 211, 3);
+            text-shadow: 0 0 10px rgba(58, 211, 3, 0.5);
         }
 
-        .hamburg, .cancel {
-            cursor: pointer;
-            position: absolute;
-            right: 15px;
-            top: 10px;
-            color: white;
-            display: none;
-            font-size: clamp(2.5rem, 0.5rem + 5vw, 3rem);
-        }
-
-        .nav-container .links {
+        .nav-menu {
             display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex: 1;
+            justify-content: flex-end;
         }
 
-        .nav-container .links a {
-            font-size: 1.2rem;
+        .nav-section {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.3rem 0.6rem;
+            background: rgba(30, 30, 30, 0.5);
+            border-radius: 12px;
+            border: 1px solid rgba(58, 211, 3, 0.1);
+        }
+
+        .nav-label {
+            font-size: 0.75rem;
+            color: rgb(58, 211, 3);
+            font-weight: 600;
+            padding: 0.3rem 0.6rem;
+            background: rgba(58, 211, 3, 0.1);
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-item {
+            padding: 0.5rem 0.9rem;
             color: white;
-            margin: 0 20px;
             text-decoration: none;
-            font-weight: 550;
-            transition: 0.3s linear;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .nav-container .links a:hover {
-            color: rgb(58, 211, 3);
-            border-bottom: 2px solid rgb(58, 211, 3);
+        .nav-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(58, 211, 3, 0.3), transparent);
+            transition: left 0.5s;
         }
 
-        .nav-container .links .active {
-            color: rgb(58, 211, 3);
-            border-bottom: 2px solid rgb(58, 211, 3);
+        .nav-item:hover::before {
+            left: 100%;
         }
 
-        .dropdown {
-            z-index: 1000;
+        .nav-item:hover {
+            background: rgba(58, 211, 3, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(58, 211, 3, 0.3);
+        }
+
+        .nav-item.active {
+            background: linear-gradient(135deg, rgba(58, 211, 3, 0.3), rgba(58, 211, 3, 0.15));
+            box-shadow: 0 0 20px rgba(58, 211, 3, 0.4);
+            font-weight: 600;
+        }
+
+        .nav-divider {
+            width: 2px;
+            height: 20px;
+            background: linear-gradient(180deg, transparent, rgb(58, 211, 3), transparent);
+            margin: 0 0.3rem;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: rgb(58, 211, 3);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu {
             position: fixed;
             top: 0;
-            left: 0;
-            right: 0;
-            transform: translateY(-500px);
+            right: -100%;
             width: 100%;
-            height: auto;
-            backdrop-filter: blur(4px) brightness(40%);
-            box-shadow: 0 0 20px black;
-            transition: 0.2s linear;
+            max-width: 400px;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 2rem;
+            transition: right 0.3s ease;
+            z-index: 2000;
+            overflow-y: auto;
         }
 
-        .dropdown .links a {
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-header {
             display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(58, 211, 3, 0.2);
+        }
+
+        .close-menu {
+            font-size: 2rem;
+            color: rgb(58, 211, 3);
+            cursor: pointer;
+        }
+
+        .mobile-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .mobile-category {
+            color: rgb(58, 211, 3);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin: 1rem 0 0.5rem;
+            opacity: 0.7;
+        }
+
+        .mobile-link {
+            padding: 1rem;
             color: white;
             text-decoration: none;
-            padding: 15px 0;
-            justify-content: center;
-            align-items: center;
-            transition: 0.2s linear;
+            border-radius: 12px;
+            background: rgba(30, 30, 30, 0.5);
+            border: 1px solid rgba(58, 211, 3, 0.1);
+            transition: all 0.3s ease;
         }
 
-        .dropdown .links a:hover {
-            background-color: rgb(58, 211, 3);
+        .mobile-link:hover,
+        .mobile-link.active {
+            background: rgba(58, 211, 3, 0.15);
+            border-color: rgb(58, 211, 3);
         }
 
-        /* ====== My Stories Section ====== */
+        /* ====== KONTEN (TIDAK BERUBAH) ====== */
         .stories-section {
             width: 80%;
             max-width: 900px;
-            margin: 6rem auto;
+            margin: 8rem auto 2rem;
             background: rgba(0, 0, 0, 0.65);
             backdrop-filter: blur(10px);
             padding: 3rem;
@@ -163,7 +280,6 @@
             text-align: justify;
         }
 
-        /* ====== Floating Shapes ====== */
         .floating-shape {
             position: fixed;
             width: 120px;
@@ -184,7 +300,6 @@
             50% { transform: translateY(-25px) scale(1.1); opacity: 1; }
         }
 
-        /* ====== Gradient Scroll Animation ====== */
         @keyframes gradientScroll {
             0% { background-position: 0% center; }
             100% { background-position: 200% center; }
@@ -194,47 +309,99 @@
             animation: gradientScroll 3s linear infinite;
         }
 
-        /* Responsive */
-        @media (max-width: 640px) {
-            .stories-section { width: 90%; padding: 2rem; }
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .stories-section { 
+                width: 90%; 
+                padding: 2rem; 
+                margin-top: 6rem;
+            }
             .gradient-title { font-size: 2rem; }
         }
     </style>
-    <title>UTS-3 My Stories for You</title>
 </head>
 <body>
-    <nav>
-        <div class="nav-container">
-            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
-                Portfolio Asesmen<span> II-2100 KIPP</span>
+    <!-- Navigation -->
+    <nav data-aos="fade-down">
+        <div class="nav-wrapper">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+                <span>Portfolio</span>
             </div>
-            <div class="links">
-                <a href="index.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">Home</a>
-                <a href="UTS-1 All About Me.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">UTS-1</a>
-                <a href="UTS-2 Songs for you.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">UTS-2</a>
-                <a href="UTS-3 My Stories for You.html" class="active"data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">UTS-3</a>
-                <a href="UTS-4 My Shape.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">UTS-4</a>
-                <a href="UTS-5 My Personal Review.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">UTS-5</a>
-                <a href="UAS-1 My Concepts.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700">UAS-1</a>
-                <a href="UAS-2 My Opinions.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="800">UAS-2</a>
-                <a href="UAS-3 My Innovations.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="900">UAS-3</a>
-                <a href="UAS-4 My Knowledge.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1000">UAS-4</a>
-                <a href="UAS-5 My Professional Reviews.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1100">UAS-5</a>
+
+            <div class="nav-menu">
+                <a href="index.html" class="nav-item">
+                    <i class="fa-solid fa-house"></i> Home
+                </a>
+
+                <div class="nav-divider"></div>
+
+                <div class="nav-section">
+                    <span class="nav-label">UTS</span>
+                    <a href="UTS-1 All About Me.html" class="nav-item">1</a>
+                    <a href="UTS-2 Songs for you.html" class="nav-item">2</a>
+                    <a href="UTS-3 My Stories for You.html" class="nav-item active">3</a>
+                    <a href="UTS-4 My Shape.html" class="nav-item">4</a>
+                    <a href="UTS-5 My Personal Review.html" class="nav-item">5</a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-label">UAS</span>
+                    <a href="UAS-1 My Concepts.html" class="nav-item">1</a>
+                    <a href="UAS-2 My Opinions.html" class="nav-item">2</a>
+                    <a href="UAS-3 My Innovations.html" class="nav-item">3</a>
+                    <a href="UAS-4 My Knowledge.html" class="nav-item">4</a>
+                    <a href="UAS-5 My Professional Reviews.html" class="nav-item">5</a>
+                </div>
             </div>
-        </div>
-        <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
-        <div class="dropdown">
-            <div class="links">
-                <a href="index.html">Home</a>
-                <a href="UTS-1 All About Me.html">UTS-1</a>
-                <a href="UTS-2 Songs for you.html">UTS-2</a>
-                <a href="UTS-3 My Stories for You.html">UTS-3</a>
-                <a href="UTS-4 My Shape.html">UTS-4</a>
-                <a href="UTS-5 My Personal Review.html">UTS-5</a>
-                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+                <span>Menu</span>
+            </div>
+            <i class="fa-solid fa-xmark close-menu" onclick="toggleMenu()"></i>
+        </div>
+
+        <div class="mobile-links">
+            <a href="index.html" class="mobile-link">🏠 Home</a>
+            
+            <div class="mobile-category">📚 UTS</div>
+            <a href="UTS-1 All About Me.html" class="mobile-link">UTS 1 - All About Me</a>
+            <a href="UTS-2 Songs for you.html" class="mobile-link">UTS 2 - Songs</a>
+            <a href="UTS-3 My Stories for You.html" class="mobile-link active">UTS 3 - Stories</a>
+            <a href="UTS-4 My Shape.html" class="mobile-link">UTS 4 - Shape</a>
+            <a href="UTS-5 My Personal Review.html" class="mobile-link">UTS 5 - Review</a>
+            
+            <div class="mobile-category">🎓 UAS</div>
+            <a href="UAS-1 My Concepts.html" class="mobile-link">UAS 1 - Concepts</a>
+            <a href="UAS-2 My Opinions.html" class="mobile-link">UAS 2 - Opinions</a>
+            <a href="UAS-3 My Innovations.html" class="mobile-link">UAS 3 - Innovations</a>
+            <a href="UAS-4 My Knowledge.html" class="mobile-link">UAS 4 - Knowledge</a>
+            <a href="UAS-5 My Professional Reviews.html" class="mobile-link">UAS 5 - Reviews</a>
+        </div>
+    </div>
 
     <!-- Floating Background -->
     <div class="floating-shape shape1"></div>
@@ -243,71 +410,77 @@
 
     <!-- My Stories Section -->
     <div class="stories-section" data-aos="fade-up">
-        <h1 class="gradient-title"> My Stories for You</h1>
-        <h3 class="story-subtitle">“Berproses Dari Masa Lalu” vs “Terbiasa Dari Masa Lalu”</h3>
+        <h1 class="gradient-title">My Stories for You</h1>
+        <h3 class="story-subtitle">"Berproses Dari Masa Lalu" vs "Terbiasa Dari Masa Lalu"</h3>
         <p class="story-author">Ditulis oleh Muhamad Radhitya Alamsyah</p>
 
         <div class="story-content">
-    <p>
-        Malam itu, selepas rapat besar pertamanya sebagai Dirjen Kementerian Kolaborasi Lembaga, di hadapan seratus lebih lembaga kampus, Alex berdiri dalam diam panjang. 
-        Di tengah riuh tepuk tangan dan canda lepas rekan-rekannya, ia justru memandangi layar laptop yang menampilkan daftar program kerja. 
-        Ia tahu, perjalanan baru saja dimulai — dan tanggung jawab bukan sekadar tentang jabatan, melainkan tentang menjaga kepercayaan.
-    </p>
+            <p>
+                Malam itu, selepas rapat besar pertamanya sebagai Dirjen Kementerian Kolaborasi Lembaga, di hadapan seratus lebih lembaga kampus, Alex berdiri dalam diam panjang. 
+                Di tengah riuh tepuk tangan dan canda lepas rekan-rekannya, ia justru memandangi layar laptop yang menampilkan daftar program kerja. 
+                Ia tahu, perjalanan baru saja dimulai — dan tanggung jawab bukan sekadar tentang jabatan, melainkan tentang menjaga kepercayaan.
+            </p>
 
-    <p>
-        Dalam hati, ia teringat masa lalu. Saat pertama kali gagal, saat banyak yang meragukan kemampuannya, saat setiap langkah terasa berat. 
-        Ia pernah menyesali semua itu. Tapi malam itu, di bawah cahaya lampu kampus yang temaram, ia justru tersenyum. 
-        Ia akhirnya paham, semua luka itu bukan untuk disesali, melainkan untuk dimaknai. 
-        Karena tanpa masa lalu yang keras, ia takkan pernah tumbuh sekuat hari ini.
-    </p>
+            <p>
+                Dalam hati, ia teringat masa lalu. Saat pertama kali gagal, saat banyak yang meragukan kemampuannya, saat setiap langkah terasa berat. 
+                Ia pernah menyesali semua itu. Tapi malam itu, di bawah cahaya lampu kampus yang temaram, ia justru tersenyum. 
+                Ia akhirnya paham, semua luka itu bukan untuk disesali, melainkan untuk dimaknai. 
+                Karena tanpa masa lalu yang keras, ia takkan pernah tumbuh sekuat hari ini.
+            </p>
 
-    <p>
-        Beberapa waktu kemudian, seorang teman bertanya, “Apakah kamu belajar dari masa lalu?” 
-        Alex menjawab pelan, “Aku tidak sekadar belajar... aku terbentuk oleh masa laluku.”  
-        Kalimat itu sederhana, tapi penuh makna — seperti cara semesta mendewasakan manusia tanpa perlu penjelasan panjang.
-    </p>
+            <p>
+                Beberapa waktu kemudian, seorang teman bertanya, "Apakah kamu belajar dari masa lalu?" 
+                Alex menjawab pelan, "Aku tidak sekadar belajar... aku terbentuk oleh masa laluku."  
+                Kalimat itu sederhana, tapi penuh makna — seperti cara semesta mendewasakan manusia tanpa perlu penjelasan panjang.
+            </p>
 
-    <hr style="border: none; border-top: 1px solid rgba(255,255,255,0.2); margin: 2rem 0;">
+            <hr style="border: none; border-top: 1px solid rgba(255,255,255,0.2); margin: 2rem 0;">
 
-    <p>
-        Hari berganti, proyek demi proyek berjalan. Ada yang sukses, ada yang gagal.  
-        Tapi kini, setiap kegagalan bukan lagi alasan untuk berhenti. Ia mulai menulis ulang kisah hidupnya, 
-        bukan sebagai seseorang yang sempurna, tapi sebagai seseorang yang terus belajar memperbaiki diri.
-    </p>
+            <p>
+                Hari berganti, proyek demi proyek berjalan. Ada yang sukses, ada yang gagal.  
+                Tapi kini, setiap kegagalan bukan lagi alasan untuk berhenti. Ia mulai menulis ulang kisah hidupnya, 
+                bukan sebagai seseorang yang sempurna, tapi sebagai seseorang yang terus belajar memperbaiki diri.
+            </p>
 
-    <p>
-        Ia mulai memahami bahwa menjadi “baik” tidak harus selalu benar, tapi harus selalu mau berubah.  
-        Dalam setiap kritik, ia menemukan arah baru; dalam setiap apresiasi, ia menemukan semangat untuk terus melangkah.
-    </p>
+            <p>
+                Ia mulai memahami bahwa menjadi "baik" tidak harus selalu benar, tapi harus selalu mau berubah.  
+                Dalam setiap kritik, ia menemukan arah baru; dalam setiap apresiasi, ia menemukan semangat untuk terus melangkah.
+            </p>
 
-    <hr style="border: none; border-top: 1px solid rgba(255,255,255,0.2); margin: 2rem 0;">
+            <hr style="border: none; border-top: 1px solid rgba(255,255,255,0.2); margin: 2rem 0;">
 
-    <p>
-        Kini, Alex menatap masa depan dengan pandangan berbeda.  
-        Ia tak lagi takut gagal, tak lagi bersembunyi di balik alasan, dan tak lagi mencari pembenaran.  
-        Ia hanya ingin terus berjalan — meski pelan, tapi pasti.  
-        Karena pada akhirnya, perjalanan ini bukan tentang siapa yang paling cepat sampai, melainkan siapa yang paling berani bertahan.
-    </p>
+            <p>
+                Kini, Alex menatap masa depan dengan pandangan berbeda.  
+                Ia tak lagi takut gagal, tak lagi bersembunyi di balik alasan, dan tak lagi mencari pembenaran.  
+                Ia hanya ingin terus berjalan — meski pelan, tapi pasti.  
+                Karena pada akhirnya, perjalanan ini bukan tentang siapa yang paling cepat sampai, melainkan siapa yang paling berani bertahan.
+            </p>
 
-    <p style="text-align:center; margin-top: 3rem; color:#9affd6; font-style: italic;">
-        “Terbentuk oleh masa lalu, berproses di masa kini, dan tumbuh untuk masa depan.”  
-        <br>– Muhamad Radhitya Alamsyah
-    </p>
-</div>
+            <p style="text-align:center; margin-top: 3rem; color:#9affd6; font-style: italic;">
+                "Terbentuk oleh masa lalu, berproses di masa kini, dan tumbuh untuk masa depan."  
+                <br>— Muhamad Radhitya Alamsyah
+            </p>
+        </div>
+    </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init({offset: 0});
 
-        function hamburg() {
-            document.querySelector(".dropdown").style.transform = "translateY(0px)";
+        function toggleMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
         }
 
-        function cancel() {
-            document.querySelector(".dropdown").style.transform = "translateY(-500px)";
-        }
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburger = document.querySelector('.hamburger');
+            
+            if (!mobileMenu.contains(event.target) && !hamburger.contains(event.target)) {
+                mobileMenu.classList.remove('active');
+            }
+        });
 
-        // Scroll gradient effect
         window.addEventListener('scroll', () => {
             const title = document.querySelector('.gradient-title');
             const rect = title.getBoundingClientRect();
@@ -320,5 +493,3 @@
     </script>
 </body>
 </html>
-
-<!-- Subscribe Tamzidan Madiyin di YouTube -->
