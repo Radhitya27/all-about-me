@@ -11,13 +11,13 @@
     <title>UAS-3 My Innovations - AETHER 2.0</title>
 
     <style>
-        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
         * {
             padding: 0;
             margin: 0;
-            font-family: "Poppins", sans-serif;
             box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
         }
 
         body {
@@ -25,387 +25,367 @@
             min-height: 100vh;
             background-image: url("./img/Background2.jpeg");
             background-size: cover;
+            background-position: center;
             overflow-x: hidden;
             position: relative;
             color: white;
         }
 
-        /* ===== NAVBAR SAMA SEPERTI INDEX.HTML ===== */
         nav {
-            position: fixed;
-            top: 0;
-            left: 0;
             width: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(58, 211, 3, 0.2);
+            height: 10vh;
+            position: sticky;
+            position: relative;
             z-index: 1000;
-            padding: 1rem 0;
         }
 
-        .nav-wrapper {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        .nav-container {
+            width: 100%;
+            height: 100%;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             align-items: center;
-            gap: 3rem;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
             color: white;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, rgb(58, 211, 3), rgb(40, 180, 2));
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 20px rgba(58, 211, 3, 0.5);
+            font-size: 2rem;
+            font-weight: bold;
         }
 
         .logo span {
             color: rgb(58, 211, 3);
+            text-shadow: 0 0 10px rgb(58, 211, 3);
+        }
+
+        .links a {
+            font-size: 1.2rem;
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 500;
+            transition: 0.3s linear;
+        }
+
+        .links a:hover,
+        .links .active {
+            color: rgb(58, 211, 3);
+            border-bottom: 2px solid rgb(58, 211, 3);
+        }
+
+        .content-container {
+            width: 100%;
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .content-wrapper {
+            width: 90%;
+            max-width: 1200px;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 3rem;
+            background: rgba(58, 211, 3, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid rgba(58, 211, 3, 0.3);
+        }
+
+        .header-section h1 {
+            color: rgb(58, 211, 3);
+            font-size: 3rem;
+            text-shadow: 0 0 15px rgb(58, 211, 3);
+            margin-bottom: 1rem;
+        }
+
+        .header-section .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+
+        .intro-box {
+            background: rgba(58, 211, 3, 0.1);
+            border-left: 4px solid rgb(58, 211, 3);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, rgba(58, 211, 3, 0.3) 0%, rgba(58, 211, 3, 0.1) 100%);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border: 2px solid rgba(58, 211, 3, 0.5);
+        }
+
+        .section-icon {
+            font-size: 2.5rem;
+        }
+
+        .section-title {
+            color: rgb(58, 211, 3);
+            font-size: 2rem;
             text-shadow: 0 0 10px rgba(58, 211, 3, 0.5);
         }
 
-        .nav-menu {
+        .flow-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .flow-item {
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(58, 211, 3, 0.3);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 15px;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            flex: 1;
-            justify-content: flex-end;
-        }
-
-        .nav-section {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            padding: 0.3rem 0.6rem;
-            background: rgba(30, 30, 30, 0.5);
-            border-radius: 12px;
-            border: 1px solid rgba(58, 211, 3, 0.1);
-        }
-
-        .nav-label {
-            font-size: 0.75rem;
-            color: rgb(58, 211, 3);
-            font-weight: 600;
-            padding: 0.3rem 0.6rem;
-            background: rgba(58, 211, 3, 0.1);
-            border-radius: 6px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .nav-item {
-            padding: 0.5rem 0.9rem;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 500;
+            gap: 1.5rem;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
         }
 
-        .nav-item::before {
+        .flow-item:hover {
+            border-color: rgb(58, 211, 3);
+            transform: translateX(10px);
+            box-shadow: 0 0 20px rgba(58, 211, 3, 0.3);
+        }
+
+        .flow-icon {
+            font-size: 2.5rem;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .flow-title {
+            color: rgb(58, 211, 3);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .flow-text {
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .cycle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .cycle-step {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid rgba(58, 211, 3, 0.3);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .cycle-step:hover {
+            border-color: rgb(58, 211, 3);
+            box-shadow: 0 0 20px rgba(58, 211, 3, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .cycle-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: rgb(58, 211, 3);
+            text-shadow: 0 0 10px rgb(58, 211, 3);
+            margin-bottom: 0.5rem;
+        }
+
+        .cycle-label {
+            color: rgb(58, 211, 3);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cycle-desc {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            line-height: 1.5;
+        }
+
+        .highlight-banner {
+            background: linear-gradient(135deg, rgba(58, 211, 3, 0.2) 0%, rgba(58, 211, 3, 0.1) 100%);
+            border: 3px solid rgb(58, 211, 3);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .highlight-banner h3 {
+            color: rgb(58, 211, 3);
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 15px rgb(58, 211, 3);
+        }
+
+        .highlight-banner p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .hero-image-container {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            display: inline-block;
+            padding: 15px;
+            background: linear-gradient(135deg, rgba(58, 211, 3, 0.2) 0%, rgba(58, 211, 3, 0.05) 100%);
+            border-radius: 25px;
+            border: 3px solid rgb(58, 211, 3);
+            box-shadow: 
+                0 0 30px rgba(58, 211, 3, 0.6),
+                0 0 60px rgba(58, 211, 3, 0.4),
+                inset 0 0 20px rgba(58, 211, 3, 0.1);
+            animation: glowPulse 3s ease-in-out infinite;
+        }
+
+        .hero-image-wrapper::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, 
+                transparent 0%, 
+                rgba(58, 211, 3, 0.3) 25%, 
+                transparent 50%, 
+                rgba(58, 211, 3, 0.3) 75%, 
+                transparent 100%);
+            border-radius: 30px;
+            z-index: -1;
+            animation: borderRotate 4s linear infinite;
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            max-width: 900px;
+            border-radius: 20px;
+            display: block;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image-wrapper:hover img {
+            transform: scale(1.02);
+        }
+
+        .hero-image-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(58, 211, 3, 0.3), transparent);
-            transition: left 0.5s;
+            background: radial-gradient(circle, rgba(58, 211, 3, 0.2) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            animation: pulseGlow 2s ease-in-out infinite;
         }
 
-        .nav-item:hover::before {
-            left: 100%;
+        @keyframes glowPulse {
+            0%, 100% {
+                box-shadow: 
+                    0 0 30px rgba(58, 211, 3, 0.6),
+                    0 0 60px rgba(58, 211, 3, 0.4),
+                    inset 0 0 20px rgba(58, 211, 3, 0.1);
+            }
+            50% {
+                box-shadow: 
+                    0 0 40px rgba(58, 211, 3, 0.8),
+                    0 0 80px rgba(58, 211, 3, 0.6),
+                    inset 0 0 30px rgba(58, 211, 3, 0.2);
+            }
         }
 
-        .nav-item:hover {
-            background: rgba(58, 211, 3, 0.15);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(58, 211, 3, 0.3);
+        @keyframes borderRotate {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 200% 200%;
+            }
         }
 
-        .nav-item.active {
-            background: linear-gradient(135deg, rgba(58, 211, 3, 0.3), rgba(58, 211, 3, 0.15));
-            box-shadow: 0 0 20px rgba(58, 211, 3, 0.4);
-            font-weight: 600;
+        @keyframes pulseGlow {
+            0%, 100% {
+                opacity: 0.3;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                opacity: 0.6;
+                transform: translate(-50%, -50%) scale(1.1);
+            }
         }
 
-        .nav-divider {
-            width: 2px;
-            height: 20px;
-            background: linear-gradient(180deg, transparent, rgb(58, 211, 3), transparent);
-            margin: 0 0.3rem;
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 6px;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-
-        .hamburger span {
-            width: 30px;
-            height: 3px;
-            background: rgb(58, 211, 3);
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 100%;
-            max-width: 400px;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.98);
-            backdrop-filter: blur(20px);
-            padding: 2rem;
-            transition: right 0.3s ease;
-            z-index: 2000;
-            overflow-y: auto;
-        }
-
-        .mobile-menu.active {
-            right: 0;
-        }
-
-        .mobile-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid rgba(58, 211, 3, 0.2);
-        }
-
-        .close-menu {
-            font-size: 2rem;
-            color: rgb(58, 211, 3);
-            cursor: pointer;
-        }
-
-        .mobile-links {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .mobile-category {
-            color: rgb(58, 211, 3);
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            margin: 1rem 0 0.5rem;
-            opacity: 0.7;
-        }
-
-        .mobile-link {
-            padding: 1rem;
-            color: white;
-            text-decoration: none;
-            border-radius: 12px;
-            background: rgba(30, 30, 30, 0.5);
-            border: 1px solid rgba(58, 211, 3, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .mobile-link:hover,
-        .mobile-link.active {
-            background: rgba(58, 211, 3, 0.15);
-            border-color: rgb(58, 211, 3);
-        }
-
-        /* ====== KONTEN (TIDAK BERUBAH) ====== */
-        .stories-section {
-            width: 80%;
-            max-width: 900px;
-            margin: 8rem auto 2rem;
-            background: rgba(0, 0, 0, 0.65);
-            backdrop-filter: blur(10px);
-            padding: 3rem;
-            border-radius: 20px;
-            color: #eaeaea;
-            position: relative;
-            z-index: 10;
-        }
-
-        .gradient-title {
-            font-size: 2.5rem;
-            text-align: center;
-            background: linear-gradient(90deg, #39ff14, #00ffcc, #39ff14);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            transition: 0.5s ease;
-            background-size: 200% auto;
-        }
-
-        .gradient-title:hover {
-            text-shadow: 0 0 15px rgba(57, 255, 20, 0.8);
-            filter: brightness(1.3);
-        }
-
-        .story-subtitle {
-            text-align: center;
-            margin-top: 1rem;
-            font-size: 1.3rem;
-            color: #b5ffe0;
-        }
-
-        .story-author {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #9affd6;
-            font-size: 0.9rem;
-            font-style: italic;
-        }
-
-        .story-content p {
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            text-align: justify;
-        }
-
-        .floating-shape {
-            position: fixed;
-            width: 120px;
-            height: 120px;
-            background: radial-gradient(circle, rgba(57, 255, 20, 0.15), transparent 70%);
-            border-radius: 50%;
-            filter: blur(8px);
-            z-index: 1;
-            animation: float 8s ease-in-out infinite;
-        }
-
-        .shape1 { top: 15%; left: 10%; animation-delay: 0s; }
-        .shape2 { bottom: 20%; right: 15%; animation-delay: 2s; }
-        .shape3 { top: 40%; right: 35%; animation-delay: 4s; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) scale(1); opacity: 0.7; }
-            50% { transform: translateY(-25px) scale(1.1); opacity: 1; }
-        }
-
-        @keyframes gradientScroll {
-            0% { background-position: 0% center; }
-            100% { background-position: 200% center; }
-        }
-
-        .gradient-active {
-            animation: gradientScroll 3s linear infinite;
-        }
-
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
+        @media (max-width: 884px) {
+            .header-section h1 {
+                font-size: 2rem;
             }
 
-            .hamburger {
-                display: flex;
+            .flow-item {
+                flex-direction: column;
+                text-align: center;
             }
 
-            .stories-section { 
-                width: 90%; 
-                padding: 2rem; 
-                margin-top: 6rem;
+            .cycle-grid {
+                grid-template-columns: 1fr;
             }
-            .gradient-title { font-size: 2rem; }
         }
     </style>
 </head>
+
 <body>
-    <!-- Navigation -->
-    <nav data-aos="fade-down">
-        <div class="nav-wrapper">
-            <div class="logo">
-                <div class="logo-icon">
-                    <i class="fa-solid fa-code"></i>
-                </div>
-                <span>Portfolio</span>
-            </div>
-
-            <div class="nav-menu">
-                <a href="index.html" class="nav-item">
-                    <i class="fa-solid fa-house"></i> Home
-                </a>
-
-                <div class="nav-divider"></div>
-
-                <div class="nav-section">
-                    <span class="nav-label">UTS</span>
-                    <a href="UTS-1 All About Me.html" class="nav-item">1</a>
-                    <a href="UTS-2 Songs for you.html" class="nav-item">2</a>
-                    <a href="UTS-3 My Stories for You.html" class="nav-item active">3</a>
-                    <a href="UTS-4 My Shape.html" class="nav-item">4</a>
-                    <a href="UTS-5 My Personal Review.html" class="nav-item">5</a>
-                </div>
-
-                <div class="nav-section">
-                    <span class="nav-label">UAS</span>
-                    <a href="UAS-1 My Concepts.html" class="nav-item">1</a>
-                    <a href="UAS-2 My Opinions.html" class="nav-item">2</a>
-                    <a href="UAS-3 My Innovations.html" class="nav-item">3</a>
-                    <a href="UAS-4 My Knowledge.html" class="nav-item">4</a>
-                    <a href="UAS-5 My Professional Reviews.html" class="nav-item">5</a>
-                </div>
-            </div>
-
-            <div class="hamburger" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
+    <nav>
+        <div class="nav-container">
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">Portfolio Asesmen<span> II-2100 KIPP</span></div>
+            <div class="links">
+                <a href="index.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">Home</a>
+                <a href="UTS-1 All About Me.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">UTS-1</a>
+                <a href="UTS-2 Songs for you.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">UTS-2</a>
+                <a href="UTS-3 My Stories for You.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">UTS-3</a>
+                <a href="UTS-4 My Shape.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">UTS-4</a>
+                <a href="UTS-5 My Personal Review.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">UTS-5</a>
+                <a href="UAS-1 My Concepts.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700">UAS-1</a>
+                <a href="UAS-2 My Opinions.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="800">UAS-2</a>
+                <a href="UAS-3 My Innovations.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="900">UAS-3</a>
+                <a href="UAS-4 My Knowledge.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1000">UAS-4</a>
+                <a href="UAS-5 My Professional Reviews.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1100">UAS-5</a>
             </div>
         </div>
     </nav>
-
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <div class="mobile-header">
-            <div class="logo">
-                <div class="logo-icon">
-                    <i class="fa-solid fa-code"></i>
-                </div>
-                <span>Menu</span>
-            </div>
-            <i class="fa-solid fa-xmark close-menu" onclick="toggleMenu()"></i>
-        </div>
-
-        <div class="mobile-links">
-            <a href="index.html" class="mobile-link">🏠 Home</a>
-            
-            <div class="mobile-category">📚 UTS</div>
-            <a href="UTS-1 All About Me.html" class="mobile-link">UTS 1 - All About Me</a>
-            <a href="UTS-2 Songs for you.html" class="mobile-link">UTS 2 - Songs</a>
-            <a href="UTS-3 My Stories for You.html" class="mobile-link">UTS 3 - Stories</a>
-            <a href="UTS-4 My Shape.html" class="mobile-link">UTS 4 - Shape</a>
-            <a href="UTS-5 My Personal Review.html" class="mobile-link">UTS 5 - Review</a>
-            
-            <div class="mobile-category">🎓 UAS</div>
-            <a href="UAS-1 My Concepts.html" class="mobile-link">UAS 1 - Concepts</a>
-            <a href="UAS-2 My Opinions.html" class="mobile-link">UAS 2 - Opinions</a>
-            <a href="UAS-3 My Innovations.html" class="mobile-link active">UAS 3 - Innovations</a>
-            <a href="UAS-4 My Knowledge.html" class="mobile-link">UAS 4 - Knowledge</a>
-            <a href="UAS-5 My Professional Reviews.html" class="mobile-link">UAS 5 - Reviews</a>
-        </div>
-    </div>
 
     <div class="content-container">
         <div class="content-wrapper">
