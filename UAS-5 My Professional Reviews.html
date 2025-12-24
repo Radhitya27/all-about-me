@@ -11,7 +11,7 @@
     <title>UAS-5 My Professional Reviews</title>
 
     <style>
-        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
 
         * {
             padding: 0;
@@ -31,55 +31,218 @@
             color: white;
         }
 
+        /* Modern Navbar - Copied from index.html */
         nav {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 10vh;
-            position: sticky;
-            position: relative;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(58, 211, 3, 0.2);
             z-index: 1000;
+            padding: 1rem 0;
         }
 
-        .nav-container {
-            width: 100%;
-            height: 100%;
+        .nav-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
+            gap: 3rem;
         }
 
         .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
             color: white;
-            font-size: 2rem;
-            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgb(58, 211, 3), rgb(40, 180, 2));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(58, 211, 3, 0.5);
         }
 
         .logo span {
             color: rgb(58, 211, 3);
-            text-shadow: 0 0 10px rgb(58, 211, 3);
+            text-shadow: 0 0 10px rgba(58, 211, 3, 0.5);
         }
 
-        .links a {
-            font-size: 1.2rem;
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex: 1;
+            justify-content: flex-end;
+        }
+
+        .nav-section {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.3rem 0.6rem;
+            background: rgba(30, 30, 30, 0.5);
+            border-radius: 12px;
+            border: 1px solid rgba(58, 211, 3, 0.1);
+        }
+
+        .nav-label {
+            font-size: 0.75rem;
+            color: rgb(58, 211, 3);
+            font-weight: 600;
+            padding: 0.3rem 0.6rem;
+            background: rgba(58, 211, 3, 0.1);
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-item {
+            padding: 0.5rem 0.9rem;
             color: white;
             text-decoration: none;
-            margin: 0 20px;
+            border-radius: 8px;
+            font-size: 0.85rem;
             font-weight: 500;
-            transition: 0.3s linear;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .links a:hover,
-        .links .active {
+        .nav-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(58, 211, 3, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-item:hover::before {
+            left: 100%;
+        }
+
+        .nav-item:hover {
+            background: rgba(58, 211, 3, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(58, 211, 3, 0.3);
+        }
+
+        .nav-item.active {
+            background: linear-gradient(135deg, rgba(58, 211, 3, 0.3), rgba(58, 211, 3, 0.15));
+            box-shadow: 0 0 20px rgba(58, 211, 3, 0.4);
+            font-weight: 600;
+        }
+
+        .nav-divider {
+            width: 2px;
+            height: 20px;
+            background: linear-gradient(180deg, transparent, rgb(58, 211, 3), transparent);
+            margin: 0 0.3rem;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: rgb(58, 211, 3);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 400px;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 2rem;
+            transition: right 0.3s ease;
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(58, 211, 3, 0.2);
+        }
+
+        .close-menu {
+            font-size: 2rem;
             color: rgb(58, 211, 3);
-            border-bottom: 2px solid rgb(58, 211, 3);
+            cursor: pointer;
+        }
+
+        .mobile-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .mobile-category {
+            color: rgb(58, 211, 3);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin: 1rem 0 0.5rem;
+            opacity: 0.7;
+        }
+
+        .mobile-link {
+            padding: 1rem;
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            background: rgba(30, 30, 30, 0.5);
+            border: 1px solid rgba(58, 211, 3, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-link:hover,
+        .mobile-link.active {
+            background: rgba(58, 211, 3, 0.15);
+            border-color: rgb(58, 211, 3);
         }
 
         .content-container {
             width: 100%;
-            min-height: 90vh;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 2rem;
+            padding: 8rem 2rem 2rem;
         }
 
         .content-wrapper {
@@ -226,7 +389,62 @@
             text-shadow: 0 0 10px rgb(58, 211, 3);
         }
 
-        @media (max-width: 884px) {
+        .download-section {
+            margin-top: 3rem;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem 3rem;
+            background: linear-gradient(135deg, rgb(58, 211, 3), rgb(40, 180, 2));
+            color: white;
+            text-decoration: none;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            box-shadow: 0 10px 40px rgba(58, 211, 3, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .download-btn:hover::before {
+            left: 100%;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(58, 211, 3, 0.6);
+        }
+
+        .download-btn i {
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
             .header-section h1 {
                 font-size: 2rem;
             }
@@ -241,29 +459,104 @@
                 padding: 1rem 0.5rem;
                 font-size: 0.9rem;
             }
+
+            .content-container {
+                padding: 6rem 1rem 2rem;
+            }
+
+            .content-wrapper {
+                padding: 2rem 1rem;
+            }
+
+            .download-btn {
+                padding: 1.2rem 2rem;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .download-btn i {
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
 
 <body>
-    <nav>
-        <div class="nav-container">
-            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">Portfolio Asesmen<span> II-2100 KIPP</span></div>
-            <div class="links">
-                <a href="index.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">Home</a>
-                <a href="UTS-1 All About Me.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">UTS-1</a>
-                <a href="UTS-2 Songs for you.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">UTS-2</a>
-                <a href="UTS-3 My Stories for You.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">UTS-3</a>
-                <a href="UTS-4 My Shape.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">UTS-4</a>
-                <a href="UTS-5 My Personal Review.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">UTS-5</a>
-                <a href="UAS-1 My Concepts.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700">UAS-1</a>
-                <a href="UAS-2 My Opinions.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="800">UAS-2</a>
-                <a href="UAS-3 My Innovations.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="900">UAS-3</a>
-                <a href="UAS-4 My Knowledge.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1000">UAS-4</a>
-                <a href="UAS-5 My Professional Reviews.html" class="active" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1100">UAS-5</a>
+    <!-- Navigation -->
+    <nav data-aos="fade-down">
+        <div class="nav-wrapper">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+                <span>Portfolio</span>
+            </div>
+
+            <div class="nav-menu">
+                <a href="index.html" class="nav-item">
+                    <i class="fa-solid fa-house"></i> Home
+                </a>
+
+                <div class="nav-divider"></div>
+
+                <div class="nav-section">
+                    <span class="nav-label">UTS</span>
+                    <a href="UTS-1 All About Me.html" class="nav-item">1</a>
+                    <a href="UTS-2 Songs for you.html" class="nav-item">2</a>
+                    <a href="UTS-3 My Stories for You.html" class="nav-item">3</a>
+                    <a href="UTS-4 My Shape.html" class="nav-item">4</a>
+                    <a href="UTS-5 My Personal Review.html" class="nav-item">5</a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-label">UAS</span>
+                    <a href="UAS-1 My Concepts.html" class="nav-item">1</a>
+                    <a href="UAS-2 My Opinions.html" class="nav-item">2</a>
+                    <a href="UAS-3 My Innovations.html" class="nav-item">3</a>
+                    <a href="UAS-4 My Knowledge.html" class="nav-item">4</a>
+                    <a href="UAS-5 My Professional Reviews.html" class="nav-item active">5</a>
+                </div>
+            </div>
+
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+                <span>Menu</span>
+            </div>
+            <i class="fa-solid fa-xmark close-menu" onclick="toggleMenu()"></i>
+        </div>
+
+        <div class="mobile-links">
+            <a href="index.html" class="mobile-link">🏠 Home</a>
+            
+            <div class="mobile-category">📚 UTS</div>
+            <a href="UTS-1 All About Me.html" class="mobile-link">UTS 1 - All About Me</a>
+            <a href="UTS-2 Songs for you.html" class="mobile-link">UTS 2 - Songs</a>
+            <a href="UTS-3 My Stories for You.html" class="mobile-link">UTS 3 - Stories</a>
+            <a href="UTS-4 My Shape.html" class="mobile-link">UTS 4 - Shape</a>
+            <a href="UTS-5 My Personal Review.html" class="mobile-link">UTS 5 - Review</a>
+            
+            <div class="mobile-category">🎓 UAS</div>
+            <a href="UAS-1 My Concepts.html" class="mobile-link">UAS 1 - Concepts</a>
+            <a href="UAS-2 My Opinions.html" class="mobile-link">UAS 2 - Opinions</a>
+            <a href="UAS-3 My Innovations.html" class="mobile-link">UAS 3 - Innovations</a>
+            <a href="UAS-4 My Knowledge.html" class="mobile-link">UAS 4 - Knowledge</a>
+            <a href="UAS-5 My Professional Reviews.html" class="mobile-link active">UAS 5 - Reviews</a>
+        </div>
+    </div>
 
     <div class="content-container">
         <div class="content-wrapper">
@@ -277,7 +570,7 @@
                     <thead>
                         <tr>
                             <th>UAS</th>
-                            <th>Skor per Kriteria</th>
+                            <th>Skor per Kriteria & Rata-rata</th>
                             <th>Alasan Singkat</th>
                             <th>Saran Perbaikan</th>
                             <th>Interpretasi</th>
@@ -286,96 +579,73 @@
                     <tbody>
                         <tr data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
                             <td>
-                                <div class="uas-title">UAS 1 — The Semantic Mycelium</div>
+                                <div class="uas-title">UAS-1 — My Concepts</div>
                             </td>
                             <td>
-                                <div class="score-badge">Via 5</div>
-                                <div class="rating-text">Metafora 5, Struktur 4, Empati 5 — <strong>Rata-rata 4.87</strong></div>
+                                <div class="rating-text"><strong>Clarity:</strong> 5, <strong>Logic:</strong> 5, <strong>Validity:</strong> 5, <strong>Usefulness:</strong> 5<br><br><strong>Rata-rata: 5.0</strong></div>
                             </td>
                             <td>
-                                Penggunaan metafora miselium sangat kuat dalam menjelaskan konseksi yang organik.
+                                Penggunaan metafora miselium sangat kuat dalam menjelaskan distribusi pengetahuan organik di desa.
                             </td>
                             <td>
-                                Bisa ditambahkan contoh studi kasus air sederhana yang menghubungkan konsep. Hati-Pikiran-Tenaga secara visual agar lebih powerful.
+                                Tambahkan diagram alir sederhana yang menghubungkan Hati-Pikiran-Tenaga secara visual.
                             </td>
                             <td>
-                                <strong>Sangat Baik</strong> — Visioner dan mampu menyedehanakan ide yang kompleks.
+                                <strong>Sempurna</strong> — Visioner dan mampu menyederhanakan konsep TI yang kompleks.
                             </td>
                         </tr>
 
                         <tr data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
                             <td>
-                                <div class="uas-title">UAS 2 — Cognitive Sovereignty</div>
+                                <div class="uas-title">UAS-2 — My Opinions</div>
                             </td>
                             <td>
-                                <div class="score-badge">Logika 5</div>
-                                <div class="rating-text">Kedalaman 5, Relevansi 4, Originalitas 5 — <strong>Rata-rata 4.75</strong></div>
+                                <div class="rating-text"><strong>Compelling:</strong> 5, <strong>Informatif:</strong> 4.5, <strong>Persuasif:</strong> 5, <strong>Engaging:</strong> 4.5<br><br><strong>Rata-rata: 4.75</strong></div>
                             </td>
                             <td>
-                                Opini yang berani mengenai literasi sebagai 'perjuangan sosial' di era AI menunjukkan kedalaman.
+                                Opini yang berani mengenai literasi sebagai "kontrak sosial" di era algoritma AI.
                             </td>
                             <td>
-                                Tambahkan referensi studi kasus nyata tentang masyarakat yang berhasil dari algoritma kasus nyata tentang literasi.
+                                Tambahkan referensi studi kasus nyata tentang masyarakat yang terpinggirkan oleh algoritma.
                             </td>
                             <td>
-                                <strong>Sangat Baik</strong> — Reflektif dengan kepekaan yang jelas pada isu masyarakat manusia.
+                                <strong>Sangat Baik</strong> — Reflektif dengan keberpihakan pada kedaulatan manusia.
                             </td>
                         </tr>
 
                         <tr data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
                             <td>
-                                <div class="uas-title">UAS 3 — Digital Innovation</div>
+                                <div class="uas-title">UAS-3 — My Innovation</div>
                             </td>
                             <td>
-                                <div class="score-badge">Inovasi 5</div>
-                                <div class="rating-text">Kelayakan 4, Keberanian 5, Narasi 5 — <strong>Rata-rata 5.0</strong></div>
+                                <div class="rating-text"><strong>Guna:</strong> 5, <strong>Kebaruan:</strong> 5, <strong>Desain:</strong> 5, <strong>Dampak:</strong> 5<br><br><strong>Rata-rata: 5.0</strong></div>
                             </td>
                             <td>
-                                Lompatan dari "konsep" menjadi "Teater Kedaulatan" menunjukkan kejelian.
+                                Lompatan dari alat bantu menjadi "Teater Kedaulatan" menunjukkan kematangan desain sistem.
                             </td>
                             <td>
-                                Gunakan konografik yang konsisten untuk 5 Aliran Vitalitas agar lebih menemukan.
+                                Gunakan ikonografi yang konsisten untuk 5 Aliran Vitalitas agar lebih mudah dipahami.
                             </td>
                             <td>
-                                <strong>Sempurna</strong> — Solusi teknis yang komprehensif, optimal, dan sangat siap untuk diimplementasi.
+                                <strong>Sempurna</strong> — Solusi teknis komprehensif dan sangat siap diimplementasikan.
                             </td>
                         </tr>
 
                         <tr data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">
                             <td>
-                                <div class="uas-title">UAS 4 — KINESIS Methodology</div>
+                                <div class="uas-title">UAS-4 — My Knowledge</div>
                             </td>
                             <td>
-                                <div class="score-badge">Metodologi 5</div>
-                                <div class="rating-text">Praktis 5, Rigoritas 4.5 — <strong>Rata-rata 4.87</strong></div>
+                                <div class="rating-text"><strong>Kurasi:</strong> 5, <strong>Kejelasan:</strong> 5, <strong>Akurasi:</strong> 4.5, <strong>Daya Guna:</strong> 5<br><br><strong>Rata-rata: 4.88</strong></div>
                             </td>
                             <td>
-                                Protokol pemicu agensi adalah solusi radikal yang jenius untuk mencegah ketergantungan AI.
+                                Protokol Pemicu Agensi dalam metodologi KINESIS efektif mencegah ketergantungan pada AI.
                             </td>
                             <td>
-                                Simulasikan mockup chat antara AI dan pengguna dalam bentuk etika.
+                                Simulasikan contoh dialog antara AI dan pengguna dalam bentuk mockup chat.
                             </td>
                             <td>
-                                <strong>Sangat Baik</strong> — Kedalaman pemikiran seorang insinyur sistem yang menjauhkan AI.
-                            </td>
-                        </tr>
-
-                        <tr data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">
-                            <td>
-                                <div class="uas-title">UAS 5 — Synthesis Review</div>
-                            </td>
-                            <td>
-                                <div class="score-badge">Akurasi 5</div>
-                                <div class="rating-text">Objektivitas 5, Konsistensi 5, Pentartian 5 — <strong>Rata-rata 4.6</strong></div>
-                            </td>
-                            <td>
-                                Mampu mengurai satu konteks dengan koheren dari narasi yang kompleks serta bagaimana seluruh UAS ini membentuk profitma.
-                            </td>
-                            <td>
-                                Berikan kesinambungan keterampilan di bagaimana seluruh UAS ini membentuk portofolio dengan solid.
-                            </td>
-                            <td>
-                                <strong>Sangat Baik</strong> — Analisis dan mensintesis informasi portofolio dengan solid.
+                                <strong>Sangat Baik</strong> — Menunjukkan kedalaman pemikiran seorang insinyur sistem yang beretika.
                             </td>
                         </tr>
                     </tbody>
@@ -387,18 +657,18 @@
                 <div class="summary-grid">
                     <div class="summary-card">
                         <h3>Rata-rata Keseluruhan</h3>
-                        <div class="score">4.82 / 5.0</div>
+                        <div class="score">4.91 / 5.0</div>
                         <p style="margin-top: 0.5rem; opacity: 0.9;">Performa sangat baik di semua aspek</p>
                     </div>
                     <div class="summary-card">
                         <h3>Aspek Terkuat</h3>
                         <div class="score">Inovasi</div>
-                        <p style="margin-top: 0.5rem; opacity: 0.9;">UAS 3 mencapai skor sempurna 5.0</p>
+                        <p style="margin-top: 0.5rem; opacity: 0.9;">UAS-1 & UAS-3 mencapai skor sempurna 5.0</p>
                     </div>
                     <div class="summary-card">
                         <h3>Area Pengembangan</h3>
                         <div class="score">Visualisasi</div>
-                        <p style="margin-top: 0.5rem; opacity: 0.9;">Tambahkan lebih banyak studi kasus visual</p>
+                        <p style="margin-top: 0.5rem; opacity: 0.9;">Tambahkan lebih banyak diagram dan studi kasus visual</p>
                     </div>
                     <div class="summary-card">
                         <h3>Kesimpulan</h3>
@@ -407,12 +677,36 @@
                     </div>
                 </div>
             </div>
+
+            <div class="download-section" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700">
+                <a href="./files/UAS-5_Skor - Muhamad Radhitya Alamsyah.xlsx" class="download-btn" download>
+                    <i class="fa-solid fa-file-excel"></i>
+                    <span>Download Detailed Report (Excel)</span>
+                    <i class="fa-solid fa-download"></i>
+                </a>
+            </div>
         </div>
     </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init();
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburger = document.querySelector('.hamburger');
+            
+            if (!mobileMenu.contains(event.target) && !hamburger.contains(event.target)) {
+                mobileMenu.classList.remove('active');
+            }
+        });
     </script>
 </body>
 

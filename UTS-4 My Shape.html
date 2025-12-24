@@ -1,4 +1,3 @@
-<!-- Subscribe Tamzidan Madiyin di YouTube -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <title>UTS-4 My Shape</title>
     <style>
-        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 
         * {
             margin: 0;
@@ -27,53 +27,211 @@
             overflow-x: hidden;
         }
 
-        /* Navbar tetap sama */
+        /* ===== NAVBAR SAMA SEPERTI INDEX.HTML ===== */
         nav {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 10vh;
-            position: relative;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(58, 211, 3, 0.2);
             z-index: 1000;
+            padding: 1rem 0;
         }
 
-        .nav-container {
-            width: 100%;
-            height: 100%;
+        .nav-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
+            gap: 3rem;
         }
 
         .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
             color: white;
-            font-size: 2rem;
-            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgb(58, 211, 3), rgb(40, 180, 2));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(58, 211, 3, 0.5);
         }
 
         .logo span {
             color: rgb(58, 211, 3);
-            text-shadow: 0 0 10px rgb(58, 211, 3);
+            text-shadow: 0 0 10px rgba(58, 211, 3, 0.5);
         }
 
-        .nav-container .links {
+        .nav-menu {
             display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex: 1;
+            justify-content: flex-end;
         }
 
-        .nav-container .links a {
-            font-size: 1.1rem;
-            color: white;
-            margin: 0 20px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: 0.3s linear;
+        .nav-section {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.3rem 0.6rem;
+            background: rgba(30, 30, 30, 0.5);
+            border-radius: 12px;
+            border: 1px solid rgba(58, 211, 3, 0.1);
         }
 
-        .nav-container .links a:hover,
-        .nav-container .links .active {
+        .nav-label {
+            font-size: 0.75rem;
             color: rgb(58, 211, 3);
-            border-bottom: 2px solid rgb(58, 211, 3);
+            font-weight: 600;
+            padding: 0.3rem 0.6rem;
+            background: rgba(58, 211, 3, 0.1);
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        /* --- My Shape Section --- */
+        .nav-item {
+            padding: 0.5rem 0.9rem;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(58, 211, 3, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-item:hover::before {
+            left: 100%;
+        }
+
+        .nav-item:hover {
+            background: rgba(58, 211, 3, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(58, 211, 3, 0.3);
+        }
+
+        .nav-item.active {
+            background: linear-gradient(135deg, rgba(58, 211, 3, 0.3), rgba(58, 211, 3, 0.15));
+            box-shadow: 0 0 20px rgba(58, 211, 3, 0.4);
+            font-weight: 600;
+        }
+
+        .nav-divider {
+            width: 2px;
+            height: 20px;
+            background: linear-gradient(180deg, transparent, rgb(58, 211, 3), transparent);
+            margin: 0 0.3rem;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: rgb(58, 211, 3);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 400px;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 2rem;
+            transition: right 0.3s ease;
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(58, 211, 3, 0.2);
+        }
+
+        .close-menu {
+            font-size: 2rem;
+            color: rgb(58, 211, 3);
+            cursor: pointer;
+        }
+
+        .mobile-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .mobile-category {
+            color: rgb(58, 211, 3);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin: 1rem 0 0.5rem;
+            opacity: 0.7;
+        }
+
+        .mobile-link {
+            padding: 1rem;
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            background: rgba(30, 30, 30, 0.5);
+            border: 1px solid rgba(58, 211, 3, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-link:hover,
+        .mobile-link.active {
+            background: rgba(58, 211, 3, 0.15);
+            border-color: rgb(58, 211, 3);
+        }
+
+        /* ===== KONTEN (TIDAK BERUBAH) ===== */
         .shape-container {
             width: 100%;
             min-height: 90vh;
@@ -81,7 +239,8 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 3rem 2rem;
+            padding: 6rem 2rem 3rem;
+            margin-top: 80px;
         }
 
         .shape-content {
@@ -111,55 +270,7 @@
             margin-top: 0.8rem;
         }
 
-        .shape-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 2rem;
-        }
-
-        .shape-table th,
-        .shape-table td {
-            border: 1px solid rgba(58, 211, 3, 0.4);
-            padding: 1rem;
-            text-align: left;
-            vertical-align: top;
-        }
-
-        .shape-table th {
-            background-color: rgba(58, 211, 3, 0.1);
-            color: rgb(58, 211, 3);
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .shape-table td {
-            color: #e0e0e0;
-        }
-
-        .shape-reflection {
-            margin-top: 2.5rem;
-        }
-
-        .shape-reflection h2 {
-            font-size: 1.6rem;
-            color: rgb(58, 211, 3);
-            text-shadow: 0 0 10px rgb(58, 211, 3);
-            margin-bottom: 1rem;
-        }
-
-        .shape-reflection p {
-            color: #ccc;
-            line-height: 1.7;
-            text-align: justify;
-        }
-
-        /* Responsive */
-        @media (max-width: 900px) {
-            .shape-content {
-                padding: 2rem;
-            }
-
-            .shape-section {
+        .shape-section {
             margin-bottom: 3rem;
             padding: 1.5rem 2rem;
             border-left: 3px solid rgb(58, 211, 3);
@@ -167,230 +278,289 @@
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(58, 211, 3, 0.15);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            }
+        }
 
-            .shape-section:hover {
+        .shape-section:hover {
             transform: translateY(-5px);
             box-shadow: 0 0 25px rgba(58, 211, 3, 0.3);
-            }
+        }
 
-            .shape-section h2 {
+        .shape-section h2 {
             color: rgb(58, 211, 3);
             font-size: 1.3rem;
             margin-bottom: 1rem;
             text-shadow: 0 0 10px rgb(58, 211, 3);
-            }
+        }
 
-            .shape-section p, .shape-section li {
+        .shape-section p, .shape-section li {
             color: #dcdcdc;
             line-height: 1.8;
             text-align: justify;
-            }
+        }
 
-            .shape-section ul {
+        .shape-section ul {
             margin-left: 1.5rem;
             list-style-type: "• ";
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .shape-container {
+                padding: 5rem 1rem 2rem;
+            }
+
+            .shape-content {
+                padding: 2rem;
             }
 
             .shape-header h1 {
                 font-size: 2rem;
             }
-
-            .shape-table th,
-            .shape-table td {
-                padding: 0.8rem;
-                font-size: 0.9rem;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .shape-header h1 {
-                font-size: 1.6rem;
-            }
         }
     </style>
-
-    <title>My Shape - Portfolio Asesmen II-2100 KIPP</title>
 </head>
 
 <body>
-    <nav>
-        <div class="nav-container">
-            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
-                Portfolio Asesmen<span> II-2100 KIPP</span>
+    <!-- Navigation -->
+    <nav data-aos="fade-down">
+        <div class="nav-wrapper">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+                <span>Portfolio</span>
             </div>
-            <div class="links">
-                <a href="index.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">Home</a>
-                <a href="UTS-1 All About Me.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">UTS-1</a>
-                <a href="UTS-2 Songs for you.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">UTS-2</a>
-                <a href="UTS-3 My Stories for You.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">UTS-3</a>
-                <a href="UTS-4 My Shape.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">UTS-4</a>
-                <a href="UTS-5 My Personal Review.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">UTS-5</a>
-                <a href="UAS-1 My Concepts.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700">UAS-1</a>
-                <a href="UAS-2 My Opinions.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="800">UAS-2</a>
-                <a href="UAS-3 My Innovations.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="900">UAS-3</a>
-                <a href="UAS-4 My Knowledge.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1000">UAS-4</a>
-                <a href="UAS-5 My Professional Reviews.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1100">UAS-5</a>
+
+            <div class="nav-menu">
+                <a href="index.html" class="nav-item">
+                    <i class="fa-solid fa-house"></i> Home
+                </a>
+
+                <div class="nav-divider"></div>
+
+                <div class="nav-section">
+                    <span class="nav-label">UTS</span>
+                    <a href="UTS-1 All About Me.html" class="nav-item">1</a>
+                    <a href="UTS-2 Songs for you.html" class="nav-item">2</a>
+                    <a href="UTS-3 My Stories for You.html" class="nav-item">3</a>
+                    <a href="UTS-4 My Shape.html" class="nav-item active">4</a>
+                    <a href="UTS-5 My Personal Review.html" class="nav-item">5</a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-label">UAS</span>
+                    <a href="UAS-1 My Concepts.html" class="nav-item">1</a>
+                    <a href="UAS-2 My Opinions.html" class="nav-item">2</a>
+                    <a href="UAS-3 My Innovations.html" class="nav-item">3</a>
+                    <a href="UAS-4 My Knowledge.html" class="nav-item">4</a>
+                    <a href="UAS-5 My Professional Reviews.html" class="nav-item">5</a>
+                </div>
+            </div>
+
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </nav>
 
-    <section class="shape-container" data-aos="fade-up" data-aos-duration="1500">
-    <div class="shape-content">
-        <div class="shape-header" data-aos="zoom-in" data-aos-duration="1200">
-        <h1>My Shape – Piagam Diri & Identitas Naratif</h1>
-        <p>Refleksi diri yang menggambarkan potensi, nilai, dan arah pengembangan pribadi.</p>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+                <span>Menu</span>
+            </div>
+            <i class="fa-solid fa-xmark close-menu" onclick="toggleMenu()"></i>
         </div>
 
-        <div class="shape-section" data-aos="fade-up" data-aos-duration="1200">
-        <h2>S — Spiritual Gifts</h2>
-        <p>
-            Aku ngerasa paling hidup saat bisa bantu orang lain. Entah itu bantu mereka ngerti hal yang rumit,
-            atau sekadar kasih arah biar gak bingung sendiri. Kadang aku bukan orang yang paling cepat,
-            tapi aku selalu berusaha hadir dan bisa diandalkan.
-            Dalam kerja kelompok, aku biasanya jadi orang yang bantu nyusun langkah biar semua bisa jalan bareng—kayak semacam
-            “support system” kecil buat tim.
-        </p>
-
-        <p>
-            Buatku, karunia itu bukan cuma soal bisa memimpin atau ngajarin,
-            tapi soal bisa ngeh kapan orang lain butuh bantuan dan bantu mereka dengan cara yang tenang dan tulus.
-        </p>
-        </div>
-
-        <div class="shape-section" data-aos="fade-up" data-aos-duration="1200">
-        <h2>H — Heart (Minat & Cinta Pelayanan)</h2>
-        <p>
-            Aku punya ketertarikan besar sama teknologi, khususnya AI dan data,
-            tapi yang paling aku peduliin adalah gimana semua itu bisa beneran berguna buat kebaikan.
-            Aku pengen teknologi itu gak cuma keren, tapi juga nyentuh sisi manusia—kayak bantu orang belajar,
-            ningkatin kesejahteraan, atau nyiptain sistem yang lebih adil.
-        </p>
-
-        <p>
-            Aku percaya kalau teknologi bisa jadi jembatan antara pengetahuan dan empati, asal yang ngerancang punya hati.
-            Jadi setiap kali aku belajar atau bikin sesuatu, aku selalu inget kalau ujungnya bukan cuma tentang “output”,
-            tapi tentang dampak ke orang lain.
-        </p>
-        </div>
-
-        <div class="shape-section" data-aos="fade-up" data-aos-duration="1200">
-        <h2>A — Abilities (Kemampuan)</h2>
-        <p>
-            Selain suka ngoding dan main data, aku juga senang banget mendesain—baik itu tampilan, ide, maupun sistem.
-            Aku suka bikin sesuatu yang rapi dan jelas, kayak tampilan data yang bisa langsung “ngomong” tanpa perlu banyak penjelasan.
-            Biasanya aku gabungin sisi teknis dan kreatif: nulis logika di kode, tapi juga mikir gimana hasilnya bisa enak dilihat
-            dan dipakai orang lain.
-        </p>
-
-        <p>
-            Di luar itu, aku juga suka belajar hal baru pelan-pelan tapi pasti.
-            Kadang hasilnya gak langsung jadi, tapi begitu nyatu, aku bisa ngerti polanya dan terusin dengan lebih mantap.
-        </p>
-        </div>
-
-        <div class="shape-section" data-aos="fade-up" data-aos-duration="1200">
-        <h2>P — Personality (Gaya Kepribadian Kerja)</h2>
-        <p>
-            Aku tipe orang yang tenang dan reflektif. Biasanya aku mikir dulu sebelum ngomong,
-            tapi begitu udah yakin, aku bisa kasih ide yang matang.
-            Aku bukan yang paling rame di grup, tapi aku suka bikin suasana kerja jadi lebih terarah dan damai.
-        </p>
-
-        <p>
-            Waktu kerja tim, aku lebih suka jadi orang yang bantu nyambungin ide-ide dan ngejaga ritme.
-            Aku juga lumayan perfeksionis soal detail, tapi bukan karena pengen kelihatan keren—aku cuma pengen hasilnya
-            bener-bener bisa dipakai dan berdampak.
-        </p>
-        </div>
-
-        <div class="shape-section" data-aos="fade-up" data-aos-duration="1200">
-        <h2>E — Experiences (Pengalaman Kunci)</h2>
-        <p>
-            Salah satu pengalaman yang paling berkesan buatku itu waktu ikut lomba.
-            Dari situ aku belajar kalau proses jauh lebih penting dari hasil.
-            Aku sempat ngerasa ragu dan takut gak cukup bagus,
-            tapi ternyata yang bikin bertahan itu bukan skill aja, melainkan tekad buat terus belajar.
-        </p>
-
-        <p>
-            Pengalaman itu juga bikin aku sadar, kerja bareng orang lain itu bukan soal siapa yang paling hebat,
-            tapi siapa yang mau saling bantu dan jalan bareng.
-            Sejak itu aku pengen terus kembangin diriku lewat hal-hal yang punya makna,
-            terutama yang bisa bantu orang lain lewat teknologi.
-        </p>
-        </div>
-
-        <div class="shape-section" data-aos="fade-up" data-aos-duration="1200">
-        <h2>Piagam Diri (Self-Charter)</h2>
-        <p><strong>Misi Hidup:</strong> Aku pengen jadi orang yang bisa bantu orang lain lewat teknologi.
-            Bukan cuma bikin sistem yang keren, tapi sistem yang benar-benar bisa mempermudah hidup orang.
-            Entah lewat data, desain, atau AI, aku pengen hasil karyaku punya makna buat orang lain — sekecil apa pun itu.
-        </p>
-
-        <p><strong>Nilai Inti:</strong> Kebaikan, kejujuran, empati, dan konsistensi.
-            Aku percaya kebaikan itu bukan sekadar niat, tapi tindakan kecil yang terus diulang.
-            Aku lebih suka jalan pelan tapi pasti, daripada cepat tapi kehilangan arah.
-        </p>
-        </div>
-
-        <div class="shape-section" data-aos="fade-up" data-aos-duration="1200">
-        <h2>Rencana Aksi 90 Hari (SMART Plan)</h2>
-        <ul>
-            <li><strong>Target:</strong> Bangun portofolio mini tentang AI/data yang bermanfaat.<br>
-            <strong>Outcome:</strong> 1 proyek portofolio dengan dokumentasi di GitHub.
-            </li>
-            <li><strong>Target:</strong> Ikut lomba atau proyek tim yang menantang dan relevan.<br>
-            <strong>Outcome:</strong> 1 pengalaman kompetisi dengan refleksi hasilnya.
-            </li>
-            <li><strong>Target:</strong> Latih kebiasaan reflektif & menulis progres belajar.<br>
-            <strong>Outcome:</strong> 6–8 catatan refleksi singkat tentang pembelajaran dan proses.
-            </li>
-            <li><strong>Target:</strong> Bangun alat sederhana berbasis AI/desain interaktif.<br>
-            <strong>Outcome:</strong> 1 prototype yang bisa dicoba orang lain.
-            </li>
-        </ul>
-        </div>
-
-        <div class="shape-section" data-aos="fade-up" data-aos-duration="1200">
-        <h2>Narasi 90 Detik — “Tentang Saya”</h2>
-        <p>
-            Hai, saya <strong>Muhamad Radhitya Alamsyah</strong>, mahasiswa Sistem dan Teknologi Informasi di Institut Teknologi Bandung.
-            Saya suka hal-hal yang berhubungan dengan data, desain, dan kecerdasan buatan — terutama ketika teknologi itu bisa
-            dipakai untuk membantu orang lain.
-        </p>
-
-        <p>
-            Saya termasuk orang yang tenang dan lebih suka mikir dulu sebelum ngomong,
-            tapi ketika sudah paham, saya berusaha bicara dengan jelas dan jujur.
-            Bagi saya, komunikasi bukan cuma soal berbagi pendapat, tapi juga tentang mendengarkan dan memahami apa yang orang lain butuhkan.
-        </p>
-
-        <p>
-            Dalam kerja tim, saya ingin dikenal sebagai orang yang baik hati dan bisa diandalkan — bukan karena paling pintar,
-            tapi karena selalu berusaha hadir dan membantu semampu saya.
-        </p>
-
-        <p>
-            Saya percaya bahwa kebaikan kecil yang konsisten bisa menghasilkan perubahan besar.
-            Ke depan, saya ingin terus mengembangkan diri di bidang AI dan teknologi yang berdampak sosial.
-            Saya ingin bikin sesuatu yang bukan cuma keren dari sisi teknis, tapi juga punya nilai kemanusiaan —
-            sistem yang bisa mempermudah hidup orang dan membuat mereka sedikit lebih bahagia.
-        </p>
-        
-        <p>
-            Saya tahu perjalanan ini panjang, tapi saya percaya proses yang dilakukan dengan niat baik dan konsistensi
-            akan selalu membawa hasil. Bagi saya, teknologi hanyalah alat — tujuannya tetap sama: membuat hidup manusia jadi lebih baik.
-        </p>
+        <div class="mobile-links">
+            <a href="index.html" class="mobile-link">🏠 Home</a>
+            
+            <div class="mobile-category">📚 UTS</div>
+            <a href="UTS-1 All About Me.html" class="mobile-link">UTS 1 - All About Me</a>
+            <a href="UTS-2 Songs for you.html" class="mobile-link">UTS 2 - Songs</a>
+            <a href="UTS-3 My Stories for You.html" class="mobile-link">UTS 3 - Stories</a>
+            <a href="UTS-4 My Shape.html" class="mobile-link active">UTS 4 - Shape</a>
+            <a href="UTS-5 My Personal Review.html" class="mobile-link">UTS 5 - Review</a>
+            
+            <div class="mobile-category">🎓 UAS</div>
+            <a href="UAS-1 My Concepts.html" class="mobile-link">UAS 1 - Concepts</a>
+            <a href="UAS-2 My Opinions.html" class="mobile-link">UAS 2 - Opinions</a>
+            <a href="UAS-3 My Innovations.html" class="mobile-link">UAS 3 - Innovations</a>
+            <a href="UAS-4 My Knowledge.html" class="mobile-link">UAS 4 - Knowledge</a>
+            <a href="UAS-5 My Professional Reviews.html" class="mobile-link">UAS 5 - Reviews</a>
         </div>
     </div>
-    </section>
 
+    <section class="shape-container" data-aos="fade-up" data-aos-duration="1500">
+        <div class="shape-content">
+            <div class="shape-header" data-aos="zoom-in" data-aos-duration="1200">
+                <h1>My Shape – Piagam Diri & Identitas Naratif</h1>
+                <p>Refleksi diri yang menggambarkan potensi, nilai, dan arah pengembangan pribadi.</p>
+            </div>
+
+            <div class="shape-section" data-aos="fade-up" data-aos-duration="1200">
+                <h2>S – Spiritual Gifts</h2>
+                <p>
+                    Aku ngerasa paling hidup saat bisa bantu orang lain. Entah itu bantu mereka ngerti hal yang rumit,
+                    atau sekadar kasih arah biar gak bingung sendiri. Kadang aku bukan orang yang paling cepat,
+                    tapi aku selalu berusaha hadir dan bisa diandalkan.
+                    Dalam kerja kelompok, aku biasanya jadi orang yang bantu nyusun langkah biar semua bisa jalan bareng—kayak semacam
+                    "support system" kecil buat tim.
+                </p>
+                <p>
+                    Buatku, karunia itu bukan cuma soal bisa memimpin atau ngajarin,
+                    tapi soal bisa ngeh kapan orang lain butuh bantuan dan bantu mereka dengan cara yang tenang dan tulus.
+                </p>
+            </div>
+
+            <div class="shape-section" data-aos="fade-up" data-aos-duration="1200">
+                <h2>H – Heart (Minat & Cinta Pelayanan)</h2>
+                <p>
+                    Aku punya ketertarikan besar sama teknologi, khususnya AI dan data,
+                    tapi yang paling aku peduliin adalah gimana semua itu bisa beneran berguna buat kebaikan.
+                    Aku pengen teknologi itu gak cuma keren, tapi juga nyentuh sisi manusia—kayak bantu orang belajar,
+                    ningkatin kesejahteraan, atau nyiptain sistem yang lebih adil.
+                </p>
+                <p>
+                    Aku percaya kalau teknologi bisa jadi jembatan antara pengetahuan dan empati, asal yang ngerancang punya hati.
+                    Jadi setiap kali aku belajar atau bikin sesuatu, aku selalu inget kalau ujungnya bukan cuma tentang "output",
+                    tapi tentang dampak ke orang lain.
+                </p>
+            </div>
+
+            <div class="shape-section" data-aos="fade-up" data-aos-duration="1200">
+                <h2>A – Abilities (Kemampuan)</h2>
+                <p>
+                    Selain suka ngoding dan main data, aku juga senang banget mendesain—baik itu tampilan, ide, maupun sistem.
+                    Aku suka bikin sesuatu yang rapi dan jelas, kayak tampilan data yang bisa langsung "ngomong" tanpa perlu banyak penjelasan.
+                    Biasanya aku gabungin sisi teknis dan kreatif: nulis logika di kode, tapi juga mikir gimana hasilnya bisa enak dilihat
+                    dan dipakai orang lain.
+                </p>
+                <p>
+                    Di luar itu, aku juga suka belajar hal baru pelan-pelan tapi pasti.
+                    Kadang hasilnya gak langsung jadi, tapi begitu nyatu, aku bisa ngerti polanya dan terusin dengan lebih mantap.
+                </p>
+            </div>
+
+            <div class="shape-section" data-aos="fade-up" data-aos-duration="1200">
+                <h2>P – Personality (Gaya Kepribadian Kerja)</h2>
+                <p>
+                    Aku tipe orang yang tenang dan reflektif. Biasanya aku mikir dulu sebelum ngomong,
+                    tapi begitu udah yakin, aku bisa kasih ide yang matang.
+                    Aku bukan yang paling rame di grup, tapi aku suka bikin suasana kerja jadi lebih terarah dan damai.
+                </p>
+                <p>
+                    Waktu kerja tim, aku lebih suka jadi orang yang bantu nyambungin ide-ide dan ngejaga ritme.
+                    Aku juga lumayan perfeksionis soal detail, tapi bukan karena pengen kelihatan keren—aku cuma pengen hasilnya
+                    bener-bener bisa dipakai dan berdampak.
+                </p>
+            </div>
+
+            <div class="shape-section" data-aos="fade-up" data-aos-duration="1200">
+                <h2>E – Experiences (Pengalaman Kunci)</h2>
+                <p>
+                    Salah satu pengalaman yang paling berkesan buatku itu waktu ikut lomba.
+                    Dari situ aku belajar kalau proses jauh lebih penting dari hasil.
+                    Aku sempat ngerasa ragu dan takut gak cukup bagus,
+                    tapi ternyata yang bikin bertahan itu bukan skill aja, melainkan tekad buat terus belajar.
+                </p>
+                <p>
+                    Pengalaman itu juga bikin aku sadar, kerja bareng orang lain itu bukan soal siapa yang paling hebat,
+                    tapi siapa yang mau saling bantu dan jalan bareng.
+                    Sejak itu aku pengen terus kembangin diriku lewat hal-hal yang punya makna,
+                    terutama yang bisa bantu orang lain lewat teknologi.
+                </p>
+            </div>
+
+            <div class="shape-section" data-aos="fade-up" data-aos-duration="1200">
+                <h2>Piagam Diri (Self-Charter)</h2>
+                <p><strong>Misi Hidup:</strong> Aku pengen jadi orang yang bisa bantu orang lain lewat teknologi.
+                    Bukan cuma bikin sistem yang keren, tapi sistem yang benar-benar bisa mempermudah hidup orang.
+                    Entah lewat data, desain, atau AI, aku pengen hasil karyaku punya makna buat orang lain — sekecil apa pun itu.
+                </p>
+                <p><strong>Nilai Inti:</strong> Kebaikan, kejujuran, empati, dan konsistensi.
+                    Aku percaya kebaikan itu bukan sekadar niat, tapi tindakan kecil yang terus diulang.
+                    Aku lebih suka jalan pelan tapi pasti, daripada cepat tapi kehilangan arah.
+                </p>
+            </div>
+
+            <div class="shape-section" data-aos="fade-up" data-aos-duration="1200">
+                <h2>Rencana Aksi 90 Hari (SMART Plan)</h2>
+                <ul>
+                    <li><strong>Target:</strong> Bangun portofolio mini tentang AI/data yang bermanfaat.<br>
+                    <strong>Outcome:</strong> 1 proyek portofolio dengan dokumentasi di GitHub.
+                    </li>
+                    <li><strong>Target:</strong> Ikut lomba atau proyek tim yang menantang dan relevan.<br>
+                    <strong>Outcome:</strong> 1 pengalaman kompetisi dengan refleksi hasilnya.
+                    </li>
+                    <li><strong>Target:</strong> Latih kebiasaan reflektif & menulis progres belajar.<br>
+                    <strong>Outcome:</strong> 6–8 catatan refleksi singkat tentang pembelajaran dan proses.
+                    </li>
+                    <li><strong>Target:</strong> Bangun alat sederhana berbasis AI/desain interaktif.<br>
+                    <strong>Outcome:</strong> 1 prototype yang bisa dicoba orang lain.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="shape-section" data-aos="fade-up" data-aos-duration="1200">
+                <h2>Narasi 90 Detik – "Tentang Saya"</h2>
+                <p>
+                    Hai, saya <strong>Muhamad Radhitya Alamsyah</strong>, mahasiswa Sistem dan Teknologi Informasi di Institut Teknologi Bandung.
+                    Saya suka hal-hal yang berhubungan dengan data, desain, dan kecerdasan buatan — terutama ketika teknologi itu bisa
+                    dipakai untuk membantu orang lain.
+                </p>
+                <p>
+                    Saya termasuk orang yang tenang dan lebih suka mikir dulu sebelum ngomong,
+                    tapi ketika sudah paham, saya berusaha bicara dengan jelas dan jujur.
+                    Bagi saya, komunikasi bukan cuma soal berbagi pendapat, tapi juga tentang mendengarkan dan memahami apa yang orang lain butuhkan.
+                </p>
+                <p>
+                    Dalam kerja tim, saya ingin dikenal sebagai orang yang baik hati dan bisa diandalkan — bukan karena paling pintar,
+                    tapi karena selalu berusaha hadir dan membantu semampu saya.
+                </p>
+                <p>
+                    Saya percaya bahwa kebaikan kecil yang konsisten bisa menghasilkan perubahan besar.
+                    Ke depan, saya ingin terus mengembangkan diri di bidang AI dan teknologi yang berdampak sosial.
+                    Saya ingin bikin sesuatu yang bukan cuma keren dari sisi teknis, tapi juga punya nilai kemanusiaan —
+                    sistem yang bisa mempermudah hidup orang dan membuat mereka sedikit lebih bahagia.
+                </p>
+                <p>
+                    Saya tahu perjalanan ini panjang, tapi saya percaya proses yang dilakukan dengan niat baik dan konsistensi
+                    akan selalu membawa hasil. Bagi saya, teknologi hanyalah alat — tujuannya tetap sama: membuat hidup manusia jadi lebih baik.
+                </p>
+            </div>
+        </div>
+    </section>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init({ offset: 0 });
+
+        function toggleMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburger = document.querySelector('.hamburger');
+            
+            if (!mobileMenu.contains(event.target) && !hamburger.contains(event.target)) {
+                mobileMenu.classList.remove('active');
+            }
+        });
     </script>
 </body>
 </html>
-<!-- Subscribe YouTube Tamzidan Madiyin -->
