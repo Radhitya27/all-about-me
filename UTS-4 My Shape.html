@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
-        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
         * {
-            margin: 0;
             padding: 0;
+            margin: 0;
             box-sizing: border-box;
             font-family: "Poppins", sans-serif;
         }
@@ -21,219 +21,465 @@
             min-height: 100vh;
             background-image: url("./img/Background2.jpeg");
             background-size: cover;
-            background-attachment: fixed;
             background-position: center;
-            color: white;
             overflow-x: hidden;
+            position: relative;
+            color: white;
         }
 
-        /* Navbar tetap sama */
+        /* Universal Modern Navbar Styles */
         nav {
+            position: fixed !important;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 10vh;
-            position: relative;
-            z-index: 1000;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.98) 0%, rgba(0, 0, 0, 0.95) 100%) !important;
+            backdrop-filter: blur(20px);
+            border-bottom: 3px solid transparent;
+            border-image: linear-gradient(90deg, transparent, rgb(58, 211, 3), transparent) 1;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+            z-index: 3000;
+            padding: 0.5rem 0;
+            height: auto !important;
         }
 
         .nav-container {
-            width: 100%;
-            height: 100%;
+            max-width: 1800px;
+            margin: 0 auto;
+            padding: 0 3rem;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
+            gap: 2rem;
+            height: 100%;
         }
 
         .logo {
+            font-size: 1.4rem !important;
+            white-space: nowrap;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
             color: white;
-            font-size: 2rem;
-            font-weight: bold;
+            font-weight: 700;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgb(58, 211, 3), rgb(40, 180, 2));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(58, 211, 3, 0.5);
         }
 
         .logo span {
             color: rgb(58, 211, 3);
-            text-shadow: 0 0 10px rgb(58, 211, 3);
+            text-shadow: 0 0 10px rgba(58, 211, 3, 0.5);
         }
 
         .nav-container .links {
+            display: flex !important;
+            align-items: center;
+            gap: 0.4rem;
+            flex-wrap: nowrap;
+            justify-content: flex-end;
+            flex: 1;
+        }
+
+        .nav-section {
             display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.3rem 0.6rem;
+            background: rgba(30, 30, 30, 0.5);
+            border-radius: 12px;
+            border: 1px solid rgba(58, 211, 3, 0.1);
+        }
+
+        .nav-label {
+            font-size: 0.75rem;
+            color: rgb(58, 211, 3);
+            font-weight: 600;
+            padding: 0.3rem 0.6rem;
+            background: rgba(58, 211, 3, 0.1);
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .nav-container .links a {
-            font-size: 1.1rem;
-            color: white;
-            margin: 0 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.875rem !important;
+            padding: 0.6rem 1rem !important;
+            margin: 0 !important;
+            border-radius: 10px;
+            background: rgba(30, 30, 30, 0.6);
+            border: 1px solid rgba(58, 211, 3, 0.15);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
             text-decoration: none;
+            color: white;
+            white-space: nowrap;
             font-weight: 500;
-            transition: 0.3s linear;
         }
 
-        .nav-container .links a:hover,
-        .nav-container .links .active {
+        .nav-container .links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(58, 211, 3, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .nav-container .links a:hover::before {
+            left: 100%;
+        }
+
+        .nav-container .links a:hover {
+            background: rgba(58, 211, 3, 0.12);
+            border-color: rgba(58, 211, 3, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(58, 211, 3, 0.4);
+        }
+
+        .nav-container .links a.active {
+            background: linear-gradient(135deg, rgba(58, 211, 3, 0.25), rgba(58, 211, 3, 0.15));
+            border: 1px solid rgb(58, 211, 3);
+            box-shadow: 
+                0 0 25px rgba(58, 211, 3, 0.6),
+                inset 0 0 15px rgba(58, 211, 3, 0.15);
+            font-weight: 600;
+        }
+
+        .nav-divider {
+            width: 2px;
+            height: 25px;
+            background: linear-gradient(180deg, transparent, rgb(58, 211, 3), transparent);
+            box-shadow: 0 0 8px rgba(58, 211, 3, 0.6);
+            margin: 0 0.3rem;
+        }
+
+        .hamburg {
+            display: none;
+            cursor: pointer;
+            position: fixed;
+            right: 2rem;
+            top: 1.5rem;
+            z-index: 3001;
+            flex-direction: column;
+            gap: 6px;
+            padding: 0.5rem;
+        }
+
+        .hamburg span {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background: rgb(58, 211, 3);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 400px;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 2rem;
+            transition: right 0.3s ease;
+            z-index: 3000;
+            overflow-y: auto;
+            border-left: 2px solid rgba(58, 211, 3, 0.3);
+        }
+
+        .dropdown.active {
+            right: 0 !important;
+        }
+
+        .cancel {
+            display: none;
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 2rem;
             color: rgb(58, 211, 3);
-            border-bottom: 2px solid rgb(58, 211, 3);
+            cursor: pointer;
+            z-index: 3001;
         }
 
-        /* --- My Shape Section --- */
-        .shape-container {
+        .dropdown .links {
+            display: flex !important;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding-top: 4rem;
+        }
+
+        .dropdown .links a {
+            padding: 1rem !important;
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            background: rgba(30, 30, 30, 0.5);
+            border: 1px solid rgba(58, 211, 3, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem !important;
+        }
+
+        .dropdown .links a:hover,
+        .dropdown .links a.active {
+            background: rgba(58, 211, 3, 0.15);
+            border-color: rgb(58, 211, 3);
+            transform: translateX(-5px);
+        }
+
+        .mobile-category {
+            color: rgb(58, 211, 3);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin: 1.5rem 0 0.5rem;
+            opacity: 0.7;
+            padding-left: 0.5rem;
+        }
+
+        /* Adjust content for fixed navbar */
+        .about-container {
+            padding-top: 8rem !important;
+        }
+
+        /* Original page styles */
+        .about-container {
             width: 100%;
             min-height: 90vh;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 3rem 2rem;
+            padding: 2rem;
         }
 
-        .shape-content {
+        .about-content {
+            width: 80%;
             max-width: 1100px;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.75);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 3rem;
-            box-shadow: 0 0 25px rgba(58, 211, 3, 0.3);
         }
 
-        .shape-header {
+        .about-header {
             text-align: center;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
         }
 
-        .shape-header h1 {
+        .about-header h1 {
+            color: rgb(58, 211, 3);
             font-size: 2.5rem;
-            color: rgb(58, 211, 3);
-            text-shadow: 0 0 15px rgb(58, 211, 3);
+            text-shadow: 0 0 10px rgb(58, 211, 3);
         }
 
-        .shape-header p {
-            color: #ccc;
-            font-size: 1rem;
-            margin-top: 0.8rem;
+        .about-header p {
+            opacity: 0.8;
+            margin-top: 0.5rem;
         }
 
-        .shape-table {
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 2rem;
+        }
+
+        .about-image {
             width: 100%;
-            border-collapse: collapse;
-            margin-top: 2rem;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgb(58, 211, 3);
         }
 
-        .shape-table th,
-        .shape-table td {
-            border: 1px solid rgba(58, 211, 3, 0.4);
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-text h2 {
+            color: rgb(58, 211, 3);
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .quote {
+            background: rgba(58, 211, 3, 0.1);
+            border-left: 4px solid rgb(58, 211, 3);
             padding: 1rem;
-            text-align: left;
-            vertical-align: top;
-        }
-
-        .shape-table th {
-            background-color: rgba(58, 211, 3, 0.1);
-            color: rgb(58, 211, 3);
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .shape-table td {
-            color: #e0e0e0;
-        }
-
-        .shape-reflection {
-            margin-top: 2.5rem;
-        }
-
-        .shape-reflection h2 {
-            font-size: 1.6rem;
-            color: rgb(58, 211, 3);
-            text-shadow: 0 0 10px rgb(58, 211, 3);
-            margin-bottom: 1rem;
-        }
-
-        .shape-reflection p {
-            color: #ccc;
-            line-height: 1.7;
-            text-align: justify;
-        }
-
-        /* Responsive */
-        @media (max-width: 900px) {
-            .shape-content {
-                padding: 2rem;
-            }
-
-            .shape-section {
-            margin-bottom: 3rem;
-            padding: 1.5rem 2rem;
-            border-left: 3px solid rgb(58, 211, 3);
-            background: rgba(0, 0, 0, 0.6);
+            font-style: italic;
             border-radius: 10px;
-            box-shadow: 0 0 15px rgba(58, 211, 3, 0.15);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            }
+            margin: 1.5rem 0;
+        }
 
-            .shape-section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 25px rgba(58, 211, 3, 0.3);
-            }
+        .section {
+            margin-top: 3rem;
+        }
 
-            .shape-section h2 {
+        .section h2 {
             color: rgb(58, 211, 3);
-            font-size: 1.3rem;
             margin-bottom: 1rem;
-            text-shadow: 0 0 10px rgb(58, 211, 3);
-            }
+            text-shadow: 0 0 8px rgba(58, 211, 3, 0.8);
+        }
 
-            .shape-section p, .shape-section li {
-            color: #dcdcdc;
+        .section p {
             line-height: 1.8;
-            text-align: justify;
-            }
+            opacity: 0.9;
+        }
 
-            .shape-section ul {
-            margin-left: 1.5rem;
-            list-style-type: "• ";
+        @media (max-width: 1600px) {
+            .nav-container {
+                padding: 0 2rem;
             }
-
-            .shape-header h1 {
-                font-size: 2rem;
-            }
-
-            .shape-table th,
-            .shape-table td {
-                padding: 0.8rem;
-                font-size: 0.9rem;
+            
+            .nav-container .links a {
+                font-size: 0.8rem !important;
+                padding: 0.55rem 0.85rem !important;
             }
         }
 
-        @media (max-width: 600px) {
-            .shape-header h1 {
-                font-size: 1.6rem;
+        @media (max-width: 1400px) {
+            .logo {
+                font-size: 1.2rem !important;
+            }
+            
+            .nav-container .links a {
+                font-size: 0.75rem !important;
+                padding: 0.5rem 0.75rem !important;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .nav-container .links {
+                gap: 0.25rem;
+            }
+            
+            .nav-container .links a {
+                font-size: 0.7rem !important;
+                padding: 0.45rem 0.65rem !important;
+            }
+            
+            .nav-label {
+                display: none;
+            }
+        }
+
+        @media (max-width: 884px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .nav-container .links {
+                display: none !important;
+            }
+            
+            .hamburg {
+                display: flex !important;
+            }
+
+            .cancel {
+                display: block !important;
             }
         }
     </style>
+    <!-- ⬆️ CSS NAVBAR BARU SAMPAI SINI -->
 
-    <title>My Shape - Portfolio Asesmen II-2100 KIPP</title>
+    <title>UTS-1 All About Me</title>
 </head>
 
 <body>
+    <!-- ⬇️ STRUKTUR NAVBAR BARU -->
     <nav>
         <div class="nav-container">
             <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
-                Portfolio Asesmen<span> II-2100 KIPP</span>
+                <div class="logo-icon">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+                <span>Portfolio</span>
             </div>
+
             <div class="links">
-                <a href="index.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">Home</a>
-                <a href="UTS-1 All About Me.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">UTS-1</a>
-                <a href="UTS-2 Songs for you.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">UTS-2</a>
-                <a href="UTS-3 My Stories for You.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">UTS-3</a>
-                <a href="UTS-4 My Shape.html" class="active" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">UTS-4</a>
-                <a href="UTS-5 My Personal Review.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">UTS-5</a>
-                <a href="UAS-1 My Concepts.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700">UAS-1</a>
-                <a href="UAS-2 My Opinions.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="800">UAS-2</a>
-                <a href="UAS-3 My Innovations.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="900">UAS-3</a>
-                <a href="UAS-4 My Knowledge.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1000">UAS-4</a>
-                <a href="UAS-5 My Professional Reviews.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1100">UAS-5</a>
+                <a href="index.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
+                    <i class="fa-solid fa-house"></i> Home
+                </a>
+
+                <div class="nav-divider"></div>
+
+                <div class="nav-section" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="150">
+                    <span class="nav-label">UTS</span>
+                    <!-- ⬇️ LINK INI AKTIF karena ini halaman UTS-1 -->
+                    <a href="UTS-1 All About Me.html" class="active">1</a>
+                    <a href="UTS-2 Songs for you.html">2</a>
+                    <a href="UTS-3 My Stories for You.html">3</a>
+                    <a href="UTS-4 My Shape.html">4</a>
+                    <a href="UTS-5 My Personal Review.html">5</a>
+                </div>
+
+                <div class="nav-section" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
+                    <span class="nav-label">UAS</span>
+                    <a href="UAS-1 My Concepts.html">1</a>
+                    <a href="UAS-2 My Opinions.html">2</a>
+                    <a href="UAS-3 My Innovations.html">3</a>
+                    <a href="UAS-4 My Knowledge.html">4</a>
+                    <a href="UAS-5 My Professional Reviews.html">5</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hamburg" onclick="hamburg()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="dropdown" id="dropdown">
+            <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+            <div class="links">
+                <a href="index.html">🏠 Home</a>
+                
+                <div class="mobile-category">📚 UTS</div>
+                <a href="UTS-1 All About Me.html">UTS 1 - All About Me</a>
+                <a href="UTS-2 Songs for you.html">UTS 2 - Songs for You</a>
+                <a href="UTS-3 My Stories for You.html">UTS 3 - My Stories</a>
+                <a href="UTS-4 My Shape.html" class="active">UTS 4 - My Shape</a>
+                <a href="UTS-5 My Personal Review.html">UTS 5 - Personal Review</a>
+                
+                <div class="mobile-category">🎓 UAS</div>
+                <a href="UAS-1 My Concepts.html">UAS 1 - My Concepts</a>
+                <a href="UAS-2 My Opinions.html">UAS 2 - My Opinions</a>
+                <a href="UAS-3 My Innovations.html">UAS 3 - My Innovations</a>
+                <a href="UAS-4 My Knowledge.html">UAS 4 - My Knowledge</a>
+                <a href="UAS-5 My Professional Reviews.html">UAS 5 - Professional Reviews</a>
             </div>
         </div>
     </nav>
+
 
     <section class="shape-container" data-aos="fade-up" data-aos-duration="1500">
     <div class="shape-content">
@@ -390,6 +636,34 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init({ offset: 0 });
+    </script>
+    <script>
+        function hamburg() {
+            const dropdown = document.getElementById('dropdown');
+            if (dropdown) {
+                dropdown.classList.add('active');
+                dropdown.style.transform = 'translateX(0)';
+            }
+        }
+
+        function cancel() {
+            const dropdown = document.getElementById('dropdown');
+            if (dropdown) {
+                dropdown.classList.remove('active');
+                dropdown.style.transform = 'translateX(500px)';
+            }
+        }
+
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('dropdown');
+            const hamburg = document.querySelector('.hamburg');
+            
+            if (dropdown && hamburg && 
+                !dropdown.contains(event.target) && 
+                !hamburg.contains(event.target)) {
+                cancel();
+            }
+        });
     </script>
 </body>
 </html>

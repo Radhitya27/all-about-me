@@ -11,7 +11,7 @@
     <title>UAS-4 My Knowledge - KINESIS</title>
 
     <style>
-        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
         * {
             padding: 0;
@@ -31,49 +31,245 @@
             color: white;
         }
 
+        /* Universal Modern Navbar Styles */
         nav {
+            position: fixed !important;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 10vh;
-            position: sticky;
-            position: relative;
-            z-index: 1000;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.98) 0%, rgba(0, 0, 0, 0.95) 100%) !important;
+            backdrop-filter: blur(20px);
+            border-bottom: 3px solid transparent;
+            border-image: linear-gradient(90deg, transparent, rgb(58, 211, 3), transparent) 1;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+            z-index: 3000;
+            padding: 0.5rem 0;
+            height: auto !important;
         }
 
         .nav-container {
-            width: 100%;
-            height: 100%;
+            max-width: 1800px;
+            margin: 0 auto;
+            padding: 0 3rem;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
+            gap: 2rem;
+            height: 100%;
         }
 
         .logo {
+            font-size: 1.4rem !important;
+            white-space: nowrap;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
             color: white;
-            font-size: 2rem;
-            font-weight: bold;
+            font-weight: 700;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgb(58, 211, 3), rgb(40, 180, 2));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(58, 211, 3, 0.5);
         }
 
         .logo span {
             color: rgb(58, 211, 3);
-            text-shadow: 0 0 10px rgb(58, 211, 3);
+            text-shadow: 0 0 10px rgba(58, 211, 3, 0.5);
         }
 
-        .links a {
-            font-size: 1.2rem;
+        .nav-container .links {
+            display: flex !important;
+            align-items: center;
+            gap: 0.4rem;
+            flex-wrap: nowrap;
+            justify-content: flex-end;
+            flex: 1;
+        }
+
+        .nav-section {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.3rem 0.6rem;
+            background: rgba(30, 30, 30, 0.5);
+            border-radius: 12px;
+            border: 1px solid rgba(58, 211, 3, 0.1);
+        }
+
+        .nav-label {
+            font-size: 0.75rem;
+            color: rgb(58, 211, 3);
+            font-weight: 600;
+            padding: 0.3rem 0.6rem;
+            background: rgba(58, 211, 3, 0.1);
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-container .links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.875rem !important;
+            padding: 0.6rem 1rem !important;
+            margin: 0 !important;
+            border-radius: 10px;
+            background: rgba(30, 30, 30, 0.6);
+            border: 1px solid rgba(58, 211, 3, 0.15);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: white;
+            white-space: nowrap;
+            font-weight: 500;
+        }
+
+        .nav-container .links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(58, 211, 3, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .nav-container .links a:hover::before {
+            left: 100%;
+        }
+
+        .nav-container .links a:hover {
+            background: rgba(58, 211, 3, 0.12);
+            border-color: rgba(58, 211, 3, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(58, 211, 3, 0.4);
+        }
+
+        .nav-container .links a.active {
+            background: linear-gradient(135deg, rgba(58, 211, 3, 0.25), rgba(58, 211, 3, 0.15));
+            border: 1px solid rgb(58, 211, 3);
+            box-shadow: 
+                0 0 25px rgba(58, 211, 3, 0.6),
+                inset 0 0 15px rgba(58, 211, 3, 0.15);
+            font-weight: 600;
+        }
+
+        .nav-divider {
+            width: 2px;
+            height: 25px;
+            background: linear-gradient(180deg, transparent, rgb(58, 211, 3), transparent);
+            box-shadow: 0 0 8px rgba(58, 211, 3, 0.6);
+            margin: 0 0.3rem;
+        }
+
+        .hamburg {
+            display: none;
+            cursor: pointer;
+            position: fixed;
+            right: 2rem;
+            top: 1.5rem;
+            z-index: 3001;
+            flex-direction: column;
+            gap: 6px;
+            padding: 0.5rem;
+        }
+
+        .hamburg span {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background: rgb(58, 211, 3);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 400px;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 2rem;
+            transition: right 0.3s ease;
+            z-index: 3000;
+            overflow-y: auto;
+            border-left: 2px solid rgba(58, 211, 3, 0.3);
+        }
+
+        .dropdown.active {
+            right: 0 !important;
+        }
+
+        .cancel {
+            display: none;
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 2rem;
+            color: rgb(58, 211, 3);
+            cursor: pointer;
+            z-index: 3001;
+        }
+
+        .dropdown .links {
+            display: flex !important;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding-top: 4rem;
+        }
+
+        .dropdown .links a {
+            padding: 1rem !important;
             color: white;
             text-decoration: none;
-            margin: 0 20px;
-            font-weight: 500;
-            transition: 0.3s linear;
+            border-radius: 12px;
+            background: rgba(30, 30, 30, 0.5);
+            border: 1px solid rgba(58, 211, 3, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem !important;
         }
 
-        .links a:hover,
-        .links .active {
+        .dropdown .links a:hover,
+        .dropdown .links a.active {
+            background: rgba(58, 211, 3, 0.15);
+            border-color: rgb(58, 211, 3);
+            transform: translateX(-5px);
+        }
+
+        .mobile-category {
             color: rgb(58, 211, 3);
-            border-bottom: 2px solid rgb(58, 211, 3);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin: 1.5rem 0 0.5rem;
+            opacity: 0.7;
+            padding-left: 0.5rem;
         }
 
-        .content-container {
+        /* Adjust content for fixed navbar */
+        .about-container {
+            padding-top: 8rem !important;
+        }
+
+        /* Original page styles */
+        .about-container {
             width: 100%;
             min-height: 90vh;
             display: flex;
@@ -82,392 +278,212 @@
             padding: 2rem;
         }
 
-        .content-wrapper {
-            width: 90%;
-            max-width: 1200px;
-            background: rgba(0, 0, 0, 0.85);
+        .about-content {
+            width: 80%;
+            max-width: 1100px;
+            background: rgba(0, 0, 0, 0.75);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 3rem;
         }
 
-        .main-header {
-            background: linear-gradient(135deg, rgba(58, 211, 3, 0.3) 0%, rgba(58, 211, 3, 0.1) 100%);
-            border: 3px solid rgb(58, 211, 3);
+        .about-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .about-header h1 {
+            color: rgb(58, 211, 3);
+            font-size: 2.5rem;
+            text-shadow: 0 0 10px rgb(58, 211, 3);
+        }
+
+        .about-header p {
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 2rem;
+        }
+
+        .about-image {
+            width: 100%;
             border-radius: 20px;
-            padding: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgb(58, 211, 3);
         }
 
-        .main-header h1 {
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-text h2 {
             color: rgb(58, 211, 3);
-            font-size: 3rem;
-            text-shadow: 0 0 20px rgb(58, 211, 3);
             margin-bottom: 1rem;
         }
 
-        .main-header .subtitle {
-            font-size: 1.3rem;
-            opacity: 0.9;
-        }
-
-        .paradox-box {
-            background: rgba(58, 211, 3, 0.15);
-            border: 2px solid rgb(58, 211, 3);
-            border-left: 6px solid rgb(58, 211, 3);
-            padding: 2rem;
-            border-radius: 15px;
-            margin-bottom: 3rem;
-        }
-
-        .paradox-box h2 {
-            color: rgb(58, 211, 3);
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            text-shadow: 0 0 10px rgba(58, 211, 3, 0.5);
-        }
-
-        .paradox-box p {
-            line-height: 1.8;
+        .about-text p {
+            line-height: 1.6;
             margin-bottom: 1rem;
         }
 
-        .philosophy-box {
-            background: rgba(0, 0, 0, 0.6);
-            border: 2px solid rgba(58, 211, 3, 0.5);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .philosophy-box h3 {
-            color: rgb(58, 211, 3);
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .philosophy-box p {
-            font-size: 1.2rem;
-            line-height: 1.8;
+        .quote {
+            background: rgba(58, 211, 3, 0.1);
+            border-left: 4px solid rgb(58, 211, 3);
+            padding: 1rem;
             font-style: italic;
+            border-radius: 10px;
+            margin: 1.5rem 0;
         }
 
         .section {
-            margin-bottom: 3rem;
+            margin-top: 3rem;
         }
 
-        .section-header {
-            background: linear-gradient(135deg, rgba(58, 211, 3, 0.3) 0%, rgba(58, 211, 3, 0.1) 100%);
-            padding: 1.5rem;
-            border-radius: 15px;
-            margin-bottom: 2rem;
-            border: 2px solid rgb(58, 211, 3);
-        }
-
-        .section-header h2 {
+        .section h2 {
             color: rgb(58, 211, 3);
-            font-size: 2rem;
-            text-shadow: 0 0 10px rgba(58, 211, 3, 0.5);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .map-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .map-card {
-            background: rgba(0, 0, 0, 0.5);
-            border: 2px solid rgba(58, 211, 3, 0.3);
-            border-radius: 15px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .map-card:hover {
-            border-color: rgb(58, 211, 3);
-            box-shadow: 0 0 25px rgba(58, 211, 3, 0.4);
-            transform: translateY(-5px);
-        }
-
-        .map-card h3 {
-            color: rgb(58, 211, 3);
-            font-size: 1.6rem;
             margin-bottom: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid rgba(58, 211, 3, 0.3);
+            text-shadow: 0 0 8px rgba(58, 211, 3, 0.8);
         }
 
-        .map-card h4 {
-            color: rgb(58, 211, 3);
-            font-size: 1.2rem;
-            margin: 1rem 0 0.5rem 0;
-            opacity: 0.9;
-        }
-
-        .map-card p {
-            line-height: 1.7;
-            opacity: 0.9;
-        }
-
-        .cycle-section {
-            background: rgba(58, 211, 3, 0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            margin: 2rem 0;
-        }
-
-        .cycle-section h3 {
-            color: rgb(58, 211, 3);
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .cycle-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .cycle-step {
-            background: rgba(0, 0, 0, 0.6);
-            border: 2px solid rgba(58, 211, 3, 0.3);
-            padding: 1.5rem;
-            border-radius: 12px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .cycle-step:hover {
-            border-color: rgb(58, 211, 3);
-            transform: scale(1.05);
-        }
-
-        .step-arrow {
-            font-size: 2rem;
-            color: rgb(58, 211, 3);
-            margin-bottom: 0.5rem;
-        }
-
-        .step-label {
-            color: rgb(58, 211, 3);
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .step-desc {
-            opacity: 0.9;
-            line-height: 1.6;
-        }
-
-        .protocol-box {
-            background: linear-gradient(135deg, rgba(58, 211, 3, 0.2) 0%, rgba(58, 211, 3, 0.05) 100%);
-            border: 3px solid rgb(58, 211, 3);
-            border-radius: 20px;
-            padding: 2.5rem;
-            margin: 3rem 0;
-        }
-
-        .protocol-box h2 {
-            color: rgb(58, 211, 3);
-            font-size: 2.5rem;
-            text-shadow: 0 0 15px rgb(58, 211, 3);
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .protocol-content {
-            background: rgba(0, 0, 0, 0.4);
-            padding: 2rem;
-            border-radius: 15px;
-        }
-
-        .protocol-content h3 {
-            color: rgb(58, 211, 3);
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-        }
-
-        .protocol-content p {
+        .section p {
             line-height: 1.8;
-            margin-bottom: 1rem;
+            opacity: 0.9;
         }
 
-        .example-box {
-            background: rgba(58, 211, 3, 0.1);
-            padding: 1.5rem;
-            border-radius: 12px;
-            margin-top: 1.5rem;
-        }
-
-        .example-box h4 {
-            color: rgb(58, 211, 3);
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-        }
-
-        .dialogue {
-            background: rgba(0, 0, 0, 0.6);
-            padding: 1rem;
-            border-left: 4px solid rgb(58, 211, 3);
-            border-radius: 8px;
-            margin: 0.5rem 0;
-            font-style: italic;
-        }
-
-        .dialogue strong {
-            color: rgb(58, 211, 3);
-        }
-
-        .purpose-text {
-            text-align: center;
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-top: 1.5rem;
-            padding: 1rem;
-            background: rgba(58, 211, 3, 0.15);
-            border-radius: 10px;
-        }
-
-        .method-image-container {
-            margin: 2rem 0;
-            position: relative;
-        }
-
-        .method-image-wrapper {
-            position: relative;
-            display: inline-block;
-            width: 100%;
-            padding: 12px;
-            background: linear-gradient(135deg, rgba(58, 211, 3, 0.2) 0%, rgba(58, 211, 3, 0.05) 100%);
-            border-radius: 20px;
-            border: 3px solid rgb(58, 211, 3);
-            box-shadow: 
-                0 0 25px rgba(58, 211, 3, 0.6),
-                0 0 50px rgba(58, 211, 3, 0.4),
-                inset 0 0 15px rgba(58, 211, 3, 0.1);
-            animation: methodGlow 3s ease-in-out infinite;
-        }
-
-        .method-image-wrapper::before {
-            content: '';
-            position: absolute;
-            top: -8px;
-            left: -8px;
-            right: -8px;
-            bottom: -8px;
-            background: linear-gradient(45deg, 
-                transparent 0%, 
-                rgba(58, 211, 3, 0.3) 25%, 
-                transparent 50%, 
-                rgba(58, 211, 3, 0.3) 75%, 
-                transparent 100%);
-            border-radius: 25px;
-            z-index: -1;
-            animation: borderSpin 4s linear infinite;
-        }
-
-        .method-image-wrapper img {
-            width: 100%;
-            border-radius: 15px;
-            display: block;
-            position: relative;
-            z-index: 1;
-            transition: transform 0.3s ease;
-        }
-
-        .method-image-wrapper:hover img {
-            transform: scale(1.02);
-        }
-
-        .method-image-wrapper::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(58, 211, 3, 0.2) 0%, transparent 70%);
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            animation: methodPulse 2.5s ease-in-out infinite;
-        }
-
-        @keyframes methodGlow {
-            0%, 100% {
-                box-shadow: 
-                    0 0 25px rgba(58, 211, 3, 0.6),
-                    0 0 50px rgba(58, 211, 3, 0.4),
-                    inset 0 0 15px rgba(58, 211, 3, 0.1);
+        @media (max-width: 1600px) {
+            .nav-container {
+                padding: 0 2rem;
             }
-            50% {
-                box-shadow: 
-                    0 0 35px rgba(58, 211, 3, 0.8),
-                    0 0 70px rgba(58, 211, 3, 0.6),
-                    inset 0 0 25px rgba(58, 211, 3, 0.2);
+            
+            .nav-container .links a {
+                font-size: 0.8rem !important;
+                padding: 0.55rem 0.85rem !important;
             }
         }
 
-        @keyframes borderSpin {
-            0% {
-                background-position: 0% 0%;
+        @media (max-width: 1400px) {
+            .logo {
+                font-size: 1.2rem !important;
             }
-            100% {
-                background-position: 200% 200%;
+            
+            .nav-container .links a {
+                font-size: 0.75rem !important;
+                padding: 0.5rem 0.75rem !important;
             }
         }
 
-        @keyframes methodPulse {
-            0%, 100% {
-                opacity: 0.3;
-                transform: translate(-50%, -50%) scale(1);
+        @media (max-width: 1200px) {
+            .nav-container .links {
+                gap: 0.25rem;
             }
-            50% {
-                opacity: 0.6;
-                transform: translate(-50%, -50%) scale(1.08);
+            
+            .nav-container .links a {
+                font-size: 0.7rem !important;
+                padding: 0.45rem 0.65rem !important;
+            }
+            
+            .nav-label {
+                display: none;
             }
         }
 
         @media (max-width: 884px) {
-            .main-header h1 {
-                font-size: 2rem;
+            .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
             }
 
-            .map-grid,
-            .cycle-steps {
-                grid-template-columns: 1fr;
+            .nav-container .links {
+                display: none !important;
+            }
+            
+            .hamburg {
+                display: flex !important;
+            }
+
+            .cancel {
+                display: block !important;
             }
         }
     </style>
+    <!-- ⬆️ CSS NAVBAR BARU SAMPAI SINI -->
+
+    <title>UTS-1 All About Me</title>
 </head>
 
 <body>
+    <!-- ⬇️ STRUKTUR NAVBAR BARU -->
     <nav>
         <div class="nav-container">
-            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">Portfolio Asesmen<span> II-2100 KIPP</span></div>
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+                <span>Portfolio</span>
+            </div>
+
             <div class="links">
-                <a href="index.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">Home</a>
-                <a href="UTS-1 All About Me.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">UTS-1</a>
-                <a href="UTS-2 Songs for you.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">UTS-2</a>
-                <a href="UTS-3 My Stories for You.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">UTS-3</a>
-                <a href="UTS-4 My Shape.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">UTS-4</a>
-                <a href="UTS-5 My Personal Review.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">UTS-5</a>
-                <a href="UAS-1 My Concepts.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700">UAS-1</a>
-                <a href="UAS-2 My Opinions.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="800">UAS-2</a>
-                <a href="UAS-3 My Innovations.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="900">UAS-3</a>
-                <a href="UAS-4 My Knowledge.html" class="active" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1000">UAS-4</a>
-                <a href="UAS-5 My Professional Reviews.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1100">UAS-5</a>
+                <a href="index.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
+                    <i class="fa-solid fa-house"></i> Home
+                </a>
+
+                <div class="nav-divider"></div>
+
+                <div class="nav-section" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="150">
+                    <span class="nav-label">UTS</span>
+                    <!-- ⬇️ LINK INI AKTIF karena ini halaman UTS-1 -->
+                    <a href="UTS-1 All About Me.html" class="active">1</a>
+                    <a href="UTS-2 Songs for you.html">2</a>
+                    <a href="UTS-3 My Stories for You.html">3</a>
+                    <a href="UTS-4 My Shape.html">4</a>
+                    <a href="UTS-5 My Personal Review.html">5</a>
+                </div>
+
+                <div class="nav-section" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
+                    <span class="nav-label">UAS</span>
+                    <a href="UAS-1 My Concepts.html">1</a>
+                    <a href="UAS-2 My Opinions.html">2</a>
+                    <a href="UAS-3 My Innovations.html">3</a>
+                    <a href="UAS-4 My Knowledge.html">4</a>
+                    <a href="UAS-5 My Professional Reviews.html">5</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hamburg" onclick="hamburg()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="dropdown" id="dropdown">
+            <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+            <div class="links">
+                <a href="index.html">🏠 Home</a>
+                
+                <div class="mobile-category">📚 UTS</div>
+                <a href="UTS-1 All About Me.html">UTS 1 - All About Me</a>
+                <a href="UTS-2 Songs for you.html">UTS 2 - Songs for You</a>
+                <a href="UTS-3 My Stories for You.html">UTS 3 - My Stories</a>
+                <a href="UTS-4 My Shape.html">UTS 4 - My Shape</a>
+                <a href="UTS-5 My Personal Review.html">UTS 5 - Personal Review</a>
+                
+                <div class="mobile-category">🎓 UAS</div>
+                <a href="UAS-1 My Concepts.html">UAS 1 - My Concepts</a>
+                <a href="UAS-2 My Opinions.html">UAS 2 - My Opinions</a>
+                <a href="UAS-3 My Innovations.html">UAS 3 - My Innovations</a>
+                <a href="UAS-4 My Knowledge.html" class="active">UAS 4 - My Knowledge</a>
+                <a href="UAS-5 My Professional Reviews.html">UAS 5 - Professional Reviews</a>
             </div>
         </div>
     </nav>
+
 
     <div class="content-container">
         <div class="content-wrapper">
@@ -608,6 +624,34 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init();
+    </script>
+    <script>
+        function hamburg() {
+            const dropdown = document.getElementById('dropdown');
+            if (dropdown) {
+                dropdown.classList.add('active');
+                dropdown.style.transform = 'translateX(0)';
+            }
+        }
+
+        function cancel() {
+            const dropdown = document.getElementById('dropdown');
+            if (dropdown) {
+                dropdown.classList.remove('active');
+                dropdown.style.transform = 'translateX(500px)';
+            }
+        }
+
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('dropdown');
+            const hamburg = document.querySelector('.hamburg');
+            
+            if (dropdown && hamburg && 
+                !dropdown.contains(event.target) && 
+                !hamburg.contains(event.target)) {
+                cancel();
+            }
+        });
     </script>
 </body>
 
