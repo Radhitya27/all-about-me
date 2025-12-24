@@ -8,6 +8,109 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Modern Navigation Design */
+        nav {
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid rgba(58, 211, 3, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem !important;
+            letter-spacing: 1px;
+        }
+
+        .nav-container .links {
+            gap: 0.5rem;
+        }
+
+        .nav-container .links a {
+            font-size: 0.95rem !important;
+            margin: 0 !important;
+            padding: 0.6rem 1rem !important;
+            border-radius: 8px;
+            background: transparent;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-container .links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(58, 211, 3, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-container .links a:hover::before {
+            left: 100%;
+        }
+
+        .nav-container .links a:hover {
+            background: rgba(58, 211, 3, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(58, 211, 3, 0.3);
+            border-bottom: none !important;
+        }
+
+        .nav-container .links a.active {
+            background: rgba(58, 211, 3, 0.2);
+            border: 1px solid rgb(58, 211, 3);
+            border-bottom: 1px solid rgb(58, 211, 3) !important;
+            box-shadow: 0 0 20px rgba(58, 211, 3, 0.4);
+        }
+
+        /* Group UTS & UAS */
+        .nav-group {
+            display: flex;
+            gap: 0.3rem;
+            align-items: center;
+        }
+
+        .nav-separator {
+            width: 1px;
+            height: 20px;
+            background: rgba(58, 211, 3, 0.3);
+            margin: 0 0.5rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1400px) {
+            .nav-container .links a {
+                font-size: 0.85rem !important;
+                padding: 0.5rem 0.8rem !important;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .nav-container .links a {
+                font-size: 0.8rem !important;
+                padding: 0.5rem 0.7rem !important;
+            }
+            
+            .logo {
+                font-size: 1.3rem !important;
+            }
+        }
+
+        @media (max-width: 884px) {
+            nav {
+                background: rgba(0, 0, 0, 0.95);
+            }
+        }
+    </style>
     <title>Portfolio Website</title>
 </head>
 
@@ -19,17 +122,29 @@
             </div>
 
             <div class="links">
-                <a href="index.html" class="active" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">Home</a>
-                <a href="UTS-1 All About Me.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">UTS-1</a>
-                <a href="UTS-2 Songs for you.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">UTS-2</a>
-                <a href="UTS-3 My Stories for You.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">UTS-3</a>
-                <a href="UTS-4 My Shape.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">UTS-4</a>
-                <a href="UTS-5 My Personal Review.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">UTS-5</a>
-                <a href="UAS-1 My Concepts.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700">UAS-1</a>
-                <a href="UAS-2 My Opinions.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="800">UAS-2</a>
-                <a href="UAS-3 My Innovations.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="900">UAS-3</a>
-                <a href="UAS-4 My Knowledge.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1000">UAS-4</a>
-                <a href="UAS-5 My Professional Reviews.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1100">UAS-5</a>
+                <a href="index.html" class="active" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
+                    <i class="fa-solid fa-house"></i> Home
+                </a>
+                
+                <span class="nav-separator"></span>
+                
+                <div class="nav-group">
+                    <a href="UTS-1 All About Me.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">UTS-1</a>
+                    <a href="UTS-2 Songs for you.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="250">UTS-2</a>
+                    <a href="UTS-3 My Stories for You.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">UTS-3</a>
+                    <a href="UTS-4 My Shape.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="350">UTS-4</a>
+                    <a href="UTS-5 My Personal Review.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">UTS-5</a>
+                </div>
+                
+                <span class="nav-separator"></span>
+                
+                <div class="nav-group">
+                    <a href="UAS-1 My Concepts.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="450">UAS-1</a>
+                    <a href="UAS-2 My Opinions.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">UAS-2</a>
+                    <a href="UAS-3 My Innovations.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="550">UAS-3</a>
+                    <a href="UAS-4 My Knowledge.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">UAS-4</a>
+                    <a href="UAS-5 My Professional Reviews.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="650">UAS-5</a>
+                </div>
             </div>
         </div>
 
